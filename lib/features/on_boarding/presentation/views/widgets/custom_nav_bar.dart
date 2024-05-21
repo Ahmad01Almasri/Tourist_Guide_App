@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_colors.dart';
+import 'package:tourist_guide/core/utils/app_strings.dart';
+import 'package:tourist_guide/core/utils/app_text_styles.dart';
 
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({
@@ -12,7 +15,14 @@ class CustomNavBar extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: GestureDetector(
         onTap: onTap,
-        child: Text("Skip"),
+        child: CircleAvatar(
+          radius: 22,
+          backgroundColor: AppColors.primaryColor,
+          child: Text(
+            AppStrings.skip,
+            style: AppTextStyles.poppins300style16,
+          ),
+        ),
       ),
     );
   }

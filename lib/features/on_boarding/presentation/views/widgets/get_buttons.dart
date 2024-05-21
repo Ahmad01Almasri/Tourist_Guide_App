@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_strings.dart';
 
 import '../../../../../core/functions/navigation.dart';
 import '../../../../../core/widgets/custom_btn.dart';
@@ -18,7 +19,7 @@ class GetButtons extends StatelessWidget {
             ? Column(
                 children: [
                   CustomBtn(
-                    text: "createAccount",
+                    text: AppStrings.createAccount,
                     onPressed: () {
                       onBoardingVisited();
                       customReplacementNavigate(context, "/signUp");
@@ -26,7 +27,7 @@ class GetButtons extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   CustomBtn(
-                    text: "have",
+                    text: AppStrings.have,
                     onPressed: () {
                       onBoardingVisited();
                       customReplacementNavigate(context, "/signUp");
@@ -35,7 +36,7 @@ class GetButtons extends StatelessWidget {
                 ],
               )
             : CustomBtn(
-                text: "Next",
+                text: AppStrings.next,
                 onPressed: () {
                   controller.nextPage(
                     duration: const Duration(microseconds: 200),

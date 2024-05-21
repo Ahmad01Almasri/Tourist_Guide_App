@@ -5,6 +5,7 @@ abstract class AppStrings {
       //!On Boarding Strings
       skip = "Skip",
       next = "Next",
+      have = "Have",
       createAccount = "Create Account",
       loginNow = "Login Now",
       //!Auth Strings

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
+import '../utils/app_text_styles.dart';
 
 class CustomBtn extends StatelessWidget {
   const CustomBtn({super.key, this.color, required this.text, this.onPressed});
@@ -20,11 +21,7 @@ class CustomBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        child: Text(
-          text,
-          // style: CustomTextStyles.poppins500style24
-          //     .copyWith(fontSize: 18, color: AppColors.offWhite),
-        ),
+        child: Text(text, style: AppTextStyles.poppins300style16),
       ),
     );
   }

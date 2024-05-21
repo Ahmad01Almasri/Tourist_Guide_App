@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_colors.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../data/models/on_boarding_model.dart';
@@ -47,7 +48,8 @@ class OnBoardingWidgetBody extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 onBoardingData[index].subTitle,
-                style: AppTextStyles.poppins300style16,
+                style: AppTextStyles.poppinsw600style14
+                    .copyWith(color: AppColors.black.withOpacity(0.7)),
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,

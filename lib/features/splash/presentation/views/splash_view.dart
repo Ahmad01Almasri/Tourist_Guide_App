@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_assets.dart';
 import 'package:tourist_guide/core/utils/app_colors.dart';
 import 'package:tourist_guide/core/utils/app_text_styles.dart';
 import 'package:tourist_guide/extensions/widget_extensions.dart';
@@ -98,11 +99,9 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 child: Center(
                     child: Column(
                   children: [
-                    Image.asset(
-                        "assets/images/IMG_20240520_185909_833-removebg-preview.png",
-                        height: 200),
+                    Image.asset(Assets.logoApp, height: 200),
                     Text(AppStrings.appName,
-                        style: AppTextStyles.poppins600style64),
+                        style: AppTextStyles.poppins600style40),
                   ],
                 )),
               ),

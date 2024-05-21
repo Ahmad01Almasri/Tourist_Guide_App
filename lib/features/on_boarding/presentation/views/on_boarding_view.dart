@@ -32,17 +32,26 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   customReplacementNavigate(context, "/signIn");
                 },
               ),
-              OnBoardingWidgetBody(
-                onPageChanged: (index) {
-                  setState(() {
-                    currentIndex = index;
-                  });
+              StatefulBuilder(
+                builder: (context, mysetState) {
+                  return Column(
+                    children: [
+                      OnBoardingWidgetBody(
+                        onPageChanged: (index) {
+                          mysetState(() {
+                            currentIndex = index;
+                          });
+                        },
+                        controller: _controller,
+                      ),
+                      const SizedBox(height: 8),
+                      GetButtons(
+                          currentIndex: currentIndex, controller: _controller),
+                      const SizedBox(height: 17),
+                    ],
+                  );
                 },
-                controller: _controller,
               ),
-              const SizedBox(height: 8),
-              GetButtons(currentIndex: currentIndex, controller: _controller),
-              const SizedBox(height: 17),
             ],
           ),
         ),
