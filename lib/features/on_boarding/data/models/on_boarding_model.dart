@@ -13,14 +13,14 @@ class OnBoardingModel {
 List<OnBoardingModel> onBoardingData = [
   OnBoardingModel(
     // imagePath: "Assets.imagesOnBoarding1",
-    title: "Explore The history with Dalel in a smart way",
+    title: "Start Your Traveling Journey Safely & Fun",
     subTitle:
-        "Using our app’s history libraries you can find many historical periods ",
+        "Using our application, you can find many geographical and historical places in Syria ",
   ),
   OnBoardingModel(
     // imagePath: "Assets.imagesOnBoarding2",
-    title: "From every place on earth",
-    subTitle: "A big variety of ancient places from all over the world",
+    title: "From every place in Syria",
+    subTitle: "A large variety of ancient places from all over Syria",
   ),
   OnBoardingModel(
     // imagePath: "Assets.imagesOnBoarding",

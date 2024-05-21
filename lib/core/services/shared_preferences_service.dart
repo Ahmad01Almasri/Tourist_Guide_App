@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../extensions/colorful_logging_extension.dart';
+import '../../extensions/colorful_logging_extension.dart';
 
 class SharedPreferencesService {
   const SharedPreferencesService._();
