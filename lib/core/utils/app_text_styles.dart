@@ -2,17 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
-abstract class CustomTextStyles {
-  static final pacifico400style64 = TextStyle(
-    fontSize: 64,
-    fontWeight: FontWeight.w400,
-    color: AppColors.deepBrown,
-    fontFamily: "Pacifico",
-  );
-  static final poppins600style28 = TextStyle(
-    fontSize: 28,
+abstract class AppTextStyles {
+  static final poppins600style64 = TextStyle(
+    fontSize: 40,
     fontWeight: FontWeight.w600,
-    color: AppColors.black,
+    color: AppColors.primaryColor,
     fontFamily: "Poppins",
   );
   static final poppins400style12 = TextStyle(
@@ -50,11 +44,5 @@ abstract class CustomTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.deepBrown,
     fontFamily: "Poppins",
-  );
-  static const pacifico700style32 = TextStyle(
-    fontSize: 42,
-    fontWeight: FontWeight.bold,
-    color: Colors.white,
-    fontFamily: "Pacifico",
   );
 }

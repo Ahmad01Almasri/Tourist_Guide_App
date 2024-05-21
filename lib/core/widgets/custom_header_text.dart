@@ -9,7 +9,7 @@ class CustomHeaderText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: CustomTextStyles.poppins400style20,
+      style: AppTextStyles.poppins400style20,
     );
   }
 }

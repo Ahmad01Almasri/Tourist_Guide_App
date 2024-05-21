@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tourist_guide/features/splash/presentation/views/splash_view.dart';
-
 import 'core/database/cache/cache_helper.dart';
 import 'core/routes/app_router.dart';
 import 'core/services/service_locator.dart';
@@ -22,7 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.offWhite),
+      theme: ThemeData(
+          scaffoldBackgroundColor: AppColors.offWhite, fontFamily: 'Poppins'),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
     );

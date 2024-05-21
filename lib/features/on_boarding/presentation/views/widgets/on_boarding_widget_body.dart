@@ -38,7 +38,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
               const SizedBox(height: 32),
               Text(
                 onBoardingData[index].title,
-                style: CustomTextStyles.poppins500style24
+                style: AppTextStyles.poppins500style24
                     .copyWith(fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
                 maxLines: 2,
@@ -47,7 +47,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 onBoardingData[index].subTitle,
-                style: CustomTextStyles.poppins300style16,
+                style: AppTextStyles.poppins300style16,
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
