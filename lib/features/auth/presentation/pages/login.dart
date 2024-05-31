@@ -5,9 +5,9 @@ import 'package:tourist_guide/core/utils/app_strings.dart';
 
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../widget/button_auth.dart';
-import '../widget/row_icon_social_media.dart';
-import '../widget/text_field.dart';
+import '../../../../core/widgets/button_app.dart';
+import '../widgets/row_icon_social_media.dart';
+import '../widgets/text_field.dart';
 
 class Login extends StatefulWidget {
   final Function()? onTap;
@@ -69,11 +69,11 @@ class _LoginState extends State<Login> {
                       mycontroller: passwordTextController,
                       validator: (text) {
                         if (text!.length < 8) {
-                          return "لا يمكن ان يكون الرقم اقل من 8 ارقام";
-                        } else if (text.length > 8) {
-                          return "لا يمكن ان يكون اكثر من 8 حرف ";
+                          return AppStrings.lessThanEight;
+                        } else if (text.length > 20) {
+                          return AppStrings.moreThanTwenty;
                         } else if (text.isEmpty) {
-                          return "لا يمكن ترك الحقل فارغ";
+                          return AppStrings.empty;
                         }
                         return null;
                       },
@@ -81,10 +81,10 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-                  CustomButtonAuth(
+                  CustomButtonApp(
                     title: AppStrings.signIn,
                     onPressed: () {
-                      if (formstate.currentState!.validate()) {}
+                      // if (formstate.currentState!.validate()) {}
                     },
                   ),
                   const SizedBox(

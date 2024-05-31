@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(
-          scaffoldBackgroundColor: AppColors.offWhite, fontFamily: 'Poppins'),
+        scaffoldBackgroundColor: AppColors.offWhite,
+        fontFamily: 'Poppins',
+      ),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
     );

@@ -22,8 +22,14 @@ abstract class AppStrings {
       alreadyHaveAnAccount = "Already have an account ? ",
       dontHaveAnAccount = "Don’t have an account ? ",
       forgotPassword = "Forgot Password ?",
+      //validation
+      lessThanEight = "It can’t be less than 8 numbers",
+      lessThanThree = "It can’t be less than three letters",
+      empty = "It can’t be empty",
+      moreThanTwenty = "It can’t be more than three letters",
+      notTrue = "It's not true",
       //!Home Strings
-      recommendations = "Recommendations",
+      exploreNow = "Explore Now",
       about = "About",
       wars = "Wars",
       //!Search Strings

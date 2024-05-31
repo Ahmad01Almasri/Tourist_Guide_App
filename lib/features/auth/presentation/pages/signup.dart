@@ -5,9 +5,9 @@ import 'package:tourist_guide/core/utils/app_strings.dart';
 
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../widget/button_auth.dart';
-import '../widget/row_icon_social_media.dart';
-import '../widget/text_field.dart';
+import '../../../../core/widgets/button_app.dart';
+import '../widgets/row_icon_social_media.dart';
+import '../widgets/text_field.dart';
 
 class SignUp extends StatefulWidget {
   final Function()? onTap;
@@ -52,11 +52,11 @@ class _SignUpState extends State<SignUp> {
                     mycontroller: emailTextController,
                     validator: (text) {
                       if (text!.length < 3) {
-                        return "لا يمكن ان يكون النص اقل من ثلاث احرف";
+                        return AppStrings.lessThanThree;
                       } else if (text.isEmpty) {
-                        return "لا يمكن ترك الحقل فارغ";
+                        return AppStrings.empty;
                       } else if (text.length > 20) {
-                        return "لا يمكن ان يكون اكثر من 20 حرف ";
+                        return AppStrings.moreThanTwenty;
                       }
                       return null;
                     },
@@ -69,7 +69,7 @@ class _SignUpState extends State<SignUp> {
                       mycontroller: passwordTextController,
                       validator: (text) {
                         if (text!.length < 8) {
-                          return "لا يمكن ان يكون الرقم اقل من 8 ارقام";
+                          return AppStrings.lessThanEight;
                         } else if (text.length > 8) {
                           return "لا يمكن ان يكون اكثر من 8 حرف ";
                         } else if (text.isEmpty) {
@@ -86,10 +86,10 @@ class _SignUpState extends State<SignUp> {
                       mycontroller: confirmTextController,
                       validator: (text) {
                         if (text!.isEmpty) {
-                          return "لا يمكن ترك الحقل فارغ";
+                          return AppStrings.empty;
                         } else if (confirmTextController !=
                             passwordTextController) {
-                          return "   ";
+                          return AppStrings.notTrue;
                         }
                         return null;
                       },
@@ -97,14 +97,11 @@ class _SignUpState extends State<SignUp> {
                   const SizedBox(
                     height: 20,
                   ),
-                  CustomButtonAuth(
+                  CustomButtonApp(
                     title: AppStrings.signUp,
                     onPressed: () {
                       if (formstate.currentState!.validate()) {}
                     },
-                  ),
-                  const SizedBox(
-                    height: 20,
                   ),
                   const SizedBox(
                     height: 20,
