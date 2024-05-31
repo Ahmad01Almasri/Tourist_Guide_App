@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
 
-class CustomBtn extends StatelessWidget {
-  const CustomBtn({super.key, this.color, required this.text, this.onPressed});
+class CustomButtonApp extends StatelessWidget {
+  const CustomButtonApp(
+      {super.key, this.color, required this.text, this.onPressed});
   final Color? color;
   final String text;
   final VoidCallback? onPressed;
@@ -18,7 +19,7 @@ class CustomBtn extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: color ?? AppColors.primaryColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
         child: Text(text, style: AppTextStyles.poppinsBoldstyle16),

@@ -5,7 +5,7 @@ import 'package:tourist_guide/core/utils/app_strings.dart';
 
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../../../../core/widgets/button_app.dart';
+import '../widgets/button_app.dart';
 import '../widgets/row_icon_social_media.dart';
 import '../widgets/text_field.dart';
 
@@ -97,7 +97,7 @@ class _SignUpState extends State<SignUp> {
                   const SizedBox(
                     height: 20,
                   ),
-                  CustomButtonApp(
+                  CustomButtonAuth(
                     title: AppStrings.signUp,
                     onPressed: () {
                       if (formstate.currentState!.validate()) {}

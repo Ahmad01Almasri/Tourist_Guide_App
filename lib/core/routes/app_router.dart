@@ -10,7 +10,7 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: "/",
-      builder: (context, state) => const SignUp(),
+      builder: (context, state) => const CitySelectionPage(),
     ),
     GoRoute(
       path: "/onBoarding",
@@ -26,7 +26,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: "/citySelection",
-      builder: (context, state) => const SplashPage(),
+      builder: (context, state) => const CitySelectionPage(),
     ),
     // GoRoute(
     //   path: "/forgotPassword",

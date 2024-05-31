@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tourist_guide/core/utils/app_strings.dart';
 
 import '../../../../../core/functions/navigation.dart';
-import '../../../../../core/widgets/custom_btn.dart';
+import '../../../../../core/widgets/custom_button_app.dart';
 import '../../../data/models/on_boarding_model.dart';
 import '../functions/on_boarding.dart';
 
@@ -16,7 +16,7 @@ class GetButtons extends StatelessWidget {
     return currentIndex == onBoardingData.length - 1
         ? Column(
             children: [
-              CustomBtn(
+              CustomButtonApp(
                 text: AppStrings.createAccount,
                 onPressed: () {
                   onBoardingVisited();
@@ -24,7 +24,7 @@ class GetButtons extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 16),
-              CustomBtn(
+              CustomButtonApp(
                 text: AppStrings.youHave,
                 onPressed: () {
                   onBoardingVisited();
@@ -35,7 +35,7 @@ class GetButtons extends StatelessWidget {
           )
         : Padding(
             padding: const EdgeInsets.only(top: 72),
-            child: CustomBtn(
+            child: CustomButtonApp(
               text: AppStrings.next,
               onPressed: () {
                 controller.nextPage(

@@ -30,11 +30,13 @@ abstract class AppStrings {
       moreThanTwenty = "It can’t be more than three letters",
       notTrue = "It's not true",
       //!Home Strings
+
+      definitionOfWhatNext =
+          "Just enter the name of the city and enjoy the trip and let us show you everything that is special about it, such as hotels, the most famous tourist places in it, restaurants, etc....",
       exploreNow = "Explore Now",
-      about = "About",
-      wars = "Wars",
+      cityName = "city name",
       //!Search Strings
-      searchDeepIntoTheHistory = "Search deep into the history",
+      selectCityToExplore = "Select City To Explore",
       recent = "Recent",
       //!Profile Strings
       profile = "Profile",
