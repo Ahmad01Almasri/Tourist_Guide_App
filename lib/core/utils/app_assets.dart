@@ -47,15 +47,15 @@ class Assets {
 
   /// Assets for imagesOnBoarding
   /// assets/images/onBoarding.png
-  static const String imagesOnBoarding = "assets/images/aleppo.jpg";
+  static const String imagesOnBoarding = "assets/images/imagesOnBoarding.JPG";
 
   /// Assets for imagesOnBoarding1
   /// assets/images/onBoarding1.png
-  static const String imagesOnBoarding1 = "assets/images/aleppo.jpg";
+  static const String imagesOnBoarding1 = "assets/images/imagesOnBoarding1.JPG";
 
   /// Assets for imagesOnBoarding2
   /// assets/images/onBoarding2.png
-  static const String imagesOnBoarding2 = "assets/images/aleppo.jpg";
+  static const String imagesOnBoarding2 = "assets/images/imagesOnBoarding2.JPG";
 
   /// Assets for imagesPerson
   /// assets/images/person.svg

@@ -13,38 +13,37 @@ class GetButtons extends StatelessWidget {
   final PageController controller;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        (currentIndex == onBoardingData.length - 1)
-            ? Column(
-                children: [
-                  CustomBtn(
-                    text: AppStrings.createAccount,
-                    onPressed: () {
-                      onBoardingVisited();
-                      customReplacementNavigate(context, "/signUp");
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  CustomBtn(
-                    text: AppStrings.have,
-                    onPressed: () {
-                      onBoardingVisited();
-                      customReplacementNavigate(context, "/signUp");
-                    },
-                  ),
-                ],
-              )
-            : CustomBtn(
-                text: AppStrings.next,
+    return currentIndex == onBoardingData.length - 1
+        ? Column(
+            children: [
+              CustomBtn(
+                text: AppStrings.createAccount,
                 onPressed: () {
-                  controller.nextPage(
-                    duration: const Duration(microseconds: 200),
-                    curve: Curves.bounceIn,
-                  );
+                  onBoardingVisited();
+                  customReplacementNavigate(context, "/signUp");
                 },
-              )
-      ],
-    );
+              ),
+              const SizedBox(height: 16),
+              CustomBtn(
+                text: AppStrings.youHave,
+                onPressed: () {
+                  onBoardingVisited();
+                  customReplacementNavigate(context, "/signUp");
+                },
+              ),
+            ],
+          )
+        : Padding(
+            padding: const EdgeInsets.only(top: 72),
+            child: CustomBtn(
+              text: AppStrings.next,
+              onPressed: () {
+                controller.nextPage(
+                  duration: const Duration(microseconds: 200),
+                  curve: Curves.bounceIn,
+                );
+              },
+            ),
+          );
   }
 }

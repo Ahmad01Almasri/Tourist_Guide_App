@@ -11,7 +11,7 @@ class CustomSmoothPageIndicator extends StatelessWidget {
       controller: controller,
       count: 3,
       effect: ExpandingDotsEffect(
-        activeDotColor: AppColors.black,
+        activeDotColor: AppColors.primaryColor,
         dotHeight: 7,
         dotWidth: 10,
       ),

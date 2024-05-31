@@ -3,9 +3,9 @@ abstract class AppStrings {
 
   static const String appName = "Syravel",
       //!On Boarding Strings
-      skip = "Skip",
+      skip = "Skip >",
       next = "Next",
-      have = "Have",
+      youHave = "Have Account !",
       createAccount = "Create Account",
       loginNow = "Login Now",
       //!Auth Strings
@@ -15,10 +15,10 @@ abstract class AppStrings {
       lastName = "Last Name",
       emailAddress = "Email Address",
       password = "Password",
-      iHaveAgreeToOur = "I have agree to our ",
-      termsAndCondition = "Terms and Condition",
+      confirmPassword = "confirm Password",
       signUp = "Sign Up",
       signIn = "Sign In",
+      joinUsNow = "join Us Now",
       alreadyHaveAnAccount = "Already have an account ? ",
       dontHaveAnAccount = "Don’t have an account ? ",
       forgotPassword = "Forgot Password ?",

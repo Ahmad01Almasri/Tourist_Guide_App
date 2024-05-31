@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_colors.dart';
 
 class IconSocialMedia extends StatelessWidget {
   final IconData? icon;
@@ -13,9 +14,9 @@ class IconSocialMedia extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.black,
+              color: AppColors.primaryColor,
             ),
             child: Icon(
               icon,

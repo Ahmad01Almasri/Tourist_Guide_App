@@ -11,16 +11,16 @@ class CustomNavBar extends StatelessWidget {
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: GestureDetector(
-        onTap: onTap,
-        child: CircleAvatar(
-          radius: 22,
-          backgroundColor: AppColors.primaryColor,
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: GestureDetector(
+          onTap: onTap,
           child: Text(
             AppStrings.skip,
-            style: AppTextStyles.poppins300style16,
+            style: AppTextStyles.poppinsBoldstyle16
+                .copyWith(color: AppColors.primaryColor),
           ),
         ),
       ),

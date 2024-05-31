@@ -22,35 +22,43 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: ListView(
+          child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
-            children: [
-              const SizedBox(height: 40),
-              CustomNavBar(
+            slivers: [
+              SliverToBoxAdapter(child: CustomNavBar(
                 onTap: () {
                   onBoardingVisited();
                   customReplacementNavigate(context, "/signIn");
                 },
-              ),
-              StatefulBuilder(
-                builder: (context, mysetState) {
-                  return Column(
-                    children: [
-                      OnBoardingWidgetBody(
-                        onPageChanged: (index) {
-                          mysetState(() {
-                            currentIndex = index;
-                          });
-                        },
-                        controller: _controller,
-                      ),
-                      const SizedBox(height: 8),
-                      GetButtons(
-                          currentIndex: currentIndex, controller: _controller),
-                      const SizedBox(height: 17),
-                    ],
-                  );
-                },
+              )),
+              SliverToBoxAdapter(
+                child: StatefulBuilder(
+                  builder: (context, mysetState) {
+                    return Column(
+                      children: [
+                        OnBoardingWidgetBody(
+                          onPageChanged: (index) {
+                            mysetState(() {
+                              currentIndex = index;
+                            });
+                          },
+                          controller: _controller,
+                        ),
+                        const SizedBox(height: 5),
+                        SizedBox(
+                          height: 128,
+                          child: Column(
+                            children: [
+                              GetButtons(
+                                  currentIndex: currentIndex,
+                                  controller: _controller),
+                            ],
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
             ],
           ),

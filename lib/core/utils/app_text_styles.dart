@@ -15,8 +15,8 @@ abstract class AppTextStyles {
   );
   static final poppins500style18 = TextStyle(
     fontSize: 18,
-    fontWeight: FontWeight.w500,
-    color: AppColors.grey,
+    fontWeight: FontWeight.bold,
+    color: AppColors.primaryColor,
   );
   static final poppins500style24 = TextStyle(
     fontSize: 24,
@@ -28,11 +28,17 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.white,
   );
-  static final poppins300style16 = TextStyle(
+  static final poppinsBoldstyle16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
     color: AppColors.white,
   );
+  static final poppinsW500style16 = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w600,
+    color: AppColors.black38,
+  );
+
   static final poppins400style20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w400,

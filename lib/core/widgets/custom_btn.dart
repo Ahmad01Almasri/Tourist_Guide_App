@@ -21,7 +21,7 @@ class CustomBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        child: Text(text, style: AppTextStyles.poppins300style16),
+        child: Text(text, style: AppTextStyles.poppinsBoldstyle16),
       ),
     );
   }

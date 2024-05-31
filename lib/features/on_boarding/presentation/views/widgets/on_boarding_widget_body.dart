@@ -13,7 +13,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: 450,
       child: PageView.builder(
         onPageChanged: onPageChanged,
         physics: const BouncingScrollPhysics(),
@@ -22,21 +22,22 @@ class OnBoardingWidgetBody extends StatelessWidget {
         itemBuilder: (context, index) {
           return Column(
             children: [
-              // Container(
-              //   height: 290,
-              //   width: 343,
-              //   decoration: BoxDecoration(
-              //     image: DecorationImage(
-              //       image: AssetImage(
-              //         onBoardingData[index].imagePath,
-              //       ),
-              //       fit: BoxFit.fill,
-              //     ),
-              //   ),
-              // ),
-              const SizedBox(height: 24),
+              Container(
+                height: 280,
+                width: 343,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      onBoardingData[index].imagePath,
+                    ),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
               CustomSmoothPageIndicator(controller: controller),
-              const SizedBox(height: 32),
+              const SizedBox(height: 15),
               Text(
                 onBoardingData[index].title,
                 style: AppTextStyles.poppins500style24
@@ -45,7 +46,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
               Text(
                 onBoardingData[index].subTitle,
                 style: AppTextStyles.poppinsw600style14

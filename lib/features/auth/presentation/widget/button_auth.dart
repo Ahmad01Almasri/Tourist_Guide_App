@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_colors.dart';
+
+import '../../../../core/utils/app_text_styles.dart';
 
 class CustomButtonAuth extends StatelessWidget {
   final void Function()? onPressed;
@@ -8,15 +11,15 @@ class CustomButtonAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      color: AppColors.primaryColor,
       height: 40,
       minWidth: 200,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: Colors.black,
       textColor: Colors.white,
       onPressed: onPressed,
       child: Text(
         title,
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        style: AppTextStyles.poppinsBoldstyle16,
       ),
     );
   }
