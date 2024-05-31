@@ -52,11 +52,11 @@ class _LoginState extends State<Login> {
                     mycontroller: emailTextController,
                     validator: (text) {
                       if (text!.length < 3) {
-                        return "لا يمكن ان يكون النص اقل من ثلاث احرف";
+                        return AppStrings.lessThanThree;
                       } else if (text.isEmpty) {
-                        return "لا يمكن ترك الحقل فارغ";
+                        return AppStrings.empty;
                       } else if (text.length > 20) {
-                        return "لا يمكن ان يكون اكثر من 20 حرف ";
+                        return AppStrings.moreThanTwenty;
                       }
                       return null;
                     },
@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
                   CustomButtonApp(
                     title: AppStrings.signIn,
                     onPressed: () {
-                      // if (formstate.currentState!.validate()) {}
+                      if (formstate.currentState!.validate()) {}
                     },
                   ),
                   const SizedBox(

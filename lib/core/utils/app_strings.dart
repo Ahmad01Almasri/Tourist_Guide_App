@@ -24,6 +24,7 @@ abstract class AppStrings {
       forgotPassword = "Forgot Password ?",
       //validation
       lessThanEight = "It can’t be less than 8 numbers",
+      moreThanEight = "It can’t be more than 8 numbers",
       lessThanThree = "It can’t be less than three letters",
       empty = "It can’t be empty",
       moreThanTwenty = "It can’t be more than three letters",

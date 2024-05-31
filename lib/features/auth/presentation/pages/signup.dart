@@ -71,9 +71,9 @@ class _SignUpState extends State<SignUp> {
                         if (text!.length < 8) {
                           return AppStrings.lessThanEight;
                         } else if (text.length > 8) {
-                          return "لا يمكن ان يكون اكثر من 8 حرف ";
+                          return AppStrings.moreThanEight;
                         } else if (text.isEmpty) {
-                          return "لا يمكن ترك الحقل فارغ";
+                          return AppStrings.empty;
                         }
                         return null;
                       },

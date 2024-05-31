@@ -23,6 +23,9 @@ class CustomTextForm extends StatelessWidget {
       controller: mycontroller,
       obscureText: obscureText ?? false,
       decoration: InputDecoration(
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(50),
+              borderSide: BorderSide(color: AppColors.red)),
           errorStyle: AppTextStyles.poppins600style12,
           hintText: hinttext,
           hintStyle: AppTextStyles.poppinsW500style16,
