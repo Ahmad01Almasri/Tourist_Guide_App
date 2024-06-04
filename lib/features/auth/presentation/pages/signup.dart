@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tourist_guide/core/utils/app_assets.dart';
 import 'package:tourist_guide/core/utils/app_colors.dart';
 import 'package:tourist_guide/core/utils/app_strings.dart';
+import 'package:tourist_guide/features/auth/presentation/functions/is_auth.dart';
 
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/utils/app_text_styles.dart';
@@ -77,7 +78,7 @@ class _SignUpState extends State<SignUp> {
                         }
                         return null;
                       },
-                      obscureText: true),
+                      obscureText: false),
                   const SizedBox(
                     height: 10,
                   ),
@@ -87,20 +88,23 @@ class _SignUpState extends State<SignUp> {
                       validator: (text) {
                         if (text!.isEmpty) {
                           return AppStrings.empty;
-                        } else if (confirmTextController !=
-                            passwordTextController) {
+                        } else if (passwordTextController.text !=
+                            confirmTextController.text) {
                           return AppStrings.notTrue;
                         }
                         return null;
                       },
-                      obscureText: true),
+                      obscureText: false),
                   const SizedBox(
                     height: 20,
                   ),
                   CustomButtonAuth(
                     title: AppStrings.signUp,
                     onPressed: () {
-                      if (formstate.currentState!.validate()) {}
+                      if (formstate.currentState!.validate()) {
+                        isAuth();
+                        customReplacementNavigate(context, "/citySelection");
+                      }
                     },
                   ),
                   const SizedBox(
@@ -141,5 +145,3 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
-
-int i = 2;

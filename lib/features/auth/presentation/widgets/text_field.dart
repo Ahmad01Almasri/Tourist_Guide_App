@@ -6,17 +6,25 @@ class CustomTextForm extends StatelessWidget {
   final String hinttext;
   final TextEditingController mycontroller;
   final bool? obscureText;
+  final bool? readOnly;
+
+  final Function()? onTap;
   final String? Function(String?)? validator;
-  const CustomTextForm(
-      {super.key,
-      required this.hinttext,
-      required this.mycontroller,
-      this.obscureText,
-      required this.validator});
+  const CustomTextForm({
+    super.key,
+    required this.hinttext,
+    required this.mycontroller,
+    this.obscureText,
+    required this.validator,
+    this.readOnly,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap ?? () {},
+      readOnly: readOnly ?? false,
       cursorColor: AppColors.primaryColor,
       style: AppTextStyles.poppinsW500style16.copyWith(color: AppColors.black),
       validator: validator,

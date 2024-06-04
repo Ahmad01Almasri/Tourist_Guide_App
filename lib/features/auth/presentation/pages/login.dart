@@ -5,6 +5,7 @@ import 'package:tourist_guide/core/utils/app_strings.dart';
 
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/utils/app_text_styles.dart';
+import '../functions/is_auth.dart';
 import '../widgets/button_app.dart';
 import '../widgets/row_icon_social_media.dart';
 import '../widgets/text_field.dart';
@@ -84,7 +85,10 @@ class _LoginState extends State<Login> {
                   CustomButtonAuth(
                     title: AppStrings.signIn,
                     onPressed: () {
-                      if (formstate.currentState!.validate()) {}
+                      if (formstate.currentState!.validate()) {
+                        isAuth();
+                        customReplacementNavigate(context, "/citySelection");
+                      }
                     },
                   ),
                   const SizedBox(

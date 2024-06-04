@@ -47,7 +47,18 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       bool isOnBoardingVisited =
           getIt<CacheHelper>().getData(key: "isOnBoardingVisited") ?? false;
       if (isOnBoardingVisited) {
-        customReplacementNavigate(context, "/signUp");
+        bool isAuth = getIt<CacheHelper>().getData(key: "isAuth") ?? false;
+        if (isAuth) {
+          bool isSelectedCity =
+              getIt<CacheHelper>().getData(key: "isSelectedCity") ?? false;
+          if (isSelectedCity) {
+            customReplacementNavigate(context, "/home");
+          } else {
+            customReplacementNavigate(context, "/citySelection");
+          }
+        } else {
+          customReplacementNavigate(context, "/signUp");
+        }
       } else {
         customReplacementNavigate(context, "/onBoarding");
       }

@@ -30,7 +30,7 @@ abstract class AppStrings {
       moreThanTwenty = "It can’t be more than three letters",
       notTrue = "It's not true",
       //!Home Strings
-
+      selectCityName = "Select City Name",
       definitionOfWhatNext =
           "Just enter the name of the city and enjoy the trip and let us show you everything that is special about it, such as hotels, the most famous tourist places in it, restaurants, etc....",
       exploreNow = "Explore Now",

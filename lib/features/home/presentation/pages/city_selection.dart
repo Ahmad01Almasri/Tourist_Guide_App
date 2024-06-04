@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:tourist_guide/core/utils/app_assets.dart';
 import 'package:tourist_guide/core/utils/app_colors.dart';
 import 'package:tourist_guide/core/utils/app_text_styles.dart';
 import 'package:tourist_guide/core/widgets/custom_button_app.dart';
 import 'package:tourist_guide/features/auth/presentation/widgets/text_field.dart';
 import 'package:tourist_guide/features/home/presentation/widgets/smooth_images_indicator.dart';
 
+import '../../../../core/functions/navigation.dart';
 import '../../../../core/utils/app_strings.dart';
+import '../functions/select_city_dialog.dart';
+import '../functions/selected_city.dart';
 
 class CitySelectionPage extends StatefulWidget {
   const CitySelectionPage({super.key});
@@ -23,6 +25,7 @@ class _CitySelectionPageState extends State<CitySelectionPage>
   int _currentPage = 0;
   Timer? _timer;
   TextEditingController shearchController = TextEditingController();
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -57,74 +60,94 @@ class _CitySelectionPageState extends State<CitySelectionPage>
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                  child: SmoothImagesIndicator(
-                currentPage: _currentPage,
-                pageController: _pageController,
-              )),
-              const SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 30,
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: Center(
-                  child: Text(
-                    AppStrings.selectCityToExplore,
-                    style: AppTextStyles.poppins500style24
-                        .copyWith(fontWeight: FontWeight.bold),
+          child: Form(
+            key: formstate,
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                    child: SmoothImagesIndicator(
+                  currentPage: _currentPage,
+                  pageController: _pageController,
+                )),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 30,
                   ),
                 ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 20,
-                ),
-              ),
-              SliverToBoxAdapter(
-                  child: CustomTextForm(
-                hinttext: AppStrings.cityName,
-                mycontroller: shearchController,
-                validator: (text) {
-                  if (text!.length < 8) {
-                    return AppStrings.lessThanEight;
-                  } else if (text.length > 8) {
-                    return AppStrings.moreThanEight;
-                  } else if (text.isEmpty) {
-                    return AppStrings.empty;
-                  }
-                  return null;
-                },
-              )),
-              const SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 30,
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: Center(
-                  child: Text(
-                    textAlign: TextAlign.center,
-                    AppStrings.definitionOfWhatNext,
-                    style: AppTextStyles.poppinsw600style14
-                        .copyWith(color: AppColors.grey),
+                SliverToBoxAdapter(
+                  child: Center(
+                    child: Text(
+                      AppStrings.selectCityToExplore,
+                      style: AppTextStyles.poppins500style24
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
-              ),
-              const SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 30,
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 20,
+                  ),
                 ),
-              ),
-              SliverToBoxAdapter(
-                child: CustomButtonApp(
-                  text: "Explor New",
-                  onPressed: () {},
+                SliverToBoxAdapter(
+                    child: StatefulBuilder(
+                  builder: (context, mysetState) => CustomTextForm(
+                    onTap: () async {
+                      String? result = await selectCityDialog(
+                          context); // Wait for dialog result
+
+                      if (result != null) {
+                        mysetState(() {
+                          selectedCity = result; // Set selected city
+                          shearchController.text =
+                              selectedCity; // Update text field with selected city
+                        });
+                        isSelectedCity();
+                        saveCityName();
+                      }
+                    },
+                    readOnly: true,
+                    hinttext: AppStrings.cityName,
+                    mycontroller: shearchController,
+                    validator: (text) {
+                      if (text!.isEmpty) {
+                        return AppStrings.empty;
+                      }
+                      return null;
+                    },
+                  ),
+                )),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 30,
+                  ),
                 ),
-              )
-            ],
+                SliverToBoxAdapter(
+                  child: Center(
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      AppStrings.definitionOfWhatNext,
+                      style: AppTextStyles.poppinsw600style14
+                          .copyWith(color: AppColors.grey),
+                    ),
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 30,
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: CustomButtonApp(
+                    text: "Explor New",
+                    onPressed: () {
+                      if (formstate.currentState!.validate()) {
+                        customReplacementNavigate(context, "/home");
+                      }
+                    },
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
