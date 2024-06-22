@@ -133,7 +133,7 @@ class _CitySelectionPageState extends State<CitySelectionPage>
                 ),
                 const SliverToBoxAdapter(
                   child: SizedBox(
-                    height: 30,
+                    height: 110,
                   ),
                 ),
                 SliverToBoxAdapter(

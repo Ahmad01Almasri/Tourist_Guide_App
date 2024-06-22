@@ -127,7 +127,7 @@ class _SignUpState extends State<SignUp> {
                             customReplacementNavigate(context, "/signIn"),
                         child: Text(
                           AppStrings.loginNow,
-                          style: AppTextStyles.poppins500style18,
+                          style: AppTextStyles.poppinsW500style18,
                         ),
                       ),
                     ],

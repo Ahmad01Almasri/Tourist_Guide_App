@@ -22,7 +22,7 @@ abstract class AppStrings {
       alreadyHaveAnAccount = "Already have an account ? ",
       dontHaveAnAccount = "Don’t have an account ? ",
       forgotPassword = "Forgot Password ?",
-      //validation
+      //validation Strings
       lessThanEight = "It can’t be less than 8 numbers",
       moreThanEight = "It can’t be more than 8 numbers",
       lessThanThree = "It can’t be less than three letters",
@@ -30,13 +30,22 @@ abstract class AppStrings {
       moreThanTwenty = "It can’t be more than three letters",
       notTrue = "It's not true",
       //!Home Strings
+      // Select City Strings
+      selectCityToExplore = "Select City To Explore",
       selectCityName = "Select City Name",
       definitionOfWhatNext =
           "Just enter the name of the city and enjoy the trip and let us show you everything that is special about it, such as hotels, the most famous tourist places in it, restaurants, etc....",
       exploreNow = "Explore Now",
       cityName = "city name",
-      //!Search Strings
-      selectCityToExplore = "Select City To Explore",
+      //Home Strings
+      search = "Search",
+      food = "food",
+      restaurant = "restaurant",
+      hotel = "hotel",
+      historical = "historical",
+      map = "map",
+      //!Top Ten Restaurant Strings
+      topTenRestaurant = "Top Ten Restaurant",
       recent = "Recent",
       //!Profile Strings
       profile = "Profile",

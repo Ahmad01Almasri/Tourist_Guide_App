@@ -38,13 +38,13 @@ Future<dynamic> selectCityDialog(BuildContext context) {
                 value: item,
                 child: Text(
                   item,
-                  style: AppTextStyles.poppins500style18,
+                  style: AppTextStyles.poppinsW500style18,
                 ),
               );
             }).toList(),
             hint: Text(
               AppStrings.selectCityName,
-              style: AppTextStyles.poppins500style18,
+              style: AppTextStyles.poppinsW500style18,
             ),
             onChanged: (value) {
               selectedCity = value!;

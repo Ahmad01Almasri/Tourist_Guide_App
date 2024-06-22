@@ -3,6 +3,7 @@ import 'package:tourist_guide/features/auth/presentation/pages/login.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/signup.dart';
 import 'package:tourist_guide/features/home/presentation/pages/home.dart';
 import 'package:tourist_guide/features/splash/presentation/views/splash_view.dart';
+import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
 
 import '../../features/home/presentation/pages/city_selection.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -12,7 +13,7 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: AppPage.splashPage,
-      builder: (context, state) => const HomePage(),
+      builder: (context, state) => const CitySelectionPage(),
     ),
     GoRoute(
       path: AppPage.onBoardingPage,
@@ -23,7 +24,7 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const SignUp(),
     ),
     GoRoute(
-      path: AppPage.signIn,
+      path: AppPage.signInPage,
       builder: (context, state) => const Login(),
     ),
     GoRoute(
@@ -33,6 +34,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppPage.homePage,
       builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: AppPage.topTenRestaurant,
+      builder: (context, state) => const TopTenResturant(),
     )
 
     // GoRoute(

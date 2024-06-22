@@ -44,7 +44,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                           },
                           controller: _controller,
                         ),
-                        const SizedBox(height: 5),
+                        const SizedBox(height: 90),
                         SizedBox(
                           height: 128,
                           child: Column(
