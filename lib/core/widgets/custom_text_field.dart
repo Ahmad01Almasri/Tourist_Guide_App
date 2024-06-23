@@ -7,18 +7,20 @@ class CustomTextForm extends StatelessWidget {
   final TextEditingController mycontroller;
   final bool? obscureText;
   final bool? readOnly;
-
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final Function()? onTap;
   final String? Function(String?)? validator;
-  const CustomTextForm({
-    super.key,
-    required this.hinttext,
-    required this.mycontroller,
-    this.obscureText,
-    required this.validator,
-    this.readOnly,
-    this.onTap,
-  });
+  const CustomTextForm(
+      {super.key,
+      required this.hinttext,
+      required this.mycontroller,
+      this.obscureText,
+      this.validator,
+      this.readOnly,
+      this.onTap,
+      this.prefixIcon,
+      this.suffixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,8 @@ class CustomTextForm extends StatelessWidget {
       controller: mycontroller,
       obscureText: obscureText ?? false,
       decoration: InputDecoration(
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
               borderSide: BorderSide(color: AppColors.red)),

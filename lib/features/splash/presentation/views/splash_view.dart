@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tourist_guide/core/utils/app_assets.dart';
 import 'package:tourist_guide/core/utils/app_colors.dart';
+import 'package:tourist_guide/core/utils/app_route_string.dart';
 import 'package:tourist_guide/core/utils/app_text_styles.dart';
+import 'package:tourist_guide/core/utils/storage_keys_string.dart';
 import 'package:tourist_guide/extensions/widget_extensions.dart';
 import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/functions/navigation.dart';
@@ -44,23 +46,26 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await Future.delayed(
           const Duration(seconds: 2)); // تأخير إضافي لعرض الشعار
-      bool isOnBoardingVisited =
-          getIt<CacheHelper>().getData(key: "isOnBoardingVisited") ?? false;
+      bool isOnBoardingVisited = getIt<CacheHelper>()
+              .getData(key: AppStorageKey.isOnBoardingVisited) ??
+          false;
       if (isOnBoardingVisited) {
-        bool isAuth = getIt<CacheHelper>().getData(key: "isAuth") ?? false;
+        bool isAuth =
+            getIt<CacheHelper>().getData(key: AppStorageKey.isAuth) ?? false;
         if (isAuth) {
           bool isSelectedCity =
-              getIt<CacheHelper>().getData(key: "isSelectedCity") ?? false;
+              getIt<CacheHelper>().getData(key: AppStorageKey.isSelectedCity) ??
+                  false;
           if (isSelectedCity) {
-            customReplacementNavigate(context, "/home");
+            customReplacementNavigate(context, AppNamePage.homePage);
           } else {
-            customReplacementNavigate(context, "/citySelection");
+            customReplacementNavigate(context, AppNamePage.citySelectionPage);
           }
         } else {
-          customReplacementNavigate(context, "/signUp");
+          customReplacementNavigate(context, AppNamePage.signUpPage);
         }
       } else {
-        customReplacementNavigate(context, "/onBoarding");
+        customReplacementNavigate(context, AppNamePage.onBoardingPage);
       }
     });
   }

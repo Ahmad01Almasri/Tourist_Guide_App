@@ -1,7 +1,8 @@
 abstract class AppStrings {
   //ToDo:All Strings
 
-  static const String appName = "Syravel",
+  static const String appName = "Syravel";
+  static const String appFont = "Poppins",
       //!On Boarding Strings
       skip = "Skip >",
       next = "Next",
@@ -47,6 +48,7 @@ abstract class AppStrings {
       //!Top Ten Restaurant Strings
       topTenRestaurant = "Top Ten Restaurant",
       recent = "Recent",
+
       //!Profile Strings
       profile = "Profile",
       account = "Account",
@@ -87,12 +89,4 @@ abstract class AppStrings {
       verifyAccount = "Verify Account",
       enter4DigitCodeWeHaveSentTo = "Enter 4 digit code we have sent to ",
       haventReceivedVerificationCode = "Haven’t received verification code?";
-}
-
-abstract class FireBaseStrings {
-  static const String historicalPeriods = "historical_periods";
-  static const String name = "name";
-  static const String description = "description";
-  static const String image = "image";
-  static const String wars = "wars";
 }

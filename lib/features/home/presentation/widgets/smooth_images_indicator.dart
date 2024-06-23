@@ -29,7 +29,7 @@ class SmoothImagesIndicator extends StatelessWidget {
                 },
               ),
             )),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Row(

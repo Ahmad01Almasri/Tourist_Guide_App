@@ -26,7 +26,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
                 height: 280,
                 width: 343,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                  borderRadius: const BorderRadius.all(Radius.circular(25)),
                   image: DecorationImage(
                     image: AssetImage(
                       onBoardingData[index].imagePath,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_route_string.dart';
 import 'package:tourist_guide/features/on_boarding/presentation/views/functions/on_boarding.dart';
 
 import '../../../../core/functions/navigation.dart';
@@ -28,7 +29,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               SliverToBoxAdapter(child: CustomNavBar(
                 onTap: () {
                   onBoardingVisited();
-                  customReplacementNavigate(context, "/signIn");
+                  customReplacementNavigate(context, AppNamePage.signInPage);
                 },
               )),
               SliverToBoxAdapter(

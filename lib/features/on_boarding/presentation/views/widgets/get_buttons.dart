@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_route_string.dart';
 import 'package:tourist_guide/core/utils/app_strings.dart';
 
 import '../../../../../core/functions/navigation.dart';
@@ -20,7 +21,7 @@ class GetButtons extends StatelessWidget {
                 text: AppStrings.createAccount,
                 onPressed: () {
                   onBoardingVisited();
-                  customReplacementNavigate(context, "/signUp");
+                  customReplacementNavigate(context, AppNamePage.signUpPage);
                 },
               ),
               const SizedBox(height: 16),
@@ -28,7 +29,7 @@ class GetButtons extends StatelessWidget {
                 text: AppStrings.youHave,
                 onPressed: () {
                   onBoardingVisited();
-                  customReplacementNavigate(context, "/signUp");
+                  customReplacementNavigate(context, AppNamePage.signInPage);
                 },
               ),
             ],

@@ -5,10 +5,11 @@ import 'package:tourist_guide/core/utils/app_strings.dart';
 import 'package:tourist_guide/features/auth/presentation/functions/is_auth.dart';
 
 import '../../../../core/functions/navigation.dart';
+import '../../../../core/utils/app_route_string.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../widgets/button_app.dart';
 import '../widgets/row_icon_social_media.dart';
-import '../widgets/text_field.dart';
+import '../../../../core/widgets/custom_text_field.dart';
 
 class SignUp extends StatefulWidget {
   final Function()? onTap;
@@ -103,7 +104,8 @@ class _SignUpState extends State<SignUp> {
                     onPressed: () {
                       if (formstate.currentState!.validate()) {
                         isAuth();
-                        customReplacementNavigate(context, "/citySelection");
+                        customReplacementNavigate(
+                            context, AppNamePage.citySelectionPage);
                       }
                     },
                   ),
@@ -123,8 +125,8 @@ class _SignUpState extends State<SignUp> {
                         width: 4,
                       ),
                       GestureDetector(
-                        onTap: () =>
-                            customReplacementNavigate(context, "/signIn"),
+                        onTap: () => customReplacementNavigate(
+                            context, AppNamePage.signInPage),
                         child: Text(
                           AppStrings.loginNow,
                           style: AppTextStyles.poppinsW500style18,

@@ -12,42 +12,32 @@ import '../utils/app_route_string.dart';
 final GoRouter router = GoRouter(
   routes: [
     GoRoute(
-      path: AppPage.splashPage,
-      builder: (context, state) => const CitySelectionPage(),
-    ),
-    GoRoute(
-      path: AppPage.onBoardingPage,
-      builder: (context, state) => const OnBoardingView(),
-    ),
-    GoRoute(
-      path: AppPage.signUpPage,
-      builder: (context, state) => const SignUp(),
-    ),
-    GoRoute(
-      path: AppPage.signInPage,
-      builder: (context, state) => const Login(),
-    ),
-    GoRoute(
-      path: AppPage.citySelectionPage,
-      builder: (context, state) => const CitySelectionPage(),
-    ),
-    GoRoute(
-      path: AppPage.homePage,
+      path: AppNamePage.splashPage,
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      path: AppPage.topTenRestaurant,
+      path: AppNamePage.onBoardingPage,
+      builder: (context, state) => const OnBoardingView(),
+    ),
+    GoRoute(
+      path: AppNamePage.signUpPage,
+      builder: (context, state) => const SignUp(),
+    ),
+    GoRoute(
+      path: AppNamePage.signInPage,
+      builder: (context, state) => const Login(),
+    ),
+    GoRoute(
+      path: AppNamePage.citySelectionPage,
+      builder: (context, state) => const CitySelectionPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.homePage,
+      builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: AppNamePage.topTenRestaurant,
       builder: (context, state) => const TopTenResturant(),
     )
-
-    // GoRoute(
-    //   path: "/homeNavBar",
-    //   builder: (context, state) => const HomeNavBarWidget(),
-    // ),
-    // GoRoute(
-    //   path: "/historicalPeriodsDetailsView",
-    //   builder: (context, state) => HistoricalPeriodsDetailsView(
-    //       model: state.extra as HistoricalPeriodsModel),
-    // ),
   ],
 );

@@ -4,6 +4,7 @@ import 'core/routes/app_router.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/app_colors.dart';
 import 'core/services/shared_preferences_service.dart';
+import 'core/utils/app_strings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.offWhite,
-        fontFamily: 'Poppins',
+        fontFamily: AppStrings.appFont,
       ),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
