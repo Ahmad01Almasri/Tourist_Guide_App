@@ -45,10 +45,11 @@ abstract class AppStrings {
       hotel = "hotel",
       historical = "historical",
       map = "map",
+      popular = "Popular",
       //!Top Ten Restaurant Strings
       topTenRestaurant = "Top Ten Restaurant",
       recent = "Recent",
-
+      topTenRHotel = "Top Ten Hotel",
       //!Profile Strings
       profile = "Profile",
       account = "Account",
