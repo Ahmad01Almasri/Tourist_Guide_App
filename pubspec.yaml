@@ -45,6 +45,7 @@ dependencies:
   flutter_svg: ^2.0.10
   fluttertoast: ^8.2.6
   flutter_screenutil: ^5.9.3
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:

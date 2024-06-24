@@ -43,7 +43,7 @@ class _SignUpState extends State<SignUp> {
               key: formstate,
               child: Column(
                 children: [
-                  Image.asset(Assets.logoApp, height: 200),
+                  Image.asset(AppAssets.logoApp, height: 200),
                   Text(AppStrings.appName,
                       style: AppTextStyles.poppins600style40),
                   const SizedBox(
@@ -129,7 +129,7 @@ class _SignUpState extends State<SignUp> {
                             context, AppNamePage.signInPage),
                         child: Text(
                           AppStrings.loginNow,
-                          style: AppTextStyles.poppinsW500style18,
+                          style: AppTextStyles.poppinsW500style15,
                         ),
                       ),
                     ],

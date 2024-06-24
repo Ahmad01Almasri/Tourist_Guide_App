@@ -28,12 +28,12 @@ class PopularItemSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CardPopularOrAllItem(
-                image: Assets.imagesOnBoarding1,
+                image: AppAssets.imagesOnBoarding1,
                 onTap: () {},
                 itemName: AppStrings.topTenRestaurant,
               ),
               CardPopularOrAllItem(
-                image: Assets.imagesOnBoarding1,
+                image: AppAssets.imagesOnBoarding1,
                 onTap: () {},
                 itemName: AppStrings.topTenRHotel,
               )
@@ -46,12 +46,12 @@ class PopularItemSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CardPopularOrAllItem(
-                image: Assets.imagesOnBoarding2,
+                image: AppAssets.imagesOnBoarding2,
                 onTap: () {},
                 itemName: AppStrings.topTenRHotel,
               ),
               CardPopularOrAllItem(
-                image: Assets.imagesOnBoarding,
+                image: AppAssets.imagesOnBoarding,
                 onTap: () {},
                 itemName: AppStrings.topTenRHotel,
               )

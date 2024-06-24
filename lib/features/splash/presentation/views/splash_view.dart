@@ -115,7 +115,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 child: Center(
                     child: Column(
                   children: [
-                    Image.asset(Assets.logoApp, height: 200),
+                    Image.asset(AppAssets.logoApp, height: 200),
                     Text(AppStrings.appName,
                         style: AppTextStyles.poppins600style40),
                   ],

@@ -1,48 +1,44 @@
-class Assets {
-  Assets._();
+class AppAssets {
+  AppAssets._();
 
   /// Assets for imagesDetails1
   static const String logoApp = "assets/images/logo.png";
 
-  /// Assets for imagesForgotPassword
-  /// assets/images/forgotPassword.png
-  static const String imagesForgotPassword = "assets/images/forgotPassword.png";
+  /// Assets for restaurant
+
+  static const String restaurant = "assets/images/restaurant.jpg";
 
   /// Assets for imagesFrame
-  /// assets/images/Frame.png
+
   static const String imagesFrame = "assets/images/Frame.png";
 
   /// Assets for imagesFrame2
-  /// assets/images/Frame2.png
+
   static const String imagesFrame2 = "assets/images/Frame2.png";
 
   /// Assets for imagesFrame3
-  /// assets/images/frame3.png
+
   static const String imagesFrame3 = "assets/images/frame3.png";
 
   /// Assets for imagesHomeIconActive
-  /// assets/images/home-icon-active.svg
+
   static const String imagesHomeIconActive =
       "assets/images/home-icon-active.svg";
 
   /// Assets for imagesMenu
-  /// assets/images/menu.svg
+
   static const String imagesMenu = "assets/images/menu.svg";
 
   /// Assets for imagesOnBoarding
-  /// assets/images/onBoarding.png
+
   static const String imagesOnBoarding = "assets/images/imagesOnBoarding.JPG";
 
-  /// Assets for imagesOnBoarding1
-  /// assets/images/onBoarding1.png
   static const String imagesOnBoarding1 = "assets/images/imagesOnBoarding1.JPG";
 
-  /// Assets for imagesOnBoarding2
-  /// assets/images/onBoarding2.png
   static const String imagesOnBoarding2 = "assets/images/imagesOnBoarding2.JPG";
 
   /// Assets for imagesPerson
-  /// assets/images/person.svg
+
   static const String imagesPerson = "assets/images/person.svg";
 
   /// Assets for imagesPersonActive

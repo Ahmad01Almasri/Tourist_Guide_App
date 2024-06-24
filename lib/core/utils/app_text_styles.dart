@@ -56,9 +56,15 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.deepBrown,
   );
-  static final poppinsW500style18 = TextStyle(
+  static final poppinsW500style15 = TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w600,
     color: AppColors.primaryColor,
   );
+
+  static final poppinsThinW6000style22 = TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.w600,
+      color: AppColors.black,
+      fontFamily: "Poppins-Thin.ttf");
 }

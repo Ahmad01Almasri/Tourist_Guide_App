@@ -68,7 +68,7 @@ class SmoothImagesIndicator extends StatelessWidget {
 }
 
 final List<String> images = [
-  Assets.imagesOnBoarding,
-  Assets.imagesOnBoarding1,
-  Assets.imagesOnBoarding2,
+  AppAssets.imagesOnBoarding,
+  AppAssets.imagesOnBoarding1,
+  AppAssets.imagesOnBoarding2,
 ];

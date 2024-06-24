@@ -13,7 +13,7 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: AppNamePage.splashPage,
-      builder: (context, state) => const HomePage(),
+      builder: (context, state) => const TopTenResturant(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
