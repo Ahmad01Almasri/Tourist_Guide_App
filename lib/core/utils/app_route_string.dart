@@ -5,5 +5,7 @@ abstract class AppNamePage {
   static const String onBoardingPage = "/onBoarding";
   static const String citySelectionPage = "/citySelection";
   static const String homePage = "/home";
+  static const String myBottomNavigationBar = "/myBottomNavigationBar";
   static const String topTenRestaurant = "/topTenRestaurant";
+  static const String notification = "/notification";
 }

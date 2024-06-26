@@ -33,13 +33,13 @@ class PopularItemSection extends StatelessWidget {
                 itemName: AppStrings.topTenRestaurant,
               ),
               CardPopularOrAllItem(
-                image: AppAssets.imagesOnBoarding1,
+                image: AppAssets.imagesOnBoarding,
                 onTap: () {},
                 itemName: AppStrings.topTenRHotel,
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
@@ -57,7 +57,7 @@ class PopularItemSection extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ],

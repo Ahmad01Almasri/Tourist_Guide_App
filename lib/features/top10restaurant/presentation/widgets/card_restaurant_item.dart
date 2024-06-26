@@ -28,7 +28,7 @@ class CardRestaurantItem extends StatelessWidget {
                 image: const DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage(
-                    AppAssets.imagesOnBoarding2,
+                    "assets/images/images (1).jpg",
                   ),
                 ),
               ),
@@ -41,7 +41,7 @@ class CardRestaurantItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "RestName",
+                    "Beroea",
                     style: AppTextStyles.poppinsThinW6000style22,
                   ),
                   const SizedBox(
@@ -91,7 +91,7 @@ class CardRestaurantItem extends StatelessWidget {
                               left:
                                   4.0), // إضافة padding لترك مسافة صغيرة بين الأيقونة والنص
                           child: Text(
-                            "almerdaan, SDFSDF SFSDF ",
+                            "almerdaan, fares street, 123",
                             softWrap: true,
                             overflow: TextOverflow.fade,
                             style: AppTextStyles.poppinsW500style16,

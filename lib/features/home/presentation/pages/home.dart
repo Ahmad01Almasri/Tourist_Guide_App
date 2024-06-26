@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tourist_guide/core/widgets/custom_button_app.dart';
 
+import '../../../../core/widgets/custom_bottom_navigation_bar.dart';
 import '../widgets/elements_city_features.dart';
 import '../widgets/popular_item_section.dart';
 import '../widgets/text_form_search_in_home.dart';
@@ -48,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
+              const SliverToBoxAdapter(
                 child: PopularItemSection(),
               )
             ],

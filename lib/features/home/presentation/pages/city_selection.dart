@@ -143,7 +143,7 @@ class _CitySelectionPageState extends State<CitySelectionPage>
                     onPressed: () {
                       if (formstate.currentState!.validate()) {
                         customReplacementNavigate(
-                            context, AppNamePage.homePage);
+                            context, AppNamePage.myBottomNavigationBar);
                       }
                     },
                   ),

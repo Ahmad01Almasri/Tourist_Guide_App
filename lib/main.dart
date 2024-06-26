@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'core/database/cache/cache_helper.dart';
+import 'core/provider/p.dart';
 import 'core/routes/app_router.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/app_colors.dart';
@@ -12,7 +14,12 @@ void main() async {
   setupServiceLocator();
   await getIt<CacheHelper>().init();
   await SharedPreferencesService.init();
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => BottomNavigationModel(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
