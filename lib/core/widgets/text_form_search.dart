@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/widgets/custom_text_field.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_strings.dart';
+import 'custom_text_field.dart';
 
-class CustomTextFormSearchInHome extends StatelessWidget {
+class CustomTextFormSearch extends StatelessWidget {
   final TextEditingController shearchInCitySelectionController;
-  const CustomTextFormSearchInHome({
+  const CustomTextFormSearch({
     required this.shearchInCitySelectionController,
     super.key,
   });

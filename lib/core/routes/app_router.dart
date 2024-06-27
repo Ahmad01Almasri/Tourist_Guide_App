@@ -1,10 +1,9 @@
 import 'package:go_router/go_router.dart';
-import 'package:tourist_guide/core/widgets/scaffold_with_nav.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/login.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/signup.dart';
+import 'package:tourist_guide/features/food/presentation/pages/food.dart';
 import 'package:tourist_guide/features/home/presentation/pages/home.dart';
 import 'package:tourist_guide/features/notification/presentation/pages/notification.dart';
-import 'package:tourist_guide/features/splash/presentation/views/splash_view.dart';
 import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
 
 import '../../features/home/presentation/pages/city_selection.dart';
@@ -45,6 +44,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.notification,
       builder: (context, state) => const NotificationsPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.food,
+      builder: (context, state) => const FoodPage(),
     ),
   ],
 );

@@ -29,21 +29,22 @@ class CardPopularOrAllItem extends StatelessWidget {
             image:
                 DecorationImage(fit: BoxFit.cover, image: AssetImage(image))),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 130),
+            //   child: IconButton(
+            //       onPressed: () {},
+            //       icon: Icon(
+            //           color: AppColors.white,
+            //           size: 30,
+            //           Icons.favorite_border_outlined)),
+            // ),
+            // const SizedBox(
+            //   height: 110,
+            // ),
             Padding(
-              padding: const EdgeInsets.only(left: 130),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                      color: AppColors.white,
-                      size: 30,
-                      Icons.favorite_border_outlined)),
-            ),
-            const SizedBox(
-              height: 110,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
+              padding: const EdgeInsets.all(15),
               child: Text(
                 itemName,
                 softWrap: true,

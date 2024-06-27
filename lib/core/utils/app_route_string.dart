@@ -8,4 +8,5 @@ abstract class AppNamePage {
   static const String myBottomNavigationBar = "/myBottomNavigationBar";
   static const String topTenRestaurant = "/topTenRestaurant";
   static const String notification = "/notification";
+  static const String food = "/food";
 }
