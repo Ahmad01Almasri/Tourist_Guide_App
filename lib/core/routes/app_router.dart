@@ -14,8 +14,14 @@ import '../widgets/custom_bottom_navigation_bar.dart';
 final GoRouter router = GoRouter(
   routes: [
     GoRoute(
-      path: AppNamePage.splashPage,
+      path: AppNamePage.homePage,
       builder: (context, state) => const MyBottomNavigationBar(),
+      routes: [
+        GoRoute(
+          path: AppNamePage.food,
+          builder: (context, state) => const FoodPage(),
+        ),
+      ],
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -34,20 +40,12 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const CitySelectionPage(),
     ),
     GoRoute(
-      path: AppNamePage.homePage,
-      builder: (context, state) => const HomePage(),
-    ),
-    GoRoute(
       path: AppNamePage.topTenRestaurant,
       builder: (context, state) => const TopTenResturantPage(),
     ),
     GoRoute(
       path: AppNamePage.notification,
       builder: (context, state) => const NotificationsPage(),
-    ),
-    GoRoute(
-      path: AppNamePage.food,
-      builder: (context, state) => const FoodPage(),
     ),
   ],
 );
