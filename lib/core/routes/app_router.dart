@@ -3,6 +3,7 @@ import 'package:tourist_guide/features/auth/presentation/pages/login.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/signup.dart';
 import 'package:tourist_guide/features/food/presentation/pages/food.dart';
 import 'package:tourist_guide/features/home/presentation/pages/home.dart';
+import 'package:tourist_guide/features/hotel/presentation/pages/hotel.dart';
 import 'package:tourist_guide/features/notification/presentation/pages/notification.dart';
 import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
 
@@ -14,14 +15,8 @@ import '../widgets/custom_bottom_navigation_bar.dart';
 final GoRouter router = GoRouter(
   routes: [
     GoRoute(
-      path: AppNamePage.homePage,
+      path: AppNamePage.splashPage,
       builder: (context, state) => const MyBottomNavigationBar(),
-      routes: [
-        GoRoute(
-          path: AppNamePage.food,
-          builder: (context, state) => const FoodPage(),
-        ),
-      ],
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -40,12 +35,24 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const CitySelectionPage(),
     ),
     GoRoute(
+      path: AppNamePage.homePage,
+      builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
       path: AppNamePage.topTenRestaurant,
       builder: (context, state) => const TopTenResturantPage(),
     ),
     GoRoute(
       path: AppNamePage.notification,
       builder: (context, state) => const NotificationsPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.food,
+      builder: (context, state) => const FoodPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.hotel,
+      builder: (context, state) => const HotelPage(),
     ),
   ],
 );

@@ -57,7 +57,8 @@ abstract class AppStrings {
       //!Notifications
       notifications = "Notifications",
       unread = '    UnRead    ',
-      read = '    Read    ';
+      read = '    Read    ',
 
-  //!Cart
+      //!Hotel
+      allHotelAvaliable = "All Hotel Avaliable";
 }

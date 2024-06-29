@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/functions/navigation.dart';
+import 'package:tourist_guide/core/utils/app_route_string.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -17,7 +19,9 @@ class CityFeatureSection extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CityFeature(
-            onPressed: () {},
+            onPressed: () {
+              customNavigate(context, AppNamePage.food);
+            },
             featureName: AppStrings.food,
             featurecolor: AppColors.yellowGold,
             icon: Icons.restaurant,
@@ -25,7 +29,9 @@ class CityFeatureSection extends StatelessWidget {
           CityFeature(
             featureName: AppStrings.hotel,
             featurecolor: AppColors.purple,
-            onPressed: () {},
+            onPressed: () {
+              customNavigate(context, AppNamePage.hotel);
+            },
             icon: Icons.apartment,
           ),
           CityFeature(

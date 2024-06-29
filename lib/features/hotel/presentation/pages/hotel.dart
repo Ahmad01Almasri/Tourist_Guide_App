@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/card_restaurant_hotel_item.dart';
-import '../../../hotel/presentation/widgets/top_hotel.dart';
+import '../widgets/top_hotel.dart';
 
-class TopTenResturantPage extends StatelessWidget {
-  const TopTenResturantPage({super.key});
+class HotelPage extends StatelessWidget {
+  const HotelPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,6 @@ class TopTenResturantPage extends StatelessWidget {
                 ),
               ),
             ),
-            // Add more widgets here below TopRestaurantPage
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(

@@ -9,4 +9,5 @@ abstract class AppNamePage {
   static const String topTenRestaurant = "/topTenRestaurant";
   static const String notification = "/notification";
   static const String food = "/food";
+  static const String hotel = "/hotel";
 }
