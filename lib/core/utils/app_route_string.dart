@@ -10,4 +10,5 @@ abstract class AppNamePage {
   static const String notification = "/notification";
   static const String food = "/food";
   static const String hotel = "/hotel";
+  static const String map = "/map";
 }

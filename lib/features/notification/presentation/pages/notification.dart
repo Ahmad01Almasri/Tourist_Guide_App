@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/app_strings.dart';
 import '../../data/models/notification_model.dart';
 import '../widgets/card_notification.dart';
 import '../widgets/switch_read_unread.dart';
-import '../widgets/top.dart';
+import '../../../../core/widgets/custom_top_page_bar.dart';
 
 class NotificationsPage extends StatefulWidget {
   const NotificationsPage({Key? key}) : super(key: key);
@@ -90,7 +91,9 @@ class _NotificationsPageState extends State<NotificationsPage> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const TopNotifcationBar(),
+            const CustomTopPageBar(
+              pageName: AppStrings.notifications,
+            ),
             const SizedBox(height: 30),
             SwitchButtonReadUnRead(
                 selectedTabIndex: _selectedTabIndex,

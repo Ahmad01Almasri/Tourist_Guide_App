@@ -60,5 +60,7 @@ abstract class AppStrings {
       read = '    Read    ',
 
       //!Hotel
-      allHotelAvaliable = "All Hotel Avaliable";
+      allHotelAvaliable = "All Hotel Avaliable",
+      //! Map Strings
+      syriaMap = "Syria Map";
 }

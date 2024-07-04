@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/app_text_styles.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_text_styles.dart';
 
-class TopNotifcationBar extends StatelessWidget {
-  const TopNotifcationBar({
+class CustomTopPageBar extends StatelessWidget {
+  final String pageName;
+  const CustomTopPageBar({
     super.key,
+    required this.pageName,
   });
 
   @override
@@ -16,7 +17,7 @@ class TopNotifcationBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Center(
         child: Text(
-          AppStrings.notifications,
+          pageName,
           style: AppTextStyles.poppinsBoldstyle18.copyWith(
             color: AppColors.white,
             fontSize: 25,

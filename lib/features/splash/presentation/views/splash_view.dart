@@ -57,7 +57,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               getIt<CacheHelper>().getData(key: AppStorageKey.isSelectedCity) ??
                   false;
           if (isSelectedCity) {
-            customReplacementNavigate(context, AppNamePage.homePage);
+            customReplacementNavigate(
+                context, AppNamePage.myBottomNavigationBar);
           } else {
             customReplacementNavigate(context, AppNamePage.citySelectionPage);
           }

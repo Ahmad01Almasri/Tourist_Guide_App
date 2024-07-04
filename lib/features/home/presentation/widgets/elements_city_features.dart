@@ -38,7 +38,9 @@ class CityFeatureSection extends StatelessWidget {
             featureName: AppStrings.map,
             featurecolor: AppColors.green,
             icon: Icons.map,
-            onPressed: () {},
+            onPressed: () {
+              customNavigate(context, AppNamePage.map);
+            },
           ),
           CityFeature(
             featureName: AppStrings.historical,
