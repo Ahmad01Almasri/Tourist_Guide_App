@@ -22,7 +22,7 @@ class BottomMapPageBar extends StatelessWidget {
         color: AppColors.primaryColor,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
+            color: AppColors.black,
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3),
@@ -34,8 +34,8 @@ class BottomMapPageBar extends StatelessWidget {
         itemCount: _governorates.length,
         itemBuilder: (context, index) {
           final governorate = _governorates[index];
-          return GestureDetector(
-            onTap: () {
+          return MaterialButton(
+            onPressed: () {
               final newCenter = LatLng(governorate['lat'], governorate['lng']);
               context.read<MapState>().zoomToGovernorate(newCenter);
             },
