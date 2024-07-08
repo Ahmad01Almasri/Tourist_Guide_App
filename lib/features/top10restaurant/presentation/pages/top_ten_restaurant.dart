@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/features/top10restaurant/data/models/top_ten_restaurant.dart';
 
 import '../../../../core/widgets/card_restaurant_hotel_item.dart';
 import '../../../hotel/presentation/widgets/top_hotel.dart';
 
 class TopTenResturantPage extends StatelessWidget {
-  const TopTenResturantPage({super.key});
-
+  TopTenResturantPage({super.key});
+  List<TopTenRestaurantModel> hotelList = [
+    TopTenRestaurantModel(
+      itemName: "itemName",
+      isFavorite: true,
+      itemModern: "itemModern",
+      itemRate: 4.5,
+      itemLocation: "itemLocation",
+      itemImage: "assets/images/images (1).jpg",
+    ),
+    TopTenRestaurantModel(
+        isFavorite: true,
+        itemName: "bbbb",
+        itemModern: "itemModern",
+        itemRate: 4.5,
+        itemLocation: "itemLocation",
+        itemImage: "assets/images/images (1).jpg")
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,12 +37,17 @@ class TopTenResturantPage extends StatelessWidget {
                   itemCount: 10,
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: CardRestaurantOrHotelItem(),
+                    child: CardRestaurantOrHotelItem(
+                      itemImage: hotelList[index].itemImage,
+                      itemLocation: hotelList[index].itemLocation,
+                      itemModern: hotelList[index].itemModern,
+                      itemName: hotelList[index].itemName,
+                      itemRate: hotelList[index].itemRate,
+                    ),
                   ),
                 ),
               ),
             ),
-            // Add more widgets here below TopRestaurantPage
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(

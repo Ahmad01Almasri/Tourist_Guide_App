@@ -35,11 +35,11 @@ class CityFeatureSection extends StatelessWidget {
             icon: Icons.apartment,
           ),
           CityFeature(
-            featureName: AppStrings.map,
-            featurecolor: AppColors.green,
-            icon: Icons.map,
+            featureName: AppStrings.favorite,
+            featurecolor: AppColors.red,
+            icon: Icons.favorite,
             onPressed: () {
-              customNavigate(context, AppNamePage.map);
+              customNavigate(context, AppNamePage.favorite);
             },
           ),
           CityFeature(

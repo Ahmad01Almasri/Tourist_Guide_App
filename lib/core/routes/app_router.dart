@@ -9,6 +9,7 @@ import 'package:tourist_guide/features/notification/presentation/pages/notificat
 import 'package:tourist_guide/features/splash/presentation/views/splash_view.dart';
 import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
 
+import '../../features/favorite/presentation/pages/favorite.dart';
 import '../../features/home/presentation/pages/city_selection.dart';
 import '../../features/map/presentation/pages/map_page.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -23,7 +24,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => const SplashPage(),
+      builder: (context, state) => HotelPage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -58,7 +59,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.topTenRestaurant,
       // parentNavigatorKey: _shellNavigatorKey,
-      builder: (context, state) => const TopTenResturantPage(),
+      builder: (context, state) => TopTenResturantPage(),
     ),
     GoRoute(
       path: AppNamePage.notification,
@@ -73,12 +74,17 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.hotel,
       // parentNavigatorKey: _shellNavigatorKey,
-      builder: (context, state) => const HotelPage(),
+      builder: (context, state) => HotelPage(),
     ),
     GoRoute(
       path: AppNamePage.map,
       // parentNavigatorKey: _shellNavigatorKey,
       builder: (context, state) => const MapPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.favorite,
+      // parentNavigatorKey: _shellNavigatorKey,
+      builder: (context, state) => const FavoritePage(),
     ),
   ],
 );

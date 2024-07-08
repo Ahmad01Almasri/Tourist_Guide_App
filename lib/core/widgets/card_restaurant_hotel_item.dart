@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
 
 class CardRestaurantOrHotelItem extends StatelessWidget {
+  final String itemName;
+  final String itemModern;
+  final double itemRate;
+  final String itemLocation;
+  final String itemImage;
+
   const CardRestaurantOrHotelItem({
     super.key,
+    required this.itemName,
+    required this.itemModern,
+    required this.itemRate,
+    required this.itemLocation,
+    required this.itemImage,
   });
 
   @override
@@ -25,11 +35,11 @@ class CardRestaurantOrHotelItem extends StatelessWidget {
               height: 135,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                image: const DecorationImage(
+                image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage(
-                    "assets/images/images (1).jpg",
-                  ),
+                  image: AssetImage(itemImage
+                      // ,
+                      ),
                 ),
               ),
             ),
@@ -41,14 +51,15 @@ class CardRestaurantOrHotelItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Beroea",
+                    itemName,
                     style: AppTextStyles.poppinsThinW6000style22,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   Text(
-                    "Modern European",
+                    itemModern,
+                    // "Modern European",
                     style: AppTextStyles.poppinsW500style16,
                   ),
                   const SizedBox(
@@ -57,14 +68,14 @@ class CardRestaurantOrHotelItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "4.7",
+                        itemRate.toString(),
                         style: AppTextStyles.poppinsW500style16,
                       ),
                       const SizedBox(
                         width: 5,
                       ),
                       RatingBarIndicator(
-                        rating: 4.5,
+                        rating: itemRate,
                         itemBuilder: (context, index) => const Icon(
                           Icons.star,
                           color: Colors.yellow,
@@ -91,7 +102,8 @@ class CardRestaurantOrHotelItem extends StatelessWidget {
                               left:
                                   4.0), // إضافة padding لترك مسافة صغيرة بين الأيقونة والنص
                           child: Text(
-                            "almerdaan, fares street, 123",
+                            itemLocation,
+                            // "almerdaan, fares street, 123",
                             softWrap: true,
                             overflow: TextOverflow.fade,
                             style: AppTextStyles.poppinsW500style16,
@@ -112,17 +124,6 @@ class CardRestaurantOrHotelItem extends StatelessWidget {
                   color: AppColors.black,
                   size: 30,
                   Icons.favorite_border_outlined,
-                ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  color: AppColors.black,
-                  size: 30,
-                  Icons.add,
                 ),
               ),
             ],
