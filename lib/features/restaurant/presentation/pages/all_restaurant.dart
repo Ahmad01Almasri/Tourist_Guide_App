@@ -8,14 +8,14 @@ import '../../../../core/widgets/custom_bottom_navigation_bar.dart';
 import '../../../../core/widgets/text_form_search.dart';
 import '../../../home/presentation/widgets/popular_item_section.dart';
 
-class FoodPage extends StatefulWidget {
-  const FoodPage({super.key});
+class ALlRestaurantPage extends StatefulWidget {
+  const ALlRestaurantPage({super.key});
 
   @override
-  State<FoodPage> createState() => _FoodPageState();
+  State<ALlRestaurantPage> createState() => _ALlRestaurantPageState();
 }
 
-class _FoodPageState extends State<FoodPage> {
+class _ALlRestaurantPageState extends State<ALlRestaurantPage> {
   TextEditingController shearchInCitySelectionController =
       TextEditingController();
   @override

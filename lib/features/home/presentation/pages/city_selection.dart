@@ -66,9 +66,12 @@ class _CitySelectionPageState extends State<CitySelectionPage>
             child: CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
-                    child: SmoothImagesIndicator(
-                  currentPage: _currentPage,
-                  pageController: _pageController,
+                    child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SmoothImagesIndicator(
+                    currentPage: _currentPage,
+                    pageController: _pageController,
+                  ),
                 )),
                 const SliverToBoxAdapter(
                   child: SizedBox(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/functions/navigation.dart';
+import 'package:tourist_guide/core/utils/app_route_string.dart';
 
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -29,7 +31,9 @@ class PopularItemSection extends StatelessWidget {
             children: [
               CardPopularOrAllItem(
                 image: AppAssets.imagesOnBoarding1,
-                onTap: () {},
+                onTap: () {
+                  customNavigate(context, AppNamePage.topTenRestaurant);
+                },
                 itemName: AppStrings.topTenRestaurant,
               ),
               CardPopularOrAllItem(

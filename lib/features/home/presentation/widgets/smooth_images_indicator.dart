@@ -15,9 +15,9 @@ class SmoothImagesIndicator extends StatelessWidget {
     return Column(
       children: [
         Padding(
-            padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
+            padding: const EdgeInsets.only(top: 0, right: 0, left: 0),
             child: SizedBox(
-              height: 250,
+              height: 270,
               child: PageView.builder(
                 controller: pageController,
                 itemCount: images.length,

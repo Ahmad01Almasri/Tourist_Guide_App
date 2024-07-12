@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
 
 class TopRestaurantOrHotelBar extends StatelessWidget {
+  final String topText;
   const TopRestaurantOrHotelBar({
     super.key,
+    required this.topText,
   });
 
   @override
@@ -36,7 +37,7 @@ class TopRestaurantOrHotelBar extends StatelessWidget {
                 ),
                 const SizedBox(width: 30),
                 Text(
-                  AppStrings.allHotelAvaliable,
+                  topText,
                   style: AppTextStyles.poppinsBoldstyle24.copyWith(
                     color: AppColors.white,
                   ),

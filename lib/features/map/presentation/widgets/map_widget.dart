@@ -29,15 +29,13 @@ class MyMapWidget extends StatelessWidget {
                   maxZoom: 18.0,
                   minZoom: 1.0,
                   onPositionChanged: (position, hasGesture) {
-                    mapState.updateCenter(
-                        position.center); // No need to check for null
+                    mapState.updateCenter(position.center);
                   },
                 ),
                 children: [
                   TileLayer(
                     urlTemplate:
-                        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                    subdomains: const ['a', 'b', 'c'],
+                        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                     userAgentPackageName: 'com.example.app',
                   ),
                 ],

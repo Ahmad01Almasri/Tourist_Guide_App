@@ -7,6 +7,7 @@ import 'core/services/service_locator.dart';
 import 'core/utils/app_colors.dart';
 import 'core/services/shared_preferences_service.dart';
 import 'core/utils/app_strings.dart';
+import 'features/hotel/presentation/provider/favorite_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,12 +15,13 @@ void main() async {
   setupServiceLocator();
   await getIt<CacheHelper>().init();
   await SharedPreferencesService.init();
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => BottomNavigationModel(),
-      child: const MyApp(),
-    ),
-  );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => BottomNavigationModel()),
+      ChangeNotifierProvider(create: (context) => FavoriteProvider()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

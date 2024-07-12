@@ -59,8 +59,14 @@ abstract class AppStrings {
       unread = '    UnRead    ',
       read = '    Read    ',
 
-      //!Hotel
+      //!ALl Hotel
       allHotelAvaliable = "All Hotel Avaliable",
+      //! Hotel
+      goToLocation = "Go To Location",
+      writeSomethingHere = "write something here...",
+      location = "Location :",
+      reat = "Rate :",
+      description = "Description :",
       //! Map Strings
       syriaMap = "Syria Map";
 }

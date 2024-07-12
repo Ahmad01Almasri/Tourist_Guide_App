@@ -20,7 +20,7 @@ class CityFeatureSection extends StatelessWidget {
         children: [
           CityFeature(
             onPressed: () {
-              customNavigate(context, AppNamePage.food);
+              customNavigate(context, AppNamePage.allRestaurant);
             },
             featureName: AppStrings.food,
             featurecolor: AppColors.yellowGold,
@@ -30,7 +30,7 @@ class CityFeatureSection extends StatelessWidget {
             featureName: AppStrings.hotel,
             featurecolor: AppColors.purple,
             onPressed: () {
-              customNavigate(context, AppNamePage.hotel);
+              customNavigate(context, AppNamePage.allHotel);
             },
             icon: Icons.apartment,
           ),

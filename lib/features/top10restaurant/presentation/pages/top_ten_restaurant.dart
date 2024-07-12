@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tourist_guide/features/top10restaurant/data/models/top_ten_restaurant.dart';
 
-import '../../../../core/widgets/card_restaurant_hotel_item.dart';
+import '../../../../core/utils/app_strings.dart';
+import '../../../../core/widgets/card_item.dart';
 import '../../../hotel/presentation/widgets/top_hotel.dart';
 
 class TopTenResturantPage extends StatelessWidget {
   TopTenResturantPage({super.key});
-  List<TopTenRestaurantModel> hotelList = [
+  List<TopTenRestaurantModel> restaurantList = [
     TopTenRestaurantModel(
       itemName: "itemName",
       isFavorite: true,
@@ -29,30 +30,26 @@ class TopTenResturantPage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            const TopRestaurantOrHotelBar(),
+            const TopRestaurantOrHotelBar(
+              topText: AppStrings.topTenRestaurant,
+            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CardRestaurantOrHotelItem(
-                      itemImage: hotelList[index].itemImage,
-                      itemLocation: hotelList[index].itemLocation,
-                      itemModern: hotelList[index].itemModern,
-                      itemName: hotelList[index].itemName,
-                      itemRate: hotelList[index].itemRate,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Add more widgets here',
-                style: TextStyle(fontSize: 18.0, color: Colors.black12),
+                // child: ListView.builder(
+                //   itemCount: restaurantList.length,
+                //   itemBuilder: (context, index) => Padding(
+                //     padding: const EdgeInsets.all(8.0),
+                //     child: CardRestaurantOrHotelItem(
+                //       initialFavorite: restaurantList[index].isFavorite,
+                //       itemImage: restaurantList[index].itemImage,
+                //       itemLocation: restaurantList[index].itemLocation,
+                //       itemModern: restaurantList[index].itemModern,
+                //       itemName: restaurantList[index].itemName,
+                //       itemRate: restaurantList[index].itemRate,
+                //     ),
+                //   ),
+                // ),
               ),
             ),
           ],
