@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
-class Post extends Equatable {
+class User extends Equatable {
   final String username;
   final String email;
   final String password;
 
-  const Post({
+  const User({
     required this.username,
     required this.email,
     required this.password,

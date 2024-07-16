@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
 
-abstract class PostsRepository {
-  Future<Either<Failure, Unit>> deletePost(int id);
-  Future<Either<Failure, Unit>> updatePost(Post post);
-  Future<Either<Failure, Unit>> addPost(Post post);
+import '../../../../core/error/failures.dart';
+import '../entities/user.dart';
+
+abstract class UserRepository {
+  Future<Either<Failure, Unit>> signupUser(User user);
+  Future<Either<Failure, Unit>> loginUser(User user);
 }

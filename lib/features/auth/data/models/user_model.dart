@@ -1,11 +1,11 @@
 import '../../domain/entities/user.dart';
 
-class PostModel extends Post {
-  const PostModel(
+class UserModel extends User {
+  const UserModel(
       {required super.username, required super.email, required super.password});
 
-  factory PostModel.fromJson(Map<String, dynamic> json) {
-    return PostModel(
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
         username: json['username'],
         password: json['password'],
         email: json['email']);

@@ -12,8 +12,7 @@ abstract class AppStrings {
       //!Auth Strings
       welcome = "Welcome!",
       welcomeBack = "Welcome Back!",
-      fristName = "First Name",
-      lastName = "Last Name",
+      userName = "User Name",
       emailAddress = "Email Address",
       password = "Password",
       confirmPassword = "confirm Password",
@@ -68,5 +67,11 @@ abstract class AppStrings {
       reat = "Rate :",
       description = "Description :",
       //! Map Strings
-      syriaMap = "Syria Map";
+      syriaMap = "Syria Map",
+      SERVER_FAILURE_MESSAGE = 'Please try again later .',
+      EMPTY_CACHE_FAILURE_MESSAGE = 'No Data',
+      ADD_SUCCESS_MESSAGE = "Post Added Successfully",
+      DELETE_SUCCESS_MESSAGE = "Post Deleted Successfully",
+      UPDATE_SUCCESS_MESSAGE = "Post Updated Successfully",
+      OFFLINE_FAILURE_MESSAGE = 'Please Check your Internet Connection';
 }
