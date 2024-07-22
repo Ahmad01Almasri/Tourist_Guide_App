@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "668392408280",
+    "project_id": "notification-18e27",
+    "storage_bucket": "notification-18e27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668392408280:android:cf5eb0832e48c9398f03ad",
+        "android_client_info": {
+          "package_name": "com.example.tourist_guide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBikiO4fJlgDXASiOtdUL7hZkvj3a-M3iU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
