@@ -9,7 +9,7 @@ class LoginUserUsecase {
 
   LoginUserUsecase(this.repository);
 
-  Future<Either<Failure, Unit>> call(User user) async {
-    return await repository.loginUser(user);
+  Future<Either<Failure, Unit>> call(User2 user2) async {
+    return await repository.loginUser(user2);
   }
 }

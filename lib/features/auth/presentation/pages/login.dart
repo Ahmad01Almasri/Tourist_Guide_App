@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tourist_guide/core/utils/app_assets.dart';
 import 'package:tourist_guide/core/utils/app_colors.dart';
 import 'package:tourist_guide/core/utils/app_strings.dart';
 
 import '../../../../core/functions/navigation.dart';
+import '../../../../core/services/shared_preferences_service.dart';
 import '../../../../core/utils/app_route_string.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../functions/is_auth.dart';
+import '../../../../core/widgets/loading_widget.dart';
+import '../../../../core/widgets/snackbar_message.dart';
+import '../../domain/entities/user.dart';
+import '../bloc/user_bloc.dart';
 import '../widgets/button_app.dart';
 import '../widgets/row_icon_social_media.dart';
 import '../../../../core/widgets/custom_text_field.dart';
@@ -87,9 +92,13 @@ class _LoginState extends State<Login> {
                     title: AppStrings.signIn,
                     onPressed: () {
                       if (formstate.currentState!.validate()) {
-                        isAuth();
-                        customReplacementNavigate(
-                            context, AppNamePage.citySelectionPage);
+                        final user2 = User2(
+                          email: emailTextController.text,
+                          password: passwordTextController.text,
+                        );
+                        context
+                            .read<UserBloc>()
+                            .add(LoginUserEvent(user2: user2));
                       }
                     },
                   ),
@@ -121,7 +130,33 @@ class _LoginState extends State<Login> {
                   const Padding(
                     padding: EdgeInsets.only(top: 35),
                     child: RowIconsSocialMedia(),
-                  )
+                  ),
+                  BlocConsumer<UserBloc, UserState>(
+                    listener: (context, state) {
+                      if (state is SuccsessUserState) {
+                        print("Success: ${state.message}");
+
+                        SnackBarMessage().showSuccessSnackBar(
+                            message: state.message, context: context);
+
+                        SharedPreferencesService.isAuth();
+
+                        customReplacementNavigate(
+                            context, AppNamePage.citySelectionPage);
+                      } else if (state is ErrorUserState) {
+                        print("Error: ${state.message}");
+                        SnackBarMessage().showErrorSnackBar(
+                            message: state.message, context: context);
+                      }
+                    },
+                    builder: (context, state) {
+                      if (state is LoadingUserState) {
+                        print("Loading...");
+                        return LoadingWidget();
+                      }
+                      return Container();
+                    },
+                  ),
                 ],
               ),
             ),

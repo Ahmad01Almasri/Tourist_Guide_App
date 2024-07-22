@@ -13,13 +13,10 @@ typedef Future<Unit> SignUpOrLoginUser();
 
 class UsersRepositoryImpl implements UserRepository {
   final UserRemoteDataSource remoteDataSource;
-  // final PostLocalDataSource localDataSource;
   final NetworkInfo networkInfo;
 
   UsersRepositoryImpl(
-      {required this.remoteDataSource,
-      // required this.localDataSource,
-      required this.networkInfo});
+      {required this.remoteDataSource, required this.networkInfo});
 
   @override
   Future<Either<Failure, Unit>> signupUser(User user) async {
@@ -30,23 +27,6 @@ class UsersRepositoryImpl implements UserRepository {
       return remoteDataSource.signupUser(userModel);
     });
   }
-
-  // @override
-  // Future<Either<Failure, Unit>> deletePost(int postId) async {
-  //   return await _getMessage(() {
-  //     return remoteDataSource.deletePost(postId);
-  //   });
-  // }
-
-  // @override
-  // Future<Either<Failure, Unit>> updatePost(Post post) async {
-  //   final PostModel postModel =
-  //       PostModel(id: post.id, title: post.title, body: post.body);
-
-  //   return await _getMessage(() {
-  //     return remoteDataSource.updatePost(postModel);
-  //   });
-  // }
 
   Future<Either<Failure, Unit>> _getMessage(
       SignUpOrLoginUser signUpOrLoginUser) async {
@@ -63,8 +43,12 @@ class UsersRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> loginUser(User user) {
-    // TODO: implement loginUser
-    throw UnimplementedError();
+  Future<Either<Failure, Unit>> loginUser(User2 user2) async {
+    final UserModel2 userModel2 =
+        UserModel2(email: user2.email, password: user2.password);
+
+    return await _getMessage(() {
+      return remoteDataSource.loginUser(userModel2);
+    });
   }
 }

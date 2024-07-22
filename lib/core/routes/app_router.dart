@@ -25,7 +25,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => const HotelPage(),
+      builder: (context, state) => const SplashPage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -33,14 +33,14 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const OnBoardingView(),
     ),
     GoRoute(
-      path: AppNamePage.signUpPage,
-      // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => const SignUp(),
-    ),
-    GoRoute(
       path: AppNamePage.signInPage,
       // parentNavigatorKey: _rootNavigatorKey,
       builder: (context, state) => const Login(),
+    ),
+    GoRoute(
+      path: AppNamePage.signUpPage,
+      // parentNavigatorKey: _rootNavigatorKey,
+      builder: (context, state) => const SignUp(),
     ),
     GoRoute(
       path: AppNamePage.citySelectionPage,

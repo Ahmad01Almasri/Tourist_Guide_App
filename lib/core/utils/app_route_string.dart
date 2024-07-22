@@ -12,7 +12,6 @@ abstract class AppNamePage {
   static const String allHotel = "/allHotel";
   static const String restaurant = "/restaurant";
   static const String hotel = "/hotel";
-
   static const String map = "/map";
   static const String favorite = "/favorite";
 }

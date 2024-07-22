@@ -20,10 +20,10 @@ class ErrorUserState extends UserState {
   List<Object> get props => [message];
 }
 
-class MessageUserState extends UserState {
+class SuccsessUserState extends UserState {
   final String message;
 
-  const MessageUserState({required this.message});
+  const SuccsessUserState({required this.message});
 
   @override
   List<Object> get props => [message];

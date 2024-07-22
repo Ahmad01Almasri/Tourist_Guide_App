@@ -15,3 +15,12 @@ class SignUpUserEvent extends UserEvent {
   @override
   List<Object> get props => [user];
 }
+
+class LoginUserEvent extends UserEvent {
+  final User2 user2;
+
+  const LoginUserEvent({required this.user2});
+
+  @override
+  List<Object> get props => [user2];
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/functions/navigation.dart';
+import '../../../../core/services/shared_preferences_service.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_route_string.dart';
@@ -10,10 +11,8 @@ import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../core/widgets/loading_widget.dart';
 import '../../../../core/widgets/snackbar_message.dart';
-import '../../../home/presentation/pages/city_selection.dart';
 import '../../domain/entities/user.dart';
 import '../bloc/user_bloc.dart';
-import '../functions/is_auth.dart';
 import '../widgets/button_app.dart';
 import '../widgets/row_icon_social_media.dart';
 
@@ -159,11 +158,12 @@ class _SignUpState extends State<SignUp> {
                   ),
                   BlocConsumer<UserBloc, UserState>(
                     listener: (context, state) {
-                      if (state is MessageUserState) {
+                      if (state is SuccsessUserState) {
                         print("ttttttttttttttttttttttttt");
                         SnackBarMessage().showSuccessSnackBar(
                             message: state.message, context: context);
-                        // isAuth();
+                        SharedPreferencesService.isAuth();
+
                         customReplacementNavigate(
                             context, AppNamePage.citySelectionPage);
                       } else if (state is ErrorUserState) {

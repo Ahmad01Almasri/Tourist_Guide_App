@@ -1,6 +1,6 @@
 abstract class AppStrings {
   //ToDo:All Strings
-
+  static const String baseUrl = "https://node-saleh.onrender.com/api";
   static const String appName = "Syravel";
   static const String appFont = "Poppins",
       //!On Boarding Strings
@@ -70,7 +70,7 @@ abstract class AppStrings {
       syriaMap = "Syria Map",
       SERVER_FAILURE_MESSAGE = 'Please try again later .',
       EMPTY_CACHE_FAILURE_MESSAGE = 'No Data',
-      ADD_SUCCESS_MESSAGE = "Post Added Successfully",
+      ADD_SUCCESS_MESSAGE = "User  Successfully",
       DELETE_SUCCESS_MESSAGE = "Post Deleted Successfully",
       UPDATE_SUCCESS_MESSAGE = "Post Updated Successfully",
       OFFLINE_FAILURE_MESSAGE = 'Please Check your Internet Connection';

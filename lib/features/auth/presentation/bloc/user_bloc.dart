@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:tourist_guide/core/utils/app_strings.dart';
 import 'package:tourist_guide/features/auth/domain/entities/user.dart';
+import 'package:tourist_guide/features/auth/domain/use_cases/login_usecase.dart';
 import 'package:tourist_guide/features/auth/domain/use_cases/signup_usecase.dart';
 
 import '../../../../core/error/failures.dart';
@@ -12,7 +13,9 @@ part 'user_state.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   final SignUpUserUsecase signUpUser;
-  UserBloc({required this.signUpUser}) : super(UserInitial()) {
+  final LoginUserUsecase loginUser;
+  UserBloc({required this.signUpUser, required this.loginUser})
+      : super(UserInitial()) {
     on<UserEvent>((event, emit) async {
       if (event is SignUpUserEvent) {
         emit(LoadingUserState());
@@ -25,16 +28,16 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         );
       }
 
-      //  else if (event is UpdatePostEvent) {
-      //   emit(LoadingAddDeleteUpdatePostState());
+      if (event is LoginUserEvent) {
+        emit(LoadingUserState());
 
-      //   final failureOrDoneMessage = await updatePost(event.post);
+        final failureOrDoneMessage = await loginUser(event.user2);
 
-      //   emit(
-      //     _eitherDoneMessageOrErrorState(
-      //         failureOrDoneMessage, AppStrings.UPDATE_SUCCESS_MESSAGE),
-      //   );
-      // }
+        emit(
+          _eitherDoneMessageOrErrorState(
+              failureOrDoneMessage, AppStrings.ADD_SUCCESS_MESSAGE),
+        );
+      }
     });
   }
 
@@ -44,7 +47,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       (failure) => ErrorUserState(
         message: _mapFailureToMessage(failure),
       ),
-      (_) => MessageUserState(message: message),
+      (_) => SuccsessUserState(message: message),
     );
   }
 

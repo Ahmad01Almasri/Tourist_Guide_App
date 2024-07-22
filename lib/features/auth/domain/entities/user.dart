@@ -14,3 +14,16 @@ class User extends Equatable {
   @override
   List<Object?> get props => [username, email, password];
 }
+
+class User2 extends Equatable {
+  final String email;
+  final String password;
+
+  const User2({
+    required this.email,
+    required this.password,
+  });
+
+  @override
+  List<Object?> get props => [email, password];
+}

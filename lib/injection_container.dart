@@ -19,7 +19,7 @@ Future<void> init() async {
 //! Features - posts
 
 // Bloc
-  sl.registerFactory(() => UserBloc(signUpUser: sl()));
+  sl.registerFactory(() => UserBloc(signUpUser: sl(), loginUser: sl()));
 
 // Usecases
   sl.registerLazySingleton(() => LoginUserUsecase(sl()));

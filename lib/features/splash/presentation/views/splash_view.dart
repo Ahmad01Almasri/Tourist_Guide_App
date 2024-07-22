@@ -8,6 +8,7 @@ import 'package:tourist_guide/extensions/widget_extensions.dart';
 import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/services/service_locator.dart';
+import '../../../../core/services/shared_preferences_service.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_constants.dart';
 import '../../../../core/utils/app_padding.dart';
@@ -50,9 +51,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               .getData(key: AppStorageKey.isOnBoardingVisited) ??
           false;
       if (isOnBoardingVisited) {
-        bool isAuth =
-            getIt<CacheHelper>().getData(key: AppStorageKey.isAuth) ?? false;
-        if (isAuth) {
+        print("SharedPreferencesService${SharedPreferencesService.isAuth()}");
+        if (SharedPreferencesService.isAuth()) {
           bool isSelectedCity =
               getIt<CacheHelper>().getData(key: AppStorageKey.isSelectedCity) ??
                   false;
