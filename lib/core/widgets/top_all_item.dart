@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_assets.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_text_styles.dart';
+import '../utils/app_assets.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_text_styles.dart';
 
-class TopRestaurantOrHotelBar extends StatelessWidget {
+class TopAllItemBar extends StatelessWidget {
   final String topText;
-  const TopRestaurantOrHotelBar({
+  const TopAllItemBar({
     super.key,
     required this.topText,
   });

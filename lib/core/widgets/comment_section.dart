@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/widgets/custom_text_field.dart';
+import '../utils/app_strings.dart';
+import 'custom_text_field.dart';
 
 class CommentSection extends StatelessWidget {
   const CommentSection({

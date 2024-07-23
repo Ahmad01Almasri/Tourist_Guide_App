@@ -1,5 +1,10 @@
 import 'package:tourist_guide/features/auth/data/repositories_impl/user_repo_imp.dart';
 import 'package:tourist_guide/features/auth/domain/repositories/user_repo.dart';
+import 'package:tourist_guide/features/historical/data/data_sources/historical_remote_data_source.dart';
+import 'package:tourist_guide/features/historical/data/repositories_impl/historical_repo_impl.dart';
+import 'package:tourist_guide/features/historical/domain/repositories/histprical_repository.dart';
+import 'package:tourist_guide/features/historical/domain/use_cases/get_all_historicals.dart';
+import 'package:tourist_guide/features/historical/presentation/blocs/historicals_bloc.dart';
 
 import 'core/network/network_info.dart';
 
@@ -16,24 +21,28 @@ import 'features/auth/presentation/bloc/user_bloc.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-//! Features - posts
+//! Features
 
 // Bloc
   sl.registerFactory(() => UserBloc(signUpUser: sl(), loginUser: sl()));
+  sl.registerFactory(() => HistoricalBloc(getAllHistorical: sl()));
 
 // Usecases
   sl.registerLazySingleton(() => LoginUserUsecase(sl()));
   sl.registerLazySingleton(() => SignUpUserUsecase(sl()));
-
+  sl.registerLazySingleton(() => GetAllHistoricalUsecase(sl()));
 // Repository
   sl.registerLazySingleton<UserRepository>(
       () => UsersRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
-
+  sl.registerLazySingleton<HistoricalRepository>(() =>
+      HistoricalRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
 // Datasources
 
   sl.registerLazySingleton<UserRemoteDataSource>(
       () => UserRemoteDataSourceImpl(client: sl()));
 
+  sl.registerLazySingleton<HistoricalRemoteDataSource>(
+      () => HistoricalRemoteDataSourceImpl(client: sl()));
 //! Core
 
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));

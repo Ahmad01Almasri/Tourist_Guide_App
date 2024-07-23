@@ -66,12 +66,14 @@ abstract class AppStrings {
       location = "Location :",
       reat = "Rate :",
       description = "Description :",
+      //!ALl Historical
+      someHistoricalPlace = "Some Historical Place",
       //! Map Strings
       syriaMap = "Syria Map",
       SERVER_FAILURE_MESSAGE = 'Please try again later .',
       EMPTY_CACHE_FAILURE_MESSAGE = 'No Data',
       ADD_SUCCESS_MESSAGE = "User  Successfully",
-      DELETE_SUCCESS_MESSAGE = "Post Deleted Successfully",
-      UPDATE_SUCCESS_MESSAGE = "Post Updated Successfully",
+      DELETE_SUCCESS_MESSAGE = "Deleted Successfully",
+      UPDATE_SUCCESS_MESSAGE = "Updated Successfully",
       OFFLINE_FAILURE_MESSAGE = 'Please Check your Internet Connection';
 }

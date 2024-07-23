@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/widgets/top_all_item.dart';
 import 'package:tourist_guide/features/top10restaurant/data/models/top_ten_restaurant.dart';
 
 import '../../../../core/utils/app_strings.dart';
-import '../../../../core/widgets/card_item.dart';
-import '../../../hotel/presentation/widgets/top_hotel.dart';
 
 class TopTenResturantPage extends StatelessWidget {
   TopTenResturantPage({super.key});
-  List<TopTenRestaurantModel> restaurantList = [
+  final List<TopTenRestaurantModel> restaurantList = [
     TopTenRestaurantModel(
       itemName: "itemName",
       isFavorite: true,
@@ -26,16 +25,16 @@ class TopTenResturantPage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
         body: Column(
           children: [
-            const TopRestaurantOrHotelBar(
+            TopAllItemBar(
               topText: AppStrings.topTenRestaurant,
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 // child: ListView.builder(
                 //   itemCount: restaurantList.length,
                 //   itemBuilder: (context, index) => Padding(

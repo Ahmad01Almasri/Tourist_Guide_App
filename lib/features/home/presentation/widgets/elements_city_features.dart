@@ -45,7 +45,9 @@ class CityFeatureSection extends StatelessWidget {
           CityFeature(
             featureName: AppStrings.historical,
             featurecolor: AppColors.orange,
-            onPressed: () {},
+            onPressed: () {
+              customNavigate(context, AppNamePage.allHistorical);
+            },
             icon: Icons.castle_outlined,
           ),
         ],

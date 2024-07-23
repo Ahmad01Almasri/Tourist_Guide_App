@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/login.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/signup.dart';
+import 'package:tourist_guide/features/historical/presentation/pages/historical_page.dart';
 import 'package:tourist_guide/features/restaurant/presentation/pages/all_restaurant.dart';
 import 'package:tourist_guide/features/home/presentation/pages/home.dart';
 import 'package:tourist_guide/features/hotel/presentation/pages/all_hotel.dart';
@@ -10,6 +11,7 @@ import 'package:tourist_guide/features/splash/presentation/views/splash_view.dar
 import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
 
 import '../../features/favorite/presentation/pages/favorite.dart';
+import '../../features/historical/presentation/pages/all_historical_page.dart';
 import '../../features/home/presentation/pages/city_selection.dart';
 import '../../features/hotel/presentation/pages/hotel.dart';
 import '../../features/map/presentation/pages/map_page.dart';
@@ -25,7 +27,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => const CitySelectionPage(),
+      builder: (context, state) => AllHistoricalPage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -76,6 +78,16 @@ final GoRouter router = GoRouter(
       path: AppNamePage.allHotel,
       // parentNavigatorKey: _shellNavigatorKey,
       builder: (context, state) => ALlHotelPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.allHistorical,
+      // parentNavigatorKey: _shellNavigatorKey,
+      builder: (context, state) => AllHistoricalPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.historical,
+      // parentNavigatorKey: _shellNavigatorKey,
+      builder: (context, state) => const HistoricalPage(),
     ),
     GoRoute(
       path: AppNamePage.map,

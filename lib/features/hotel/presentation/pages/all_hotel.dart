@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/widgets/card_item.dart';
+import '../../../../core/widgets/top_all_item.dart';
 import '../../data/models/all_hotel_model.dart';
-import '../widgets/top_hotel.dart';
 
 class ALlHotelPage extends StatelessWidget {
   ALlHotelPage({super.key});
@@ -43,24 +43,25 @@ class ALlHotelPage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            const TopRestaurantOrHotelBar(
+            const TopAllItemBar(
               topText: AppStrings.allHotelAvaliable,
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: ListView.builder(
-                  itemCount: hotelList.length,
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CardItem(
-                      onTap: () {},
-                      item: hotelList[index],
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Expanded(
+            //   child: Padding(
+            //     padding: const EdgeInsets.symmetric(horizontal: 15),
+            //     child: ListView.builder(
+            //       itemCount: hotelList.length,
+            //       itemBuilder: (context, index) => Padding(
+            //         padding: const EdgeInsets.all(8.0),
+            //         child:
+            //         //  CardItem(
+            //         //   onTap: () {},
+            //         //   item: hotelList[index],
+            //         // ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

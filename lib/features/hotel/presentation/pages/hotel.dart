@@ -9,8 +9,8 @@ import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/rating_stars.dart';
 import '../../../home/presentation/widgets/smooth_images_indicator.dart';
 import '../../../map/presentation/widgets/slider_map.dart';
-import '../widgets/comment_section.dart';
-import '../widgets/description_section.dart';
+import '../../../../core/widgets/comment_section.dart';
+import '../../../../core/widgets/description_section.dart';
 
 class HotelPage extends StatefulWidget {
   const HotelPage({super.key});

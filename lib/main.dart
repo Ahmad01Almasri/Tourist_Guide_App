@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tourist_guide/core/services/firebase_api.dart';
+import 'package:tourist_guide/features/historical/presentation/blocs/historicals_bloc.dart';
 import 'core/database/cache/cache_helper.dart';
 import 'core/routes/app_router.dart';
 import 'core/services/service_locator.dart';
@@ -42,6 +43,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => di.sl<UserBloc>()),
+        BlocProvider(
+            create: (_) =>
+                di.sl<HistoricalBloc>()..add(GetAllHistoricalsEvent("Aleppo"))),
         ChangeNotifierProvider(create: (context) => FavoriteProvider()),
       ],
       child: MaterialApp.router(

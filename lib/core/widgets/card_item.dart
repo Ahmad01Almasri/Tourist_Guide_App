@@ -7,19 +7,22 @@ import '../utils/app_text_styles.dart';
 import 'rating_stars.dart';
 
 class CardItem extends StatelessWidget {
-  final AllHotelModel item;
   void Function()? onTap;
+  final String itemImage;
+  final String itemName;
+  final String itemModern;
+  final double itemRate;
   CardItem({
     super.key,
-    required this.item,
     required this.onTap,
+    required this.itemImage,
+    required this.itemName,
+    required this.itemModern,
+    required this.itemRate,
   });
 
   @override
   Widget build(BuildContext context) {
-    final favoriteProvider = Provider.of<FavoriteProvider>(context);
-    final isFavorite = favoriteProvider.isFavorite(item.itemName);
-
     return Expanded(
       child: InkWell(
         onTap: onTap,
@@ -38,7 +41,7 @@ class CardItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(item.itemImage),
+                      image: AssetImage(itemImage),
                     ),
                   ),
                 ),
@@ -50,14 +53,14 @@ class CardItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        item.itemName,
+                        itemName,
                         style: AppTextStyles.poppinsThinW6000style22,
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
-                        item.itemModern,
+                        itemModern,
                         style: AppTextStyles.poppinsW500style16,
                       ),
                       const SizedBox(
@@ -66,14 +69,14 @@ class CardItem extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            item.itemRate.toString(),
+                            itemRate.toString(),
                             style: AppTextStyles.poppinsW500style16,
                           ),
                           const SizedBox(
                             width: 5,
                           ),
                           MyRatingBarIndicator(
-                              itemSize: 20, itemRate: item.itemRate),
+                              itemSize: 20, itemRate: itemRate),
                         ],
                       ),
                       const SizedBox(
@@ -86,39 +89,39 @@ class CardItem extends StatelessWidget {
                             Icons.location_on_outlined,
                             color: AppColors.black38,
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 4.0),
-                              child: Text(
-                                item.itemLocation,
-                                softWrap: true,
-                                overflow: TextOverflow.fade,
-                                style: AppTextStyles.poppinsW500style16,
-                              ),
-                            ),
-                          ),
+                          // Expanded(
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.only(left: 4.0),
+                          //     child: Text(
+                          //      itemLocation,
+                          //       softWrap: true,
+                          //       overflow: TextOverflow.fade,
+                          //       style: AppTextStyles.poppinsW500style16,
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ],
                   ),
                 ),
               ),
-              Column(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      favoriteProvider.toggleFavorite(item.itemName);
-                    },
-                    icon: Icon(
-                      color: isFavorite ? AppColors.red : AppColors.black,
-                      size: 30,
-                      isFavorite
-                          ? Icons.favorite
-                          : Icons.favorite_border_outlined,
-                    ),
-                  ),
-                ],
-              ),
+              // Column(
+              //   children: [
+              //     IconButton(
+              //       onPressed: () {
+              //         favoriteProvider.toggleFavorite(item.itemName);
+              //       },
+              //       icon: Icon(
+              //         color: isFavorite ? AppColors.red : AppColors.black,
+              //         size: 30,
+              //         isFavorite
+              //             ? Icons.favorite
+              //             : Icons.favorite_border_outlined,
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),

@@ -62,31 +62,31 @@ class _FavoritePageState extends State<FavoritePage> {
             const CustomTopPageBar(
               pageName: AppStrings.favorite,
             ),
-            Expanded(
-              child: favoriteHotels.isEmpty
-                  ? const Center(
-                      child: Text(
-                        "No favorite hotels found.",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    )
-                  : ListView.builder(
-                      itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CardItem(
-                          onTap: () {
-                            customNavigate(
-                                context, AppNamePage.citySelectionPage);
-                          },
-                          item: favoriteHotels[index],
-                        ),
-                      ),
-                      itemCount: favoriteHotels.length,
-                    ),
-            )
+            // Expanded(
+            //   child: favoriteHotels.isEmpty
+            //       ? const Center(
+            //           child: Text(
+            //             "No favorite hotels found.",
+            //             style: TextStyle(
+            //               fontSize: 20,
+            //               color: Colors.grey,
+            //             ),
+            //           ),
+            //         )
+            //       : ListView.builder(
+            //           itemBuilder: (context, index) => Padding(
+            //             padding: const EdgeInsets.all(8.0),
+            //             child: CardItem(
+            //               onTap: () {
+            //                 customNavigate(
+            //                     context, AppNamePage.citySelectionPage);
+            //               },
+            //               item: favoriteHotels[index],
+            //             ),
+            //           ),
+            //           itemCount: favoriteHotels.length,
+            //         ),
+            // )
           ],
         ),
       ),
