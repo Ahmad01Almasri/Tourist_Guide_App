@@ -25,7 +25,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => const SplashPage(),
+      builder: (context, state) => const CitySelectionPage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,

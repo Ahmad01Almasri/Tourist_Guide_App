@@ -2,11 +2,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:tourist_guide/core/utils/app_colors.dart';
 import 'package:tourist_guide/features/favorite/presentation/pages/favorite.dart';
-import 'package:tourist_guide/features/home/presentation/pages/city_selection.dart';
 import 'package:tourist_guide/features/map/presentation/pages/map_page.dart';
 import 'package:tourist_guide/features/notification/presentation/pages/notification.dart';
-import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
-import 'package:tourist_guide/features/hotel/presentation/widgets/top_hotel.dart';
 
 import '../../features/home/presentation/pages/home.dart';
 
