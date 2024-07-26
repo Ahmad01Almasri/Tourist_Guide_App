@@ -29,9 +29,9 @@ class TopTenResturantPage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            TopAllItemBar(
-              topText: AppStrings.topTenRestaurant,
-            ),
+            // TopAllItemBar(
+            //   topText: AppStrings.topTenRestaurant,
+            // ),
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),

@@ -5,10 +5,12 @@ import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
 
 class TopAllItemBar extends StatelessWidget {
-  final String topText;
+  final String? topText;
+  final String image;
   const TopAllItemBar({
     super.key,
-    required this.topText,
+    this.topText,
+    required this.image,
   });
 
   @override
@@ -18,28 +20,30 @@ class TopAllItemBar extends StatelessWidget {
         Stack(
           children: [
             Image.asset(
-              AppAssets.restaurant,
+              image,
               height: 220,
-              fit: BoxFit.fitWidth,
+              fit: BoxFit.fill,
               width: double.infinity,
             ),
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 5),
+                  padding: const EdgeInsets.only(left: 5, top: 12),
                   child: IconButton(
                     onPressed: () => Navigator.pop(context),
                     icon: Icon(
+                      size: 35,
                       Icons.arrow_back,
-                      color: AppColors.white,
+                      color: AppColors.black,
                     ),
                   ),
                 ),
-                const SizedBox(width: 30),
-                Text(
-                  topText,
-                  style: AppTextStyles.poppinsBoldstyle24.copyWith(
-                    color: AppColors.white,
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, right: 5),
+                  child: Text(
+                    topText ?? "",
+                    style: AppTextStyles.poppinsBoldstyle24
+                        .copyWith(color: AppColors.black, fontSize: 25),
                   ),
                 ),
               ],

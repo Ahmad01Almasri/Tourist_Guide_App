@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:tourist_guide/extensions/context_extension.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -10,23 +11,24 @@ import '../../../../core/widgets/comment_section.dart';
 import '../../../../core/widgets/description_section.dart';
 import '../../../../core/widgets/rating_stars.dart';
 import '../../../home/presentation/widgets/smooth_images_indicator.dart';
+import '../../data/models/historical_place_model.dart';
 
 class HistoricalPage extends StatefulWidget {
-  const HistoricalPage({super.key});
+  final HistoricalModel historical;
+  const HistoricalPage({super.key, required this.historical});
 
   @override
   _HistoricalPageState createState() => _HistoricalPageState();
 }
 
-class _HistoricalPageState extends State<HistoricalPage>
-    with SingleTickerProviderStateMixin {
+class _HistoricalPageState extends State<HistoricalPage> {
   late PageController _pageController;
   int _currentPage = 0;
   Timer? _timer;
   TextEditingController searchController = TextEditingController();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   TextEditingController textController = TextEditingController();
-  List<String> images = ['image1', 'image2', 'image3']; // Example image list
+  // List<String> images = ['image1', 'image2', 'image3']; // Example image list
 
   @override
   void initState() {
@@ -34,7 +36,7 @@ class _HistoricalPageState extends State<HistoricalPage>
     _pageController = PageController(initialPage: 0);
     _timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       setState(() {
-        if (_currentPage < images.length - 1) {
+        if (_currentPage < widget.historical.images!.length - 1) {
           _currentPage++;
         } else {
           _currentPage = 0;
@@ -70,6 +72,8 @@ class _HistoricalPageState extends State<HistoricalPage>
           slivers: [
             SliverToBoxAdapter(
               child: SmoothImagesIndicator(
+                isImagesNetwork: true,
+                images: widget.historical.images!.toList(),
                 currentPage: _currentPage,
                 pageController: _pageController,
               ),
@@ -83,8 +87,16 @@ class _HistoricalPageState extends State<HistoricalPage>
               child: Center(
                 child: Column(
                   children: [
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: Icon(
+                        size: 40,
+                        Icons.arrow_back,
+                        color: AppColors.black,
+                      ),
+                    ),
                     Text(
-                      "New Mall",
+                      widget.historical.placeName.toString(),
                       style: AppTextStyles.poppinsBoldstyle24,
                     ),
                     Padding(
@@ -93,16 +105,17 @@ class _HistoricalPageState extends State<HistoricalPage>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            3.7.toString(),
+                            widget.historical.averageRating.toString(),
                             style: AppTextStyles.poppinsW500style16
                                 .copyWith(fontSize: 18, color: AppColors.black),
                           ),
                           const SizedBox(
                             width: 5,
                           ),
-                          const MyRatingBarIndicator(
+                          MyRatingBarIndicator(
                             itemSize: 25,
-                            itemRate: 3.7,
+                            itemRate:
+                                widget.historical.averageRating!.toDouble(),
                           ),
                         ],
                       ),
@@ -110,7 +123,9 @@ class _HistoricalPageState extends State<HistoricalPage>
                     Divider(
                       color: AppColors.black,
                     ),
-                    const DescriptionSection(),
+                    DescriptionSection(
+                      description: widget.historical.description!.toString(),
+                    ),
                     Divider(
                       color: AppColors.black,
                     ),
@@ -129,9 +144,11 @@ class _HistoricalPageState extends State<HistoricalPage>
                         child: Stack(
                           children: [
                             FlutterMap(
-                              options: const MapOptions(
+                              options: MapOptions(
                                 initialCenter: LatLng(
-                                    33.5138, 36.2765), // Coordinates for Syria
+                                  widget.historical.location!.lat!.toDouble(),
+                                  widget.historical.location!.lng!.toDouble(),
+                                ), // Coordinates for Syria
                                 maxZoom: 18.0,
                                 minZoom: 1.0,
                               ),
@@ -146,7 +163,11 @@ class _HistoricalPageState extends State<HistoricalPage>
                                     Marker(
                                       width: 80.0,
                                       height: 80.0,
-                                      point: const LatLng(33.5138, 36.2765),
+                                      point: LatLng(
+                                          widget.historical.location!.lat!
+                                              .toDouble(),
+                                          widget.historical.location!.lng!
+                                              .toDouble()),
                                       child: Icon(
                                         Icons.location_on,
                                         color: AppColors.red,

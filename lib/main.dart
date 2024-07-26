@@ -10,6 +10,7 @@ import 'core/services/service_locator.dart';
 import 'core/utils/app_colors.dart';
 import 'core/services/shared_preferences_service.dart';
 import 'core/utils/app_strings.dart';
+import 'features/hotel/presentation/bloc/hotel_bloc.dart';
 import 'features/hotel/presentation/provider/favorite_provider.dart';
 import 'features/auth/presentation/bloc/user_bloc.dart';
 import 'injection_container.dart' as di;
@@ -46,7 +47,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (_) =>
                 di.sl<HistoricalBloc>()..add(GetAllHistoricalsEvent("Aleppo"))),
-        ChangeNotifierProvider(create: (context) => FavoriteProvider()),
+        BlocProvider(
+            create: (_) => di.sl<HotelBloc>()..add(GetAllHotelEvent("Aleppo"))),
+        // ChangeNotifierProvider(create: (context) => FavoriteProvider()
+        // )
+        // ,
       ],
       child: MaterialApp.router(
         theme: ThemeData(

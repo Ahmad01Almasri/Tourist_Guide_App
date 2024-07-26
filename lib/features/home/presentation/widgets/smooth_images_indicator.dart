@@ -4,11 +4,16 @@ import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
 
 class SmoothImagesIndicator extends StatelessWidget {
+  final List<String> images;
   final PageController pageController;
   final int currentPage;
-
+  final bool isImagesNetwork;
   const SmoothImagesIndicator(
-      {super.key, required this.pageController, required this.currentPage});
+      {super.key,
+      required this.pageController,
+      required this.currentPage,
+      required this.images,
+      required this.isImagesNetwork});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +27,15 @@ class SmoothImagesIndicator extends StatelessWidget {
                 controller: pageController,
                 itemCount: images.length,
                 itemBuilder: (context, index) {
-                  return Image.asset(
-                    images[index],
-                    fit: BoxFit.fill,
-                  );
+                  return isImagesNetwork
+                      ? Image.network(
+                          images[index],
+                          fit: BoxFit.fill,
+                        )
+                      : Image.asset(
+                          images[index],
+                          fit: BoxFit.fill,
+                        );
                 },
               ),
             )),
@@ -66,9 +76,3 @@ class SmoothImagesIndicator extends StatelessWidget {
     );
   }
 }
-
-final List<String> images = [
-  AppAssets.imagesOnBoarding,
-  AppAssets.imagesOnBoarding1,
-  AppAssets.imagesOnBoarding2,
-];

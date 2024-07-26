@@ -5,6 +5,9 @@ import 'package:tourist_guide/features/historical/data/repositories_impl/histori
 import 'package:tourist_guide/features/historical/domain/repositories/histprical_repository.dart';
 import 'package:tourist_guide/features/historical/domain/use_cases/get_all_historicals.dart';
 import 'package:tourist_guide/features/historical/presentation/blocs/historicals_bloc.dart';
+import 'package:tourist_guide/features/hotel/domain/repositories/hotel_repo.dart';
+import 'package:tourist_guide/features/hotel/domain/use_cases/get_all_hotel.dart';
+import 'package:tourist_guide/features/hotel/presentation/bloc/hotel_bloc.dart';
 
 import 'core/network/network_info.dart';
 
@@ -17,6 +20,8 @@ import 'features/auth/data/data_sources/user_remote_data_source.dart';
 import 'features/auth/domain/use_cases/login_usecase.dart';
 import 'features/auth/domain/use_cases/signup_usecase.dart';
 import 'features/auth/presentation/bloc/user_bloc.dart';
+import 'features/hotel/data/data_sources/hotel_remote_data_sources.dart';
+import 'features/hotel/data/repositories_impl/hotel_repo_imp.dart';
 
 final sl = GetIt.instance;
 
@@ -26,16 +31,21 @@ Future<void> init() async {
 // Bloc
   sl.registerFactory(() => UserBloc(signUpUser: sl(), loginUser: sl()));
   sl.registerFactory(() => HistoricalBloc(getAllHistorical: sl()));
+  sl.registerFactory(() => HotelBloc(getAllHotel: sl()));
 
 // Usecases
   sl.registerLazySingleton(() => LoginUserUsecase(sl()));
   sl.registerLazySingleton(() => SignUpUserUsecase(sl()));
   sl.registerLazySingleton(() => GetAllHistoricalUsecase(sl()));
+  sl.registerLazySingleton(() => GetAllHotelUsecase(sl()));
 // Repository
   sl.registerLazySingleton<UserRepository>(
       () => UsersRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
   sl.registerLazySingleton<HistoricalRepository>(() =>
       HistoricalRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
+  sl.registerLazySingleton<HotelRepository>(
+      () => HotelRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
+
 // Datasources
 
   sl.registerLazySingleton<UserRemoteDataSource>(
@@ -43,6 +53,8 @@ Future<void> init() async {
 
   sl.registerLazySingleton<HistoricalRemoteDataSource>(
       () => HistoricalRemoteDataSourceImpl(client: sl()));
+  sl.registerLazySingleton<HotelRemoteDataSource>(
+      () => HotelRemoteDataSourceImpl(client: sl()));
 //! Core
 
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));

@@ -2,48 +2,44 @@ import 'dart:convert';
 
 import 'package:tourist_guide/features/historical/data/models/historical_place_model.dart';
 import 'package:tourist_guide/features/home/presentation/functions/selected_city.dart';
+import 'package:tourist_guide/features/hotel/data/models/hotel_model.dart';
 import '../../../../core/error/exceptions.dart';
 import 'package:http/http.dart' as http;
 import '../../../../core/utils/app_strings.dart';
 
-abstract class HistoricalRemoteDataSource {
-  Future<List<HistoricalModel>> getAllHistorical(cityName);
+abstract class HotelRemoteDataSource {
+  Future<List<HotelModel>> getAllHotel(cityName);
 }
 
 const baseUrl = AppStrings.baseUrl;
 
-class HistoricalRemoteDataSourceImpl implements HistoricalRemoteDataSource {
+class HotelRemoteDataSourceImpl implements HotelRemoteDataSource {
   final http.Client client;
 
-  HistoricalRemoteDataSourceImpl({required this.client});
+  HotelRemoteDataSourceImpl({required this.client});
   @override
-  Future<List<HistoricalModel>> getAllHistorical(cityName) async {
+  Future<List<HotelModel>> getAllHotel(cityName) async {
     final body = {
       "provinceName": getCityName(),
     };
     final response = await client.post(
-      Uri.parse("$baseUrl/place/placebyprovince/historical"),
+      Uri.parse("$baseUrl/place/placebyprovince/hotels"),
       body: jsonEncode(body),
       headers: {"Content-Type": "application/json"},
-      // body: jsonEncode(HistoricalModel.toJson()),
     );
     print('Status Code: ${response.statusCode}');
     print('Response Body: ${response.body}');
+
     if (response.statusCode >= 200 && response.statusCode <= 300) {
       final List decodedJson = json.decode(response.body) as List;
-      final List<HistoricalModel> historicalModels = decodedJson
-          .map<HistoricalModel>((jsonHistoricalModel) =>
-              HistoricalModel.fromJson(jsonHistoricalModel))
+      final List<HotelModel> hotelModels = decodedJson
+          .map<HotelModel>(
+              (jsonHotelModel) => HotelModel.fromJson(jsonHotelModel))
           .toList();
 
-      return historicalModels;
+      return hotelModels;
     } else {
       throw ServerException();
     }
   }
-//  if (response.statusCode == 201) {
-//       return Future.value(unit);
-//     } else {
-//       throw ServerException();
-//     }
 }

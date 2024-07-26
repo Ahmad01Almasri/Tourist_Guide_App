@@ -1,41 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tourist_guide/core/utils/app_assets.dart';
+import 'package:tourist_guide/features/historical/presentation/blocs/historicals_bloc.dart';
+import 'package:tourist_guide/features/home/presentation/functions/selected_city.dart';
+import 'package:tourist_guide/features/hotel/data/models/hotel_model.dart';
+import 'package:tourist_guide/features/hotel/presentation/bloc/hotel_bloc.dart';
+import '../../../../core/utils/app_route_string.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/widgets/card_item.dart';
+import '../../../../core/widgets/loading_widget.dart';
+import '../../../../core/widgets/message_display_widget.dart';
 import '../../../../core/widgets/top_all_item.dart';
-import '../../data/models/all_hotel_model.dart';
+import '../widgets/list_hotel.dart';
 
-class ALlHotelPage extends StatelessWidget {
-  ALlHotelPage({super.key});
-  final List<AllHotelModel> hotelList = [
-    AllHotelModel(
-        itemName: "Hotel A",
-        isFavorite: true,
-        itemModern: "Modern Style",
-        itemRate: 4.5,
-        itemLocation: "Location A",
-        itemImage: "assets/images/images (1).jpg"),
-    AllHotelModel(
-        isFavorite: false,
-        itemName: "Hotel B",
-        itemModern: "Modern Style",
-        itemRate: 4.5,
-        itemLocation: "Location B",
-        itemImage: "assets/images/images (1).jpg"),
-    AllHotelModel(
-        isFavorite: false,
-        itemName: "Hotel C",
-        itemModern: "Modern Style",
-        itemRate: 3.6,
-        itemLocation: "Location C",
-        itemImage: "assets/images/images (1).jpg"),
-    AllHotelModel(
-        isFavorite: false,
-        itemName: "Hotel D",
-        itemModern: "Modern Style",
-        itemRate: 2.5,
-        itemLocation: "Location D",
-        itemImage: "assets/images/images (1).jpg")
-  ];
+class AllHotelPage extends StatelessWidget {
+  AllHotelPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,27 +24,40 @@ class ALlHotelPage extends StatelessWidget {
         body: Column(
           children: [
             const TopAllItemBar(
-              topText: AppStrings.allHotelAvaliable,
+              topText: AppStrings.hotels,
+              image: AppAssets.hotelTopBar,
             ),
-            // Expanded(
-            //   child: Padding(
-            //     padding: const EdgeInsets.symmetric(horizontal: 15),
-            //     child: ListView.builder(
-            //       itemCount: hotelList.length,
-            //       itemBuilder: (context, index) => Padding(
-            //         padding: const EdgeInsets.all(8.0),
-            //         child:
-            //         //  CardItem(
-            //         //   onTap: () {},
-            //         //   item: hotelList[index],
-            //         // ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: BlocBuilder<HotelBloc, HotelState>(
+                builder: (context, state) {
+                  if (state is LoadingHotelState) {
+                    print("lllllllllllllllllllllll");
+
+                    return LoadingWidget();
+                  } else if (state is LoadedHotelState) {
+                    print("ssssssssssssssssssssssssssss");
+
+                    return RefreshIndicator(
+                        onRefresh: () => _onRefresh(context),
+                        child: HotelListWidget(hotel: state.hotel));
+                  } else if (state is ErrorHotelState) {
+                    print("eeeeeeeeeeeeeeeeeeeeeeee");
+
+                    return MessageDisplayWidget(message: state.message);
+                  }
+                  print("wwwwwwwwwwwwwwwwwwwwww");
+                  return LoadingWidget();
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+Future<void> _onRefresh(BuildContext context) async {
+  BlocProvider.of<HotelBloc>(context).add(RefreshHotelEvent(getCityName()));
 }

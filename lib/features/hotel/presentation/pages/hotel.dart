@@ -2,32 +2,33 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:tourist_guide/extensions/context_extension.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../../../../core/widgets/rating_stars.dart';
-import '../../../home/presentation/widgets/smooth_images_indicator.dart';
-import '../../../map/presentation/widgets/slider_map.dart';
 import '../../../../core/widgets/comment_section.dart';
 import '../../../../core/widgets/description_section.dart';
+import '../../../../core/widgets/rating_stars.dart';
+import '../../../home/presentation/widgets/smooth_images_indicator.dart';
+import '../../data/models/hotel_model.dart';
 
 class HotelPage extends StatefulWidget {
-  const HotelPage({super.key});
+  final HotelModel hotel;
+  const HotelPage({super.key, required this.hotel});
 
   @override
   _HotelPageState createState() => _HotelPageState();
 }
 
-class _HotelPageState extends State<HotelPage>
-    with SingleTickerProviderStateMixin {
+class _HotelPageState extends State<HotelPage> {
   late PageController _pageController;
   int _currentPage = 0;
   Timer? _timer;
   TextEditingController searchController = TextEditingController();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   TextEditingController textController = TextEditingController();
-  List<String> images = ['image1', 'image2', 'image3']; // Example image list
+  // List<String> images = ['image1', 'image2', 'image3']; // Example image list
 
   @override
   void initState() {
@@ -35,7 +36,7 @@ class _HotelPageState extends State<HotelPage>
     _pageController = PageController(initialPage: 0);
     _timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       setState(() {
-        if (_currentPage < images.length - 1) {
+        if (_currentPage < widget.hotel.images!.length - 1) {
           _currentPage++;
         } else {
           _currentPage = 0;
@@ -71,6 +72,8 @@ class _HotelPageState extends State<HotelPage>
           slivers: [
             SliverToBoxAdapter(
               child: SmoothImagesIndicator(
+                isImagesNetwork: true,
+                images: widget.hotel.images!.toList(),
                 currentPage: _currentPage,
                 pageController: _pageController,
               ),
@@ -84,8 +87,16 @@ class _HotelPageState extends State<HotelPage>
               child: Center(
                 child: Column(
                   children: [
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: Icon(
+                        size: 40,
+                        Icons.arrow_back,
+                        color: AppColors.black,
+                      ),
+                    ),
                     Text(
-                      "New Mall",
+                      widget.hotel.placeName.toString(),
                       style: AppTextStyles.poppinsBoldstyle24,
                     ),
                     Padding(
@@ -94,16 +105,16 @@ class _HotelPageState extends State<HotelPage>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            3.7.toString(),
+                            widget.hotel.averageRating.toString(),
                             style: AppTextStyles.poppinsW500style16
                                 .copyWith(fontSize: 18, color: AppColors.black),
                           ),
                           const SizedBox(
                             width: 5,
                           ),
-                          const MyRatingBarIndicator(
+                          MyRatingBarIndicator(
                             itemSize: 25,
-                            itemRate: 3.7,
+                            itemRate: widget.hotel.averageRating!.toDouble(),
                           ),
                         ],
                       ),
@@ -111,7 +122,9 @@ class _HotelPageState extends State<HotelPage>
                     Divider(
                       color: AppColors.black,
                     ),
-                    const DescriptionSection(),
+                    DescriptionSection(
+                      description: widget.hotel.description!.toString(),
+                    ),
                     Divider(
                       color: AppColors.black,
                     ),
@@ -123,7 +136,6 @@ class _HotelPageState extends State<HotelPage>
                             fontSize: 20, color: AppColors.primaryColor),
                       ),
                     ),
-                    // Map of Syria
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
@@ -131,9 +143,11 @@ class _HotelPageState extends State<HotelPage>
                         child: Stack(
                           children: [
                             FlutterMap(
-                              options: const MapOptions(
+                              options: MapOptions(
                                 initialCenter: LatLng(
-                                    33.5138, 36.2765), // Coordinates for Syria
+                                  widget.hotel.location!.lat!.toDouble(),
+                                  widget.hotel.location!.lng!.toDouble(),
+                                ), // Coordinates for Syria
                                 maxZoom: 18.0,
                                 minZoom: 1.0,
                               ),
@@ -148,7 +162,11 @@ class _HotelPageState extends State<HotelPage>
                                     Marker(
                                       width: 80.0,
                                       height: 80.0,
-                                      point: const LatLng(33.5138, 36.2765),
+                                      point: LatLng(
+                                          widget.hotel.location!.lat!
+                                              .toDouble(),
+                                          widget.hotel.location!.lng!
+                                              .toDouble()),
                                       child: Icon(
                                         Icons.location_on,
                                         color: AppColors.red,

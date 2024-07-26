@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:tourist_guide/core/utils/app_colors.dart';
 import 'package:tourist_guide/features/favorite/presentation/pages/favorite.dart';
+import 'package:tourist_guide/features/historical/presentation/pages/all_historical_page.dart';
 import 'package:tourist_guide/features/map/presentation/pages/map_page.dart';
 import 'package:tourist_guide/features/notification/presentation/pages/notification.dart';
 
@@ -27,7 +28,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
     const MapPage(),
-    const FavoritePage(),
+    AllHistoricalPage(),
     const NotificationsPage()
   ];
   @override

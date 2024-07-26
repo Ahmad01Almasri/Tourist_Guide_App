@@ -1,15 +1,18 @@
+// To parse this JSON data, do
+//
+//     final hotelModel = hotelModelFromJson(jsonString);
+
 import 'dart:convert';
 
-import 'location_sub_historical_model.dart';
+import '../../../historical/data/models/location_sub_historical_model.dart';
 
-List<HistoricalModel> historicalModelFromJson(String str) =>
-    List<HistoricalModel>.from(
-        json.decode(str).map((x) => HistoricalModel.fromJson(x)));
+List<HotelModel> hotelModelFromJson(String str) =>
+    List<HotelModel>.from(json.decode(str).map((x) => HotelModel.fromJson(x)));
 
-String historicalModelToJson(List<HistoricalModel> data) =>
+String hotelModelToJson(List<HotelModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class HistoricalModel {
+class HotelModel {
   final Location? location;
   final String? id;
   final int? placeId;
@@ -18,10 +21,11 @@ class HistoricalModel {
   final List<String>? images;
   final double? averageRating;
   final int? numberOfRatings;
+  final int? type;
   final int? provinceId;
   final int? v;
 
-  HistoricalModel({
+  HotelModel({
     this.location,
     this.id,
     this.placeId,
@@ -30,11 +34,12 @@ class HistoricalModel {
     this.images,
     this.averageRating,
     this.numberOfRatings,
+    this.type,
     this.provinceId,
     this.v,
   });
 
-  HistoricalModel copyWith({
+  HotelModel copyWith({
     Location? location,
     String? id,
     int? placeId,
@@ -43,10 +48,11 @@ class HistoricalModel {
     List<String>? images,
     double? averageRating,
     int? numberOfRatings,
+    int? type,
     int? provinceId,
     int? v,
   }) =>
-      HistoricalModel(
+      HotelModel(
         location: location ?? this.location,
         id: id ?? this.id,
         placeId: placeId ?? this.placeId,
@@ -55,12 +61,12 @@ class HistoricalModel {
         images: images ?? this.images,
         averageRating: averageRating ?? this.averageRating,
         numberOfRatings: numberOfRatings ?? this.numberOfRatings,
+        type: type ?? this.type,
         provinceId: provinceId ?? this.provinceId,
         v: v ?? this.v,
       );
 
-  factory HistoricalModel.fromJson(Map<String, dynamic> json) =>
-      HistoricalModel(
+  factory HotelModel.fromJson(Map<String, dynamic> json) => HotelModel(
         location: json["location"] == null
             ? null
             : Location.fromJson(json["location"]),
@@ -73,6 +79,7 @@ class HistoricalModel {
             : List<String>.from(json["images"]!.map((x) => x)),
         averageRating: json["averageRating"]?.toDouble(),
         numberOfRatings: json["numberOfRatings"],
+        type: json["type"],
         provinceId: json["provinceID"],
         v: json["__v"],
       );
@@ -87,6 +94,7 @@ class HistoricalModel {
             images == null ? [] : List<dynamic>.from(images!.map((x) => x)),
         "averageRating": averageRating,
         "numberOfRatings": numberOfRatings,
+        "type": type,
         "provinceID": provinceId,
         "__v": v,
       };

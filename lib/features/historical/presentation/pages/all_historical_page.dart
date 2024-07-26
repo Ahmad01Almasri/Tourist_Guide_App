@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tourist_guide/core/utils/app_assets.dart';
 import 'package:tourist_guide/features/historical/presentation/blocs/historicals_bloc.dart';
 import 'package:tourist_guide/features/home/presentation/functions/selected_city.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -10,36 +11,6 @@ import '../widgets/historical_list_widget.dart';
 
 class AllHistoricalPage extends StatelessWidget {
   AllHistoricalPage({super.key});
-  // final List<AllHotelModel> hotelList = [
-  //   AllHotelModel(
-  //       itemName: "Hotel A",
-  //       isFavorite: true,
-  //       itemModern: "Modern Style",
-  //       itemRate: 4.5,
-  //       itemLocation: "Location A",
-  //       itemImage: "assets/images/images (1).jpg"),
-  //   AllHotelModel(
-  //       isFavorite: false,
-  //       itemName: "Hotel B",
-  //       itemModern: "Modern Style",
-  //       itemRate: 4.5,
-  //       itemLocation: "Location B",
-  //       itemImage: "assets/images/images (1).jpg"),
-  //   AllHotelModel(
-  //       isFavorite: false,
-  //       itemName: "Hotel C",
-  //       itemModern: "Modern Style",
-  //       itemRate: 3.6,
-  //       itemLocation: "Location C",
-  //       itemImage: "assets/images/images (1).jpg"),
-  //   AllHotelModel(
-  //       isFavorite: false,
-  //       itemName: "Hotel D",
-  //       itemModern: "Modern Style",
-  //       itemRate: 2.5,
-  //       itemLocation: "Location D",
-  //       itemImage: "assets/images/images (1).jpg")
-  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +19,7 @@ class AllHistoricalPage extends StatelessWidget {
         body: Column(
           children: [
             const TopAllItemBar(
-              topText: AppStrings.someHistoricalPlace,
+              image: AppAssets.historicalTopBar,
             ),
             Padding(
               padding: const EdgeInsets.all(10),

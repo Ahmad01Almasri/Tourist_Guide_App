@@ -11,8 +11,10 @@ import 'package:tourist_guide/features/splash/presentation/views/splash_view.dar
 import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
 
 import '../../features/favorite/presentation/pages/favorite.dart';
+import '../../features/historical/data/models/historical_place_model.dart';
 import '../../features/historical/presentation/pages/all_historical_page.dart';
 import '../../features/home/presentation/pages/city_selection.dart';
+import '../../features/hotel/data/models/hotel_model.dart';
 import '../../features/hotel/presentation/pages/hotel.dart';
 import '../../features/map/presentation/pages/map_page.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -27,7 +29,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => AllHistoricalPage(),
+      builder: (context, state) => SplashPage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -77,7 +79,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.allHotel,
       // parentNavigatorKey: _shellNavigatorKey,
-      builder: (context, state) => ALlHotelPage(),
+      builder: (context, state) => AllHotelPage(),
     ),
     GoRoute(
       path: AppNamePage.allHistorical,
@@ -87,7 +89,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.historical,
       // parentNavigatorKey: _shellNavigatorKey,
-      builder: (context, state) => const HistoricalPage(),
+      builder: (context, state) {
+        final historical = state.extra as HistoricalModel;
+        return HistoricalPage(historical: historical);
+      },
     ),
     GoRoute(
       path: AppNamePage.map,
@@ -95,14 +100,12 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const MapPage(),
     ),
     GoRoute(
-      path: AppNamePage.favorite,
-      // parentNavigatorKey: _shellNavigatorKey,
-      builder: (context, state) => const FavoritePage(),
-    ),
-    GoRoute(
       path: AppNamePage.hotel,
       // parentNavigatorKey: _shellNavigatorKey,
-      builder: (context, state) => const HotelPage(),
+      builder: (context, state) {
+        final hotel = state.extra as HotelModel;
+        return HotelPage(hotel: hotel);
+      },
     ),
   ],
 );

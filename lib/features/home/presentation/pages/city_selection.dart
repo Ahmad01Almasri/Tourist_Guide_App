@@ -8,6 +8,7 @@ import 'package:tourist_guide/core/widgets/custom_text_field.dart';
 import 'package:tourist_guide/features/home/presentation/widgets/smooth_images_indicator.dart';
 
 import '../../../../core/functions/navigation.dart';
+import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_route_string.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../functions/select_city_dialog.dart';
@@ -27,7 +28,11 @@ class _CitySelectionPageState extends State<CitySelectionPage>
   Timer? _timer;
   TextEditingController shearchController = TextEditingController();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
-
+  final List<String> images = [
+    AppAssets.imagesOnBoarding,
+    AppAssets.imagesOnBoarding1,
+    AppAssets.imagesOnBoarding2,
+  ];
   @override
   void initState() {
     super.initState();
@@ -69,6 +74,8 @@ class _CitySelectionPageState extends State<CitySelectionPage>
                     child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SmoothImagesIndicator(
+                    isImagesNetwork: false,
+                    images: images,
                     currentPage: _currentPage,
                     pageController: _pageController,
                   ),
