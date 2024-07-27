@@ -6,7 +6,9 @@ abstract class AppNamePage {
   static const String citySelectionPage = "/citySelection";
   static const String homePage = "/home";
   static const String myBottomNavigationBar = "/myBottomNavigationBar";
-  static const String topTenRestaurant = "/topTenRestaurant";
+  static const String topThreeRestaurant = "/topThreeRestaurant";
+  static const String topThreeHotel = "/topThreeHotel";
+  static const String topThreeHistorical = "/topThreeHistorical";
   static const String notification = "/notification";
   static const String allRestaurant = "/allRestaurant";
   static const String restaurant = "/restaurant";

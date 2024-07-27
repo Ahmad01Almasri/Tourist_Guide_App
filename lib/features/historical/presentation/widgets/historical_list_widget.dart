@@ -1,5 +1,4 @@
 import 'package:go_router/go_router.dart';
-import 'package:tourist_guide/core/functions/navigation.dart';
 import 'package:tourist_guide/core/utils/app_route_string.dart';
 import 'package:tourist_guide/core/widgets/card_item.dart';
 import 'package:tourist_guide/features/historical/data/models/historical_place_model.dart';
@@ -7,11 +6,12 @@ import 'package:flutter/material.dart';
 
 class HistoricalListWidget extends StatelessWidget {
   final List<HistoricalModel> historical;
-
+  final int? itemCount;
   const HistoricalListWidget({
-    Key? key,
+    super.key,
     required this.historical,
-  }) : super(key: key);
+    this.itemCount,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class HistoricalListWidget extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: historical.length,
+        itemCount: itemCount ?? historical.length,
         itemBuilder: (context, index) {
           return CardItem(
             itemImage: historical[index].images!.elementAt(1),
@@ -35,7 +35,7 @@ class HistoricalListWidget extends StatelessWidget {
             },
           );
         },
-        separatorBuilder: (context, index) => Divider(thickness: 1),
+        separatorBuilder: (context, index) => const Divider(thickness: 1),
       ),
     );
   }

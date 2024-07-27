@@ -7,11 +7,12 @@ import '../../data/models/res_model.dart';
 
 class RestaurantListWidget extends StatelessWidget {
   final List<RestaurantModel> restaurant;
-
+  final int? itemCount;
   const RestaurantListWidget({
-    Key? key,
+    super.key,
     required this.restaurant,
-  }) : super(key: key);
+    this.itemCount,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class RestaurantListWidget extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: restaurant.length,
+        itemCount: itemCount ?? restaurant.length,
         itemBuilder: (context, index) {
           return CardItem(
             itemImage: restaurant[index].images!.elementAt(1),

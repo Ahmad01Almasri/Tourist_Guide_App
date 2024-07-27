@@ -74,6 +74,5 @@ class AppAssets {
   /// assets/images/vector2.svg
   static const String imagesVector2 = "assets/images/vector2.svg";
   static const String historicalTopBar = "assets/images/images (4).jpg";
-  static const String hotelTopBar =
-      "assets/images/cutout_587098_popup_landscape_4x3_1.jpg";
+  static const String hotelTopBar = "assets/images/unnamed.jpg";
 }

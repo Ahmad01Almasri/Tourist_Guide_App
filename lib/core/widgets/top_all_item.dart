@@ -8,11 +8,15 @@ class TopAllItemBar extends StatelessWidget {
   final String? topText;
   final String image;
   final Color? iconAndTextColor;
+  final double? topPadding;
+  final double? leftPadding;
   const TopAllItemBar({
     super.key,
     this.topText,
     required this.image,
     this.iconAndTextColor,
+    this.topPadding,
+    this.leftPadding,
   });
 
   @override
@@ -30,7 +34,8 @@ class TopAllItemBar extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 5, top: 12),
+                  padding: EdgeInsets.only(
+                      left: leftPadding ?? 5, top: topPadding ?? 12),
                   child: IconButton(
                     onPressed: () => Navigator.pop(context),
                     icon: Icon(

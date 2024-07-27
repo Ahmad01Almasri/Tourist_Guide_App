@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/utils/app_colors.dart';
+import 'package:tourist_guide/core/utils/app_text_styles.dart';
 
 class SnackBarMessage {
   void showSuccessSnackBar(
@@ -7,9 +9,9 @@ class SnackBarMessage {
       SnackBar(
         content: Text(
           message,
-          style: TextStyle(color: Colors.white),
+          style: AppTextStyles.poppinsBoldstyle16,
         ),
-        backgroundColor: Colors.green,
+        backgroundColor: AppColors.green,
       ),
     );
   }
@@ -20,9 +22,9 @@ class SnackBarMessage {
       SnackBar(
         content: Text(
           message,
-          style: TextStyle(color: Colors.white),
+          style: AppTextStyles.poppinsBoldstyle16,
         ),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: AppColors.red,
       ),
     );
   }

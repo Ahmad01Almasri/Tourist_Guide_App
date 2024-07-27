@@ -45,12 +45,14 @@ abstract class AppStrings {
       hotel = "hotel",
       hotels = "hotels",
       historical = "historical",
+      topThreeHistorical = "Top Three Historical",
+      topThreeRestaurant = "Top Three Restaurant",
+      topThreeHotel = "Top Three Hotel",
       map = "map",
       popular = "Popular",
+      logOut = "Log Out",
       //!Top Ten Restaurant Strings
-      topTenRestaurant = "Top Ten Restaurant",
       recent = "Recent",
-      topTenRHotel = "Top Ten Hotel",
       //!BottomNavigationBar Strings
       home = "Home",
       favorite = "Favorite",

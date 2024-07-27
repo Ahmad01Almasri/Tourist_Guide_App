@@ -8,16 +8,18 @@ import 'package:tourist_guide/features/home/presentation/pages/home.dart';
 import 'package:tourist_guide/features/hotel/presentation/pages/all_hotel.dart';
 import 'package:tourist_guide/features/notification/presentation/pages/notification.dart';
 import 'package:tourist_guide/features/splash/presentation/views/splash_view.dart';
-import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
 import '../../features/historical/data/models/historical_place_model.dart';
 import '../../features/historical/presentation/pages/all_historical_page.dart';
+import '../../features/historical/presentation/pages/top_Three_historical_page.dart';
 import '../../features/home/presentation/pages/city_selection.dart';
 import '../../features/hotel/data/models/hotel_model.dart';
 import '../../features/hotel/presentation/pages/hotel.dart';
+import '../../features/hotel/presentation/pages/top_three_hotel.dart';
 import '../../features/map/presentation/pages/map_page.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
 import '../../features/restaurant/data/models/res_model.dart';
 import '../../features/restaurant/presentation/pages/restaurant.dart';
+import '../../features/restaurant/presentation/pages/top_three_restaurant.dart';
 import '../utils/app_route_string.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
 
@@ -29,7 +31,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => AllRestaurantPage(),
+      builder: (context, state) => const SplashPage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -40,6 +42,11 @@ final GoRouter router = GoRouter(
       path: AppNamePage.signInPage,
       // parentNavigatorKey: _rootNavigatorKey,
       builder: (context, state) => const Login(),
+    ),
+    GoRoute(
+      path: AppNamePage.topThreeHotel,
+      // parentNavigatorKey: _rootNavigatorKey,
+      builder: (context, state) => TopThreeHotelPage(),
     ),
     GoRoute(
       path: AppNamePage.signUpPage,
@@ -62,11 +69,6 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      path: AppNamePage.topTenRestaurant,
-      // parentNavigatorKey: _shellNavigatorKey,
-      builder: (context, state) => TopTenResturantPage(),
-    ),
-    GoRoute(
       path: AppNamePage.notification,
       // parentNavigatorKey: _shellNavigatorKey,
       builder: (context, state) => const NotificationsPage(),
@@ -80,6 +82,16 @@ final GoRouter router = GoRouter(
       path: AppNamePage.allHotel,
       // parentNavigatorKey: _shellNavigatorKey,
       builder: (context, state) => AllHotelPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.topThreeHistorical,
+      // parentNavigatorKey: _shellNavigatorKey,
+      builder: (context, state) => const TopThreeHistoricalPage(),
+    ),
+    GoRoute(
+      path: AppNamePage.topThreeRestaurant,
+      // parentNavigatorKey: _shellNavigatorKey,
+      builder: (context, state) => const TopThreeRestaurantPage(),
     ),
     GoRoute(
       path: AppNamePage.allHistorical,

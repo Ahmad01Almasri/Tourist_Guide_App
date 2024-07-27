@@ -8,6 +8,11 @@ void isSelectedCity() {
   getIt<CacheHelper>().saveData(key: AppStorageKey.isSelectedCity, value: true);
 }
 
+void isNotSelectedCity() {
+  getIt<CacheHelper>()
+      .saveData(key: AppStorageKey.isSelectedCity, value: false);
+}
+
 void saveCityName() {
   getIt<CacheHelper>()
       .saveData(key: AppStorageKey.CityName, value: selectedCity);

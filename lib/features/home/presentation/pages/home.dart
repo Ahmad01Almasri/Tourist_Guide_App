@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tourist_guide/core/functions/navigation.dart';
+import 'package:tourist_guide/core/utils/app_route_string.dart';
+import 'package:tourist_guide/core/utils/app_strings.dart';
 import 'package:tourist_guide/core/widgets/custom_button_app.dart';
+import 'package:tourist_guide/features/home/presentation/functions/selected_city.dart';
+import '../../../../core/services/shared_preferences_service.dart';
 import '../widgets/elements_city_features.dart';
 import '../widgets/popular_item_section.dart';
 import '../../../../core/widgets/text_form_search.dart';
@@ -45,18 +50,22 @@ class _HomePageState extends State<HomePage> {
                         shearchInCitySelectionController),
               ),
               const SliverToBoxAdapter(child: CityFeatureSection()),
+              const SliverToBoxAdapter(
+                child: PopularItemSection(),
+              ),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.only(top: 15, bottom: 30),
                   child: CustomButtonApp(
-                    onPressed: () {},
-                    text: "Time",
+                    onPressed: () {
+                      SharedPreferencesService.deleteToken();
+                      isNotSelectedCity();
+                      customNavigate(context, AppNamePage.signInPage);
+                    },
+                    text: AppStrings.logOut,
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(
-                child: PopularItemSection(),
-              )
             ],
           ),
         ),

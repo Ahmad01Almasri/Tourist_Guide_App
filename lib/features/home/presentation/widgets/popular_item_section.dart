@@ -30,16 +30,18 @@ class PopularItemSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CardPopularOrAllItem(
-                image: AppAssets.imagesOnBoarding1,
+                image: "assets/images/restaurant.jpg",
                 onTap: () {
-                  customNavigate(context, AppNamePage.topTenRestaurant);
+                  customNavigate(context, AppNamePage.topThreeRestaurant);
                 },
-                itemName: AppStrings.topTenRestaurant,
+                itemName: AppStrings.topThreeRestaurant,
               ),
               CardPopularOrAllItem(
-                image: AppAssets.imagesOnBoarding,
-                onTap: () {},
-                itemName: AppStrings.topTenRHotel,
+                image: "assets/images/im.jpg",
+                onTap: () {
+                  customNavigate(context, AppNamePage.topThreeHotel);
+                },
+                itemName: AppStrings.topThreeHotel,
               )
             ],
           ),
@@ -50,14 +52,16 @@ class PopularItemSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CardPopularOrAllItem(
-                image: AppAssets.imagesOnBoarding2,
-                onTap: () {},
-                itemName: AppStrings.topTenRHotel,
+                image: "assets/images/download (5).jpg",
+                onTap: () {
+                  customNavigate(context, AppNamePage.topThreeHistorical);
+                },
+                itemName: AppStrings.topThreeHistorical,
               ),
               CardPopularOrAllItem(
                 image: AppAssets.imagesOnBoarding,
                 onTap: () {},
-                itemName: AppStrings.topTenRHotel,
+                itemName: AppStrings.selectCityToExplore,
               )
             ],
           ),

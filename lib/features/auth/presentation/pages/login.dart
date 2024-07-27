@@ -144,15 +144,13 @@ class _LoginState extends State<Login> {
                         customReplacementNavigate(
                             context, AppNamePage.citySelectionPage);
                       } else if (state is ErrorUserState) {
-                        print("Error: ${state.message}");
                         SnackBarMessage().showErrorSnackBar(
                             message: state.message, context: context);
                       }
                     },
                     builder: (context, state) {
                       if (state is LoadingUserState) {
-                        print("Loading...");
-                        return LoadingWidget();
+                        return const LoadingWidget();
                       }
                       return Container();
                     },

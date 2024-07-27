@@ -7,10 +7,11 @@ import '../../data/models/hotel_model.dart';
 
 class HotelListWidget extends StatelessWidget {
   final List<HotelModel> hotel;
-
+  final int? itemCount;
   const HotelListWidget({
     Key? key,
     required this.hotel,
+    this.itemCount,
   }) : super(key: key);
 
   @override
@@ -20,7 +21,7 @@ class HotelListWidget extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: hotel.length,
+        itemCount: itemCount ?? hotel.length,
         itemBuilder: (context, index) {
           return CardItem(
             itemImage: hotel[index].images!.elementAt(1),
