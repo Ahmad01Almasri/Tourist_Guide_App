@@ -41,6 +41,7 @@ abstract class AppStrings {
       search = "Search",
       food = "food",
       restaurant = "restaurant",
+      restaurants = "restaurants",
       hotel = "hotel",
       hotels = "hotels",
       historical = "historical",

@@ -1,7 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:tourist_guide/core/services/firebase_api.dart';
 import 'package:tourist_guide/features/historical/presentation/blocs/historicals_bloc.dart';
 import 'core/database/cache/cache_helper.dart';
@@ -11,8 +9,8 @@ import 'core/utils/app_colors.dart';
 import 'core/services/shared_preferences_service.dart';
 import 'core/utils/app_strings.dart';
 import 'features/hotel/presentation/bloc/hotel_bloc.dart';
-import 'features/hotel/presentation/provider/favorite_provider.dart';
 import 'features/auth/presentation/bloc/user_bloc.dart';
+import 'features/restaurant/presentation/bloc/restaurant_bloc.dart';
 import 'injection_container.dart' as di;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -45,10 +43,15 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => di.sl<UserBloc>()),
         BlocProvider(
-            create: (_) =>
-                di.sl<HistoricalBloc>()..add(GetAllHistoricalsEvent("Aleppo"))),
+            create: (_) => di.sl<HistoricalBloc>()
+              ..add(const GetAllHistoricalsEvent("Aleppo"))),
         BlocProvider(
-            create: (_) => di.sl<HotelBloc>()..add(GetAllHotelEvent("Aleppo"))),
+            create: (_) =>
+                di.sl<HotelBloc>()..add(const GetAllHotelEvent("Aleppo"))),
+        BlocProvider(
+            create: (_) => di.sl<RestaurantBloc>()
+              ..add(const GetAllRestaurantEvent("Aleppo"))),
+
         // ChangeNotifierProvider(create: (context) => FavoriteProvider()
         // )
         // ,

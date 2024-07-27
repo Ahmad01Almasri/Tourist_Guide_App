@@ -22,6 +22,11 @@ import 'features/auth/domain/use_cases/signup_usecase.dart';
 import 'features/auth/presentation/bloc/user_bloc.dart';
 import 'features/hotel/data/data_sources/hotel_remote_data_sources.dart';
 import 'features/hotel/data/repositories_impl/hotel_repo_imp.dart';
+import 'features/restaurant/data/data_sources/res_data_sources.dart';
+import 'features/restaurant/data/repositories_impl/res_repo_imp.dart';
+import 'features/restaurant/domain/repositories/res_repo.dart';
+import 'features/restaurant/domain/use_cases/get_all_res.dart';
+import 'features/restaurant/presentation/bloc/restaurant_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -32,12 +37,14 @@ Future<void> init() async {
   sl.registerFactory(() => UserBloc(signUpUser: sl(), loginUser: sl()));
   sl.registerFactory(() => HistoricalBloc(getAllHistorical: sl()));
   sl.registerFactory(() => HotelBloc(getAllHotel: sl()));
-
+  sl.registerFactory(() => RestaurantBloc(getAllRestaurant: sl()));
 // Usecases
   sl.registerLazySingleton(() => LoginUserUsecase(sl()));
   sl.registerLazySingleton(() => SignUpUserUsecase(sl()));
   sl.registerLazySingleton(() => GetAllHistoricalUsecase(sl()));
   sl.registerLazySingleton(() => GetAllHotelUsecase(sl()));
+  sl.registerLazySingleton(() => GetAllRestaurantUsecase(sl()));
+
 // Repository
   sl.registerLazySingleton<UserRepository>(
       () => UsersRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
@@ -45,7 +52,8 @@ Future<void> init() async {
       HistoricalRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
   sl.registerLazySingleton<HotelRepository>(
       () => HotelRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
-
+  sl.registerLazySingleton<RestaurantRepository>(() =>
+      RestaurantRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
 // Datasources
 
   sl.registerLazySingleton<UserRemoteDataSource>(
@@ -55,6 +63,8 @@ Future<void> init() async {
       () => HistoricalRemoteDataSourceImpl(client: sl()));
   sl.registerLazySingleton<HotelRemoteDataSource>(
       () => HotelRemoteDataSourceImpl(client: sl()));
+  sl.registerLazySingleton<RestaurantRemoteDataSource>(
+      () => RestaurantRemoteDataSourceImpl(client: sl()));
 //! Core
 
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));

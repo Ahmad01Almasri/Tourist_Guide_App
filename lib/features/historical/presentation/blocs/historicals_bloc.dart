@@ -5,6 +5,7 @@ import '../../../../../core/error/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../../core/functions/failure_bloc_message.dart';
 import '../../../../core/utils/app_strings.dart';
 
 part 'historicals_event.dart';
@@ -34,23 +35,10 @@ class HistoricalBloc extends Bloc<HistoricalEvent, HistoricalState> {
   HistoricalState _mapFailureOrHistoricalToState(
       Either<Failure, List<HistoricalModel>> either) {
     return either.fold(
-      (failure) => ErrorHistoricalState(message: _mapFailureToMessage(failure)),
+      (failure) => ErrorHistoricalState(message: mapFailureToMessage(failure)),
       (historicals) => LoadedHistoricalsState(
         historicals: historicals,
       ),
     );
-  }
-
-  String _mapFailureToMessage(Failure failure) {
-    switch (failure.runtimeType) {
-      case ServerFailure:
-        return AppStrings.SERVER_FAILURE_MESSAGE;
-      case EmptyCacheFailure:
-        return AppStrings.EMPTY_CACHE_FAILURE_MESSAGE;
-      case OfflineFailure:
-        return AppStrings.OFFLINE_FAILURE_MESSAGE;
-      default:
-        return "Unexpected Error , Please try again later .";
-    }
   }
 }

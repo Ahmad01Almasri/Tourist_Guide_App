@@ -1,4 +1,3 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:tourist_guide/core/widgets/custom_button_app.dart';
 import '../widgets/elements_city_features.dart';
@@ -16,16 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   TextEditingController shearchInCitySelectionController =
       TextEditingController();
-
-  // Future<void> getToken() async {
-  //   try {
-  //     String? myToken = await FirebaseMessaging.instance.getToken();
-  //     print("toooooooooooooooooooooookennnnnnnnnnnnnnnnnn");
-  //     print(myToken);
-  //   } catch (e) {
-  //     print('Error getting FCM token: $e');
-  //   }
-  // }
 
   @override
   void dispose() {

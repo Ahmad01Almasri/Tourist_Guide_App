@@ -3,14 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/login.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/signup.dart';
 import 'package:tourist_guide/features/historical/presentation/pages/historical_page.dart';
-import 'package:tourist_guide/features/restaurant/presentation/pages/all_restaurant.dart';
+import 'package:tourist_guide/features/restaurant/presentation/pages/all_restaurants.dart';
 import 'package:tourist_guide/features/home/presentation/pages/home.dart';
 import 'package:tourist_guide/features/hotel/presentation/pages/all_hotel.dart';
 import 'package:tourist_guide/features/notification/presentation/pages/notification.dart';
 import 'package:tourist_guide/features/splash/presentation/views/splash_view.dart';
 import 'package:tourist_guide/features/top10restaurant/presentation/pages/top_ten_restaurant.dart';
-
-import '../../features/favorite/presentation/pages/favorite.dart';
 import '../../features/historical/data/models/historical_place_model.dart';
 import '../../features/historical/presentation/pages/all_historical_page.dart';
 import '../../features/home/presentation/pages/city_selection.dart';
@@ -18,6 +16,8 @@ import '../../features/hotel/data/models/hotel_model.dart';
 import '../../features/hotel/presentation/pages/hotel.dart';
 import '../../features/map/presentation/pages/map_page.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
+import '../../features/restaurant/data/models/res_model.dart';
+import '../../features/restaurant/presentation/pages/restaurant.dart';
 import '../utils/app_route_string.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
 
@@ -29,7 +29,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => SplashPage(),
+      builder: (context, state) => AllRestaurantPage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -74,7 +74,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.allRestaurant,
       // parentNavigatorKey: _shellNavigatorKey,
-      builder: (context, state) => const ALlRestaurantPage(),
+      builder: (context, state) => const AllRestaurantPage(),
     ),
     GoRoute(
       path: AppNamePage.allHotel,
@@ -105,6 +105,14 @@ final GoRouter router = GoRouter(
       builder: (context, state) {
         final hotel = state.extra as HotelModel;
         return HotelPage(hotel: hotel);
+      },
+    ),
+    GoRoute(
+      path: AppNamePage.restaurant,
+      // parentNavigatorKey: _shellNavigatorKey,
+      builder: (context, state) {
+        final restaurant = state.extra as RestaurantModel;
+        return RestaurantPage(restaurant: restaurant);
       },
     ),
   ],

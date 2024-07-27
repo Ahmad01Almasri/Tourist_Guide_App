@@ -22,7 +22,7 @@ class CityFeatureSection extends StatelessWidget {
             onPressed: () {
               customNavigate(context, AppNamePage.allRestaurant);
             },
-            featureName: AppStrings.food,
+            featureName: AppStrings.restaurant,
             featurecolor: AppColors.yellowGold,
             icon: Icons.restaurant,
           ),

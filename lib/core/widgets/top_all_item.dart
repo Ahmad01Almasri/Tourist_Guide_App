@@ -7,10 +7,12 @@ import '../utils/app_text_styles.dart';
 class TopAllItemBar extends StatelessWidget {
   final String? topText;
   final String image;
+  final Color? iconAndTextColor;
   const TopAllItemBar({
     super.key,
     this.topText,
     required this.image,
+    this.iconAndTextColor,
   });
 
   @override
@@ -34,7 +36,7 @@ class TopAllItemBar extends StatelessWidget {
                     icon: Icon(
                       size: 35,
                       Icons.arrow_back,
-                      color: AppColors.black,
+                      color: iconAndTextColor ?? AppColors.black,
                     ),
                   ),
                 ),
@@ -42,8 +44,9 @@ class TopAllItemBar extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 10, right: 5),
                   child: Text(
                     topText ?? "",
-                    style: AppTextStyles.poppinsBoldstyle24
-                        .copyWith(color: AppColors.black, fontSize: 25),
+                    style: AppTextStyles.poppinsBoldstyle24.copyWith(
+                        color: iconAndTextColor ?? AppColors.black,
+                        fontSize: 25),
                   ),
                 ),
               ],

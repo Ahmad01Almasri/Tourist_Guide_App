@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/error/failures.dart';
+import '../../../../core/functions/failure_bloc_message.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../data/models/hotel_model.dart';
 import '../../domain/use_cases/get_all_hotel.dart';
@@ -33,23 +34,10 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
   HotelState _mapFailureOrHotelToState(
       Either<Failure, List<HotelModel>> either) {
     return either.fold(
-      (failure) => ErrorHotelState(message: _mapFailureToMessage(failure)),
+      (failure) => ErrorHotelState(message: mapFailureToMessage(failure)),
       (hotel) => LoadedHotelState(
         hotel: hotel,
       ),
     );
-  }
-
-  String _mapFailureToMessage(Failure failure) {
-    switch (failure.runtimeType) {
-      case ServerFailure:
-        return AppStrings.SERVER_FAILURE_MESSAGE;
-      case EmptyCacheFailure:
-        return AppStrings.EMPTY_CACHE_FAILURE_MESSAGE;
-      case OfflineFailure:
-        return AppStrings.OFFLINE_FAILURE_MESSAGE;
-      default:
-        return "Unexpected Error , Please try again later .";
-    }
   }
 }
