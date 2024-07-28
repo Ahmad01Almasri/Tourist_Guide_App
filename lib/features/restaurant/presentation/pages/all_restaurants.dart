@@ -27,16 +27,22 @@ class AllRestaurantPage extends StatelessWidget {
               child: BlocBuilder<RestaurantBloc, RestaurantState>(
                 builder: (context, state) {
                   if (state is LoadingRestaurantState) {
-                    return const LoadingWidget();
+                    return const RestaurantListWidget(
+                      isLoading: true,
+                    );
                   } else if (state is LoadedRestaurantState) {
                     return RefreshIndicator(
                         onRefresh: () => _onRefresh(context),
-                        child:
-                            RestaurantListWidget(restaurant: state.restaurant));
+                        child: RestaurantListWidget(
+                          restaurant: state.restaurant,
+                          isLoading: false,
+                        ));
                   } else if (state is ErrorRestaurantState) {
                     return MessageDisplayWidget(message: state.message);
                   }
-                  return const LoadingWidget();
+                  return const RestaurantListWidget(
+                    isLoading: true,
+                  );
                 },
               ),
             ),

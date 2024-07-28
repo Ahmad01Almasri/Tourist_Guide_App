@@ -16,12 +16,27 @@ class CustomTopPageBar extends StatelessWidget {
       color: AppColors.primaryColor,
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Center(
-        child: Text(
-          pageName,
-          style: AppTextStyles.poppinsBoldstyle18.copyWith(
-            color: AppColors.white,
-            fontSize: 25,
-          ),
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                size: 30,
+                Icons.arrow_back,
+                color: AppColors.white,
+              ),
+            ),
+            SizedBox(
+              width: 85,
+            ),
+            Text(
+              pageName,
+              style: AppTextStyles.poppinsBoldstyle18.copyWith(
+                color: AppColors.white,
+                fontSize: 25,
+              ),
+            ),
+          ],
         ),
       ),
     );

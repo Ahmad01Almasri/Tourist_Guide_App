@@ -28,15 +28,18 @@ class AllHotelPage extends StatelessWidget {
               child: BlocBuilder<HotelBloc, HotelState>(
                 builder: (context, state) {
                   if (state is LoadingHotelState) {
-                    return LoadingWidget();
+                    return const HotelListWidget(isLoading: true);
                   } else if (state is LoadedHotelState) {
                     return RefreshIndicator(
                         onRefresh: () => _onRefresh(context),
-                        child: HotelListWidget(hotel: state.hotel));
+                        child: HotelListWidget(
+                          hotel: state.hotel,
+                          isLoading: false,
+                        ));
                   } else if (state is ErrorHotelState) {
                     return MessageDisplayWidget(message: state.message);
                   }
-                  return LoadingWidget();
+                  return const HotelListWidget(isLoading: true);
                 },
               ),
             ),
