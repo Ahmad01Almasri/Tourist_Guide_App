@@ -31,7 +31,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => OnBoardingView(),
+      builder: (context, state) => HomePage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
