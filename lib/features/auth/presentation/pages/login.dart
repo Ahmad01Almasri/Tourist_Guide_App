@@ -16,15 +16,15 @@ import '../widgets/button_app.dart';
 import '../widgets/row_icon_social_media.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 
-class Login extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   final Function()? onTap;
-  const Login({super.key, this.onTap});
+  const LoginPage({super.key, this.onTap});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginPageState extends State<LoginPage> {
   final passwordTextController = TextEditingController();
   final emailTextController = TextEditingController();
 
@@ -134,8 +134,6 @@ class _LoginState extends State<Login> {
                   BlocConsumer<UserBloc, UserState>(
                     listener: (context, state) {
                       if (state is SuccsessUserState) {
-                        print("Success: ${state.message}");
-
                         SnackBarMessage().showSuccessSnackBar(
                             message: state.message, context: context);
 

@@ -16,15 +16,15 @@ import '../bloc/user_bloc.dart';
 import '../widgets/button_app.dart';
 import '../widgets/row_icon_social_media.dart';
 
-class SignUp extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   final Function()? onTap;
-  const SignUp({super.key, this.onTap});
+  const SignUpPage({super.key, this.onTap});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpPageState extends State<SignUpPage> {
   final passwordTextController = TextEditingController();
   final emailTextController = TextEditingController();
   final userNameController = TextEditingController();
