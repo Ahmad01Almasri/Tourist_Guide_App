@@ -37,7 +37,10 @@ class AllHotelPage extends StatelessWidget {
                           isLoading: false,
                         ));
                   } else if (state is ErrorHotelState) {
-                    return MessageDisplayWidget(message: state.message);
+                    return MessageDisplayWidget(
+                      message: state.message,
+                      onPressed: () => _onRefresh(context),
+                    );
                   }
                   return const HotelListWidget(isLoading: true);
                 },

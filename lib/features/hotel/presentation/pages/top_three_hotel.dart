@@ -40,11 +40,11 @@ class TopThreeHotelPage extends StatelessWidget {
                         child:
                             HotelListWidget(itemCount: 3, hotel: state.hotel));
                   } else if (state is ErrorHotelState) {
-                    print("eeeeeeeeeeeeeeeeeeeeeeee");
-
-                    return MessageDisplayWidget(message: state.message);
+                    return MessageDisplayWidget(
+                      message: state.message,
+                      onPressed: () => _onRefresh(context),
+                    );
                   }
-                  print("wwwwwwwwwwwwwwwwwwwwww");
                   return LoadingWidget();
                 },
               ),

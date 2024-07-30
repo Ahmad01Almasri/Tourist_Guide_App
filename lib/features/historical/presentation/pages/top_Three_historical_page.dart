@@ -32,7 +32,10 @@ class TopThreeHistoricalPage extends StatelessWidget {
                         child: HistoricalListWidget(
                             itemCount: 3, historical: state.historicals));
                   } else if (state is ErrorHistoricalState) {
-                    return MessageDisplayWidget(message: state.message);
+                    return MessageDisplayWidget(
+                      message: state.message,
+                      onPressed: () => _onRefresh(context),
+                    );
                   }
                   return const LoadingWidget();
                 },

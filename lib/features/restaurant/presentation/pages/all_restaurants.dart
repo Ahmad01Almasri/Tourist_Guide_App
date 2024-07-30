@@ -38,7 +38,9 @@ class AllRestaurantPage extends StatelessWidget {
                           isLoading: false,
                         ));
                   } else if (state is ErrorRestaurantState) {
-                    return MessageDisplayWidget(message: state.message);
+                    return MessageDisplayWidget(
+                        message: state.message,
+                        onPressed: () => _onRefresh(context));
                   }
                   return const RestaurantListWidget(
                     isLoading: true,

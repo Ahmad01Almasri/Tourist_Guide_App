@@ -34,7 +34,9 @@ class TopThreeRestaurantPage extends StatelessWidget {
                         child: RestaurantListWidget(
                             itemCount: 3, restaurant: state.restaurant));
                   } else if (state is ErrorRestaurantState) {
-                    return MessageDisplayWidget(message: state.message);
+                    return MessageDisplayWidget(
+                        message: state.message,
+                        onPressed: () => _onRefresh(context));
                   }
                   return const LoadingWidget();
                 },

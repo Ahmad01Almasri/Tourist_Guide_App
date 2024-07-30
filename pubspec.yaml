@@ -71,6 +71,12 @@ dependencies:
   bloc: ^8.1.4
   url_launcher: ^6.3.0
   font_awesome_flutter: ^10.7.0
+  google_generative_ai: ^0.4.3
+  flutter_markdown: ^0.7.3
+  flutter_speed_dial: ^7.0.0
+  dash_chat_2: ^0.0.21
+  flutter_gemini: ^2.0.4
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:

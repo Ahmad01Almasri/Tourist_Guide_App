@@ -36,4 +36,80 @@ abstract class AppConstants {
     {"name": "As-Suwayda", "lat": 32.7157, "lng": 36.5663},
     {"name": "Rif Dimashq", "lat": 33.5000, "lng": 36.3000},
   ];
+
+  static List<Map<String, String>> appServices = [
+    {
+      'title': 'Wadiny',
+      'description': 'Wadiny application for city transportation',
+      'url': 'https://play.google.com/store/apps/details?id=com.waddini&hl=ar',
+      'image': 'assets/images/Wadiny.PNG'
+    },
+    {
+      'title': 'Yalla Go',
+      'description': 'Yalla Go application for trips and transportation',
+      'url': 'https://play.google.com/store/apps/developer?id=YallaGo&hl=ar',
+      'image': 'assets/images/Yalla Go.PNG'
+    },
+    {
+      'title': 'Maamoulati',
+      'description': 'Maamoulati application for managing transactions',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.maamoulati&hl=ar',
+      'image': 'assets/images/Maamoulati.PNG'
+    },
+    {
+      'title': 'BeOrder',
+      'description': 'BeOrder application for ordering services',
+      'url': 'https://play.google.com/store/apps/details?id=com.beorder&hl=ar',
+      'image': 'assets/images/BeOrder.WEBP'
+    },
+    {
+      'title': 'MTN Cash Syria',
+      'description': 'MTN Cash application for mobile money services in Syria',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.mtncash.syria&hl=ar',
+      'image': 'assets/images/MTN Cash Syria.jpg'
+    },
+    {
+      'title': 'Aqrab Eleik',
+      'description': 'Aqrab Eleik application for nearby services',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.aqrabeleik&hl=ar',
+      'image': 'assets/images/Aqrab Eleik.JPG'
+    },
+    {
+      'title': 'Al-Dhahabi',
+      'description': 'Al-Dhahabi application for Syria Islamic Bank',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.syriabank.aldhahabi&hl=ar',
+      'image': 'assets/images/Al-Dhahabi.JPG'
+    },
+    {
+      'title': 'BBSF',
+      'description': 'BBSF application for Banque Bemo Saudi Fransi',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.bbsf.bank&hl=ar',
+      'image': 'assets/images/bbsf1.PNG'
+    },
+    {
+      'title': 'Safra Bi Noqra',
+      'description': 'Safra Bi Noqra application for quick bookings',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.safrabinoqra&hl=ar',
+      'image': 'assets/images/Safra Bi Noqra.JPG'
+    },
+    {
+      'title': 'Al Baraka Bank Syria',
+      'description': 'Al Baraka Bank application for banking services in Syria',
+      'url':
+          'https://play.google.com/store/apps/details?id=com.albaraka.bank.syria&hl=ar',
+      'image': 'assets/images/BBSF.PNG'
+    },
+    {
+      'title': 'Node MS',
+      'description': 'Node MS application for managing services',
+      'url': 'https://play.google.com/store/apps/details?id=com.nodems&hl=ar',
+      'image': 'assets/images/Node MS.JPG'
+    },
+  ];
 }

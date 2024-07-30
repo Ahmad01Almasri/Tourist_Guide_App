@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:tourist_guide/core/services/firebase_api.dart';
 import 'package:tourist_guide/features/historical/presentation/blocs/historicals_bloc.dart';
 import 'core/database/cache/cache_helper.dart';
@@ -29,6 +30,8 @@ void main() async {
     ),
   );
   FirebaseApi().initNotifications();
+  Gemini.init(
+      apiKey: 'AIzaSyBY8ZnA7o-S6EqAtuHQij-VgOyacUCQdpY', enableDebugging: true);
   runApp(
     const MyApp(),
   );

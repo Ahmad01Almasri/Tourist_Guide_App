@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tourist_guide/core/utils/app_colors.dart';
 import 'package:tourist_guide/core/utils/app_text_styles.dart';
+import 'package:tourist_guide/core/widgets/custom_button_app.dart';
 
 class MessageDisplayWidget extends StatelessWidget {
   final String message;
-  const MessageDisplayWidget({
+  void Function() onPressed;
+  MessageDisplayWidget({
     super.key,
+    required this.onPressed,
     required this.message,
   });
 
@@ -30,6 +33,14 @@ class MessageDisplayWidget extends StatelessWidget {
               Icons.wifi_off,
               color: AppColors.red,
               size: 60,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            CustomButtonApp(
+              color: AppColors.red,
+              text: "Refrech",
+              onPressed: onPressed,
             )
           ],
         ),

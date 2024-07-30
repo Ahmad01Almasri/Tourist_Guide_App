@@ -39,7 +39,7 @@ class CityFeatureSection extends StatelessWidget {
             featurecolor: AppColors.red,
             icon: Icons.favorite,
             onPressed: () {
-              customNavigate(context, AppNamePage.favorite);
+              customNavigate(context, AppNamePage.geminiPage);
             },
           ),
           CityFeature(

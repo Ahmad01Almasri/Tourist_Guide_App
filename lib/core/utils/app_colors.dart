@@ -15,4 +15,5 @@ abstract class AppColors {
   static Color yellowGold = const Color(0xffFFD700);
   static Color purple = const Color(0xff800080);
   static Color orange = const Color(0xffFFA500);
+  static Color blue = const Color(0xffFF2196F3);
 }

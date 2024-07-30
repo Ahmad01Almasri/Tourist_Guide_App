@@ -33,7 +33,10 @@ class AllHistoricalPage extends StatelessWidget {
                           isLoading: false,
                         ));
                   } else if (state is ErrorHistoricalState) {
-                    return MessageDisplayWidget(message: state.message);
+                    return MessageDisplayWidget(
+                      message: state.message,
+                      onPressed: () => _onRefresh(context),
+                    );
                   }
                   return const HistoricalListWidget(isLoading: true);
                 },
