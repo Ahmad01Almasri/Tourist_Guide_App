@@ -2,6 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:tourist_guide/core/functions/navigation.dart';
+import 'package:tourist_guide/core/utils/app_route_string.dart';
+import 'package:tourist_guide/features/comment/presentation/pages/comment_page.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -184,7 +187,9 @@ class _HistoricalPageState extends State<HistoricalPage> {
                     Divider(
                       color: AppColors.black,
                     ),
-                    CommentSection(textController: textController),
+                    CommentSection(
+                      textController: textController,
+                    ),
                   ],
                 ),
               ),

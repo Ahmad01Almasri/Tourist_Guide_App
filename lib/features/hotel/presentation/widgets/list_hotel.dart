@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../core/functions/save_place_id.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_route_string.dart';
 import '../../../../core/widgets/card_item.dart';
-import '../../../../core/widgets/loading_shimmer.dart';
 import '../../data/models/hotel_model.dart';
 
 class HotelListWidget extends StatelessWidget {
@@ -37,6 +37,7 @@ class HotelListWidget extends StatelessWidget {
               itemRate: hotel![index].averageRating!.toDouble(),
               itemDescription: hotel![index].description.toString(),
               onTap: () {
+                savePlaceId(hotel![index].placeId.toString());
                 context.push(
                   AppNamePage.hotel,
                   extra: hotel![index],

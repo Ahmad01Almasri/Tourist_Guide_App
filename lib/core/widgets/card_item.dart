@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:tourist_guide/features/home/presentation/functions/selected_city.dart';
-import '../../features/hotel/data/models/hotel_model.dart';
-import '../../features/hotel/presentation/provider/favorite_provider.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
 import 'rating_stars.dart';

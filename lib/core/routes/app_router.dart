@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/login.dart';
 import 'package:tourist_guide/features/auth/presentation/pages/signup.dart';
@@ -10,6 +11,8 @@ import 'package:tourist_guide/features/notification/presentation/pages/notificat
 import 'package:tourist_guide/features/splash/presentation/views/splash_view.dart';
 import '../../features/ai chat/presentation/pages/ai_page.dart';
 import '../../features/ai chat/presentation/pages/chat.dart';
+import '../../features/comment/presentation/blocs/bloc/comment_bloc.dart';
+import '../../features/comment/presentation/pages/comment_page.dart';
 import '../../features/historical/data/models/historical_place_model.dart';
 import '../../features/historical/presentation/pages/all_historical_page.dart';
 import '../../features/historical/presentation/pages/top_Three_historical_page.dart';
@@ -34,7 +37,7 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppNamePage.splashPage,
       // parentNavigatorKey: _rootNavigatorKey,
-      builder: (context, state) => GeminiPage(),
+      builder: (context, state) => const HomePage(),
     ),
     GoRoute(
       path: AppNamePage.onBoardingPage,
@@ -80,6 +83,11 @@ final GoRouter router = GoRouter(
       path: AppNamePage.servicesScreen,
       // parentNavigatorKey: _shellNavigatorKey,
       builder: (context, state) => ServicesScreen(),
+    ),
+    GoRoute(
+      path: AppNamePage.commentsPage,
+      // parentNavigatorKey: _shellNavigatorKey,
+      builder: (context, state) => CommentsPage(),
     ),
     GoRoute(
       path: AppNamePage.notification,

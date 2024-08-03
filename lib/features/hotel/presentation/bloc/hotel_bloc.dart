@@ -20,7 +20,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
       if (event is GetAllHotelEvent) {
         emit(LoadingHotelState());
 
-        final failureOrHotel = await getAllHotel(event.cityName);
+        final failureOrHotel = await getAllHotel(event.cityName.toString());
         emit(_mapFailureOrHotelToState(failureOrHotel));
       } else if (event is RefreshHotelEvent) {
         emit(LoadingHotelState());

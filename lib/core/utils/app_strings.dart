@@ -66,10 +66,11 @@ abstract class AppStrings {
       allHotelAvaliable = "All Hotel Avaliable",
       //! Hotel
       goToLocation = "Go To Location",
-      writeSomethingHere = "write something here...",
+      writeSomethingHere = "Write something here...",
       location = "Location :",
       reat = "Rate :",
       description = "Description :",
+      viewComments = "View Comments",
       //!ALl Historical
       someHistoricalPlace = "Some Historical Place",
       //! Map Strings

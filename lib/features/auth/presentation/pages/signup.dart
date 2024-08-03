@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tourist_guide/core/functions/save_user_name.dart';
 
 import '../../../../core/functions/navigation.dart';
 import '../../../../core/services/shared_preferences_service.dart';
@@ -120,7 +121,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     title: AppStrings.signUp,
                     onPressed: () {
                       if (formstate.currentState!.validate()) {
-                        print("vvvvvvvvvvvvvvvvvvvvvv");
+                        saveUserName(userNameController.text);
                         final user = User(
                           email: emailTextController.text,
                           username: userNameController.text,

@@ -8,12 +8,12 @@ abstract class HotelEvent {
 }
 
 class GetAllHotelEvent extends HotelEvent {
-  final String cityName;
+  final String? cityName;
 
-  const GetAllHotelEvent(this.cityName);
+  const GetAllHotelEvent({this.cityName});
 
   @override
-  List<Object> get props => [cityName];
+  List<Object> get props => [cityName!];
 }
 
 class RefreshHotelEvent extends HotelEvent {

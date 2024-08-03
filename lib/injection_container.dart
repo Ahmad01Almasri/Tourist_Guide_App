@@ -20,6 +20,11 @@ import 'features/auth/data/data_sources/user_remote_data_source.dart';
 import 'features/auth/domain/use_cases/login_usecase.dart';
 import 'features/auth/domain/use_cases/signup_usecase.dart';
 import 'features/auth/presentation/bloc/user_bloc.dart';
+import 'features/comment/data/data_sources/comment_data_sources.dart';
+import 'features/comment/data/repositories_impl/comment_repo_impl.dart';
+import 'features/comment/domain/repositories/comment_repo.dart';
+import 'features/comment/domain/use_cases/get_all_comments.dart';
+import 'features/comment/presentation/blocs/bloc/comment_bloc.dart';
 import 'features/hotel/data/data_sources/hotel_remote_data_sources.dart';
 import 'features/hotel/data/repositories_impl/hotel_repo_imp.dart';
 import 'features/restaurant/data/data_sources/res_data_sources.dart';
@@ -38,12 +43,15 @@ Future<void> init() async {
   sl.registerFactory(() => HistoricalBloc(getAllHistorical: sl()));
   sl.registerFactory(() => HotelBloc(getAllHotel: sl()));
   sl.registerFactory(() => RestaurantBloc(getAllRestaurant: sl()));
+  sl.registerFactory(() => CommentBloc(getAllComment: sl()));
+
 // Usecases
   sl.registerLazySingleton(() => LoginUserUsecase(sl()));
   sl.registerLazySingleton(() => SignUpUserUsecase(sl()));
   sl.registerLazySingleton(() => GetAllHistoricalUsecase(sl()));
   sl.registerLazySingleton(() => GetAllHotelUsecase(sl()));
   sl.registerLazySingleton(() => GetAllRestaurantUsecase(sl()));
+  sl.registerLazySingleton(() => GetAllCommentUsecase(sl()));
 
 // Repository
   sl.registerLazySingleton<UserRepository>(
@@ -54,6 +62,8 @@ Future<void> init() async {
       () => HotelRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
   sl.registerLazySingleton<RestaurantRepository>(() =>
       RestaurantRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
+  sl.registerLazySingleton<CommentRepository>(
+      () => CommentRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
 // Datasources
 
   sl.registerLazySingleton<UserRemoteDataSource>(
@@ -65,6 +75,9 @@ Future<void> init() async {
       () => HotelRemoteDataSourceImpl(client: sl()));
   sl.registerLazySingleton<RestaurantRemoteDataSource>(
       () => RestaurantRemoteDataSourceImpl(client: sl()));
+
+  sl.registerLazySingleton<CommentRemoteDataSource>(
+      () => CommentRemoteDataSourceImpl(client: sl()));
 //! Core
 
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));

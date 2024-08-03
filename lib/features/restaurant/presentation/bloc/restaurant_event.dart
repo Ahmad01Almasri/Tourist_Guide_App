@@ -8,12 +8,12 @@ abstract class RestaurantEvent {
 }
 
 class GetAllRestaurantEvent extends RestaurantEvent {
-  final String cityName;
+  final String? cityName;
 
-  const GetAllRestaurantEvent(this.cityName);
+  const GetAllRestaurantEvent({this.cityName});
 
   @override
-  List<Object> get props => [cityName];
+  List<Object> get props => [cityName!];
 }
 
 class RefreshRestaurantEvent extends RestaurantEvent {

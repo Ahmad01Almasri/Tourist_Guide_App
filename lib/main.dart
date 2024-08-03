@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:tourist_guide/core/services/firebase_api.dart';
+import 'package:tourist_guide/features/comment/presentation/pages/comment_page.dart';
 import 'package:tourist_guide/features/historical/presentation/blocs/historicals_bloc.dart';
 import 'core/database/cache/cache_helper.dart';
 import 'core/routes/app_router.dart';
@@ -9,6 +10,7 @@ import 'core/services/service_locator.dart';
 import 'core/utils/app_colors.dart';
 import 'core/services/shared_preferences_service.dart';
 import 'core/utils/app_strings.dart';
+import 'features/comment/presentation/blocs/bloc/comment_bloc.dart';
 import 'features/hotel/presentation/bloc/hotel_bloc.dart';
 import 'features/auth/presentation/bloc/user_bloc.dart';
 import 'features/restaurant/presentation/bloc/restaurant_bloc.dart';
@@ -47,13 +49,19 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => di.sl<UserBloc>()),
         BlocProvider(
             create: (_) => di.sl<HistoricalBloc>()
-              ..add(const GetAllHistoricalsEvent("Aleppo"))),
+              ..add(const GetAllHistoricalsEvent(cityName: "Aleppo"))),
         BlocProvider(
-            create: (_) =>
-                di.sl<HotelBloc>()..add(const GetAllHotelEvent("Aleppo"))),
+            create: (_) => di.sl<HotelBloc>()
+              ..add(const GetAllHotelEvent(cityName: "Aleppo"))),
         BlocProvider(
             create: (_) => di.sl<RestaurantBloc>()
-              ..add(const GetAllRestaurantEvent("Aleppo"))),
+              ..add(const GetAllRestaurantEvent(cityName: "Aleppo"))),
+        BlocProvider(
+          create: (_) => di.sl<CommentBloc>()
+            ..add(
+              const GetAllCommentEvent(),
+            ),
+        ),
 
         // ChangeNotifierProvider(create: (context) => FavoriteProvider()
         // )

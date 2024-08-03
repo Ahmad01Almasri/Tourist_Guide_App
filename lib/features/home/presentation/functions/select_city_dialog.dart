@@ -6,12 +6,19 @@ import '../../../../core/utils/app_text_styles.dart';
 
 List<String> cityName = [
   'Aleppo',
-  'Deir ez-Zor',
-  'Latakia',
+  'Deir-ez-Zor',
   'Damascus',
   'Homs',
   'Hama',
-  'Tartus'
+  'Hasakah',
+  'Latakia',
+  'Idlib',
+  'Raqqa',
+  'Quneitra',
+  'Tartus',
+  'Daraa',
+  'As-Suwayda',
+  'Rif-Dimashq'
 ];
 String selectedCity = '';
 Future<dynamic> selectCityDialog(BuildContext context) {
@@ -22,7 +29,7 @@ Future<dynamic> selectCityDialog(BuildContext context) {
       title: Icon(
         Icons.location_on_sharp,
         color: AppColors.primaryColor,
-        size: 40,
+        size: 45,
       ),
       actions: const [
         SizedBox(
@@ -38,13 +45,14 @@ Future<dynamic> selectCityDialog(BuildContext context) {
                 value: item,
                 child: Text(
                   item,
-                  style: AppTextStyles.poppinsW500style15,
+                  style:
+                      AppTextStyles.poppinsW500style15.copyWith(fontSize: 20),
                 ),
               );
             }).toList(),
             hint: Text(
               AppStrings.selectCityName,
-              style: AppTextStyles.poppinsW500style15,
+              style: AppTextStyles.poppinsW500style15.copyWith(fontSize: 20),
             ),
             onChanged: (value) {
               selectedCity = value!;

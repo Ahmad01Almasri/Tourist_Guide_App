@@ -15,9 +15,9 @@ void isNotSelectedCity() {
 
 void saveCityName() {
   getIt<CacheHelper>()
-      .saveData(key: AppStorageKey.CityName, value: selectedCity);
+      .saveData(key: AppStorageKey.cityName, value: selectedCity);
 }
 
 getCityName() {
-  return getIt<CacheHelper>().getData(key: AppStorageKey.CityName);
+  return getIt<CacheHelper>().getData(key: AppStorageKey.cityName);
 }

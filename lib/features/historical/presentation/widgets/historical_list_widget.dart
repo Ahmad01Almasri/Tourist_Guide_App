@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tourist_guide/core/widgets/card_item.dart';
 import 'package:tourist_guide/features/historical/data/models/historical_place_model.dart';
 
+import '../../../../core/functions/save_place_id.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/widgets/loading_shimmer.dart';
+import '../../../../core/utils/app_route_string.dart';
 
 class HistoricalListWidget extends StatelessWidget {
   final List<HistoricalModel>? historical;
@@ -35,7 +37,12 @@ class HistoricalListWidget extends StatelessWidget {
               itemRate: historical![index].averageRating!.toDouble(),
               itemDescription: historical![index].description.toString(),
               onTap: () {
-                // Navigate to detail page or perform other actions
+                savePlaceId(historical![index].placeId.toString());
+                print("======================" + getPlaceId());
+                context.push(
+                  AppNamePage.historical,
+                  extra: historical![index],
+                );
               },
             );
           },

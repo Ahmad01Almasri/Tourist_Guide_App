@@ -19,4 +19,5 @@ abstract class AppNamePage {
   static const String map = "/map";
   static const String geminiPage = "/geminiPage";
   static const String servicesScreen = "/servicesScreen";
+  static const String commentsPage = "/commentsPage";
 }

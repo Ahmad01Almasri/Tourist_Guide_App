@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../core/functions/save_place_id.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_route_string.dart';
 import '../../../../core/widgets/card_item.dart';
@@ -36,6 +37,7 @@ class RestaurantListWidget extends StatelessWidget {
               itemRate: restaurant![index].averageRating!.toDouble(),
               itemDescription: restaurant![index].description.toString(),
               onTap: () {
+                savePlaceId(restaurant![index].placeId.toString());
                 context.push(
                   AppNamePage.restaurant,
                   extra: restaurant![index],
@@ -43,7 +45,7 @@ class RestaurantListWidget extends StatelessWidget {
               },
             );
           },
-          separatorBuilder: (context, index) => Divider(thickness: 1),
+          separatorBuilder: (context, index) => const Divider(thickness: 1),
         ),
       );
     }

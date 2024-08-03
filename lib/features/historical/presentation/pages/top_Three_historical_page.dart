@@ -7,41 +7,46 @@ import '../../../../core/widgets/message_display_widget.dart';
 import '../../../../core/widgets/top_all_item.dart';
 import '../blocs/historicals_bloc.dart';
 import '../widgets/historical_list_widget.dart';
+import 'package:tourist_guide/injection_container.dart' as di;
 
 class TopThreeHistoricalPage extends StatelessWidget {
   const TopThreeHistoricalPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            const TopAllItemBar(
-              image: AppAssets.historicalTopBar,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: BlocBuilder<HistoricalBloc, HistoricalState>(
-                builder: (context, state) {
-                  if (state is LoadingHistoricalState) {
-                    return const LoadingWidget();
-                  } else if (state is LoadedHistoricalsState) {
-                    return RefreshIndicator(
-                        onRefresh: () => _onRefresh(context),
-                        child: HistoricalListWidget(
-                            itemCount: 3, historical: state.historicals));
-                  } else if (state is ErrorHistoricalState) {
-                    return MessageDisplayWidget(
-                      message: state.message,
-                      onPressed: () => _onRefresh(context),
-                    );
-                  }
-                  return const LoadingWidget();
-                },
+    return BlocProvider(
+      create: (context) =>
+          di.sl<HistoricalBloc>()..add(const GetAllHistoricalsEvent()),
+      child: SafeArea(
+        child: Scaffold(
+          body: Column(
+            children: [
+              const TopAllItemBar(
+                image: AppAssets.historicalTopBar,
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: BlocBuilder<HistoricalBloc, HistoricalState>(
+                  builder: (context, state) {
+                    if (state is LoadingHistoricalState) {
+                      return const LoadingWidget();
+                    } else if (state is LoadedHistoricalsState) {
+                      return RefreshIndicator(
+                          onRefresh: () => _onRefresh(context),
+                          child: HistoricalListWidget(
+                              itemCount: 3, historical: state.historicals));
+                    } else if (state is ErrorHistoricalState) {
+                      return MessageDisplayWidget(
+                        message: state.message,
+                        onPressed: () => _onRefresh(context),
+                      );
+                    }
+                    return const LoadingWidget();
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

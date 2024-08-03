@@ -8,12 +8,12 @@ abstract class HistoricalEvent extends Equatable {
 }
 
 class GetAllHistoricalsEvent extends HistoricalEvent {
-  final String cityName;
+  final String? cityName;
 
-  const GetAllHistoricalsEvent(this.cityName);
+  const GetAllHistoricalsEvent({this.cityName});
 
   @override
-  List<Object> get props => [cityName];
+  List<Object> get props => [cityName!];
 }
 
 class RefreshHistoricalsEvent extends HistoricalEvent {

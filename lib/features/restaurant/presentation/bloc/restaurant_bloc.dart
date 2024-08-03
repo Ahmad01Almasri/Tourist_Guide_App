@@ -21,7 +21,8 @@ class RestaurantBloc extends Bloc<RestaurantEvent, RestaurantState> {
       if (event is GetAllRestaurantEvent) {
         emit(LoadingRestaurantState());
 
-        final failureOrRestaurant = await getAllRestaurant(event.cityName);
+        final failureOrRestaurant =
+            await getAllRestaurant(event.cityName.toString());
         emit(_mapFailureOrRestaurantToState(failureOrRestaurant));
       } else if (event is RefreshRestaurantEvent) {
         emit(LoadingRestaurantState());

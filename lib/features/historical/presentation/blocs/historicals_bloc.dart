@@ -21,7 +21,8 @@ class HistoricalBloc extends Bloc<HistoricalEvent, HistoricalState> {
       if (event is GetAllHistoricalsEvent) {
         emit(LoadingHistoricalState());
 
-        final failureOrHistoricals = await getAllHistorical(event.cityName);
+        final failureOrHistoricals =
+            await getAllHistorical(event.cityName.toString());
         emit(_mapFailureOrHistoricalToState(failureOrHistoricals));
       } else if (event is RefreshHistoricalsEvent) {
         emit(LoadingHistoricalState());

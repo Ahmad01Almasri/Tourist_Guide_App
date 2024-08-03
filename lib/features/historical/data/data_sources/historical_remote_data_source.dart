@@ -41,9 +41,4 @@ class HistoricalRemoteDataSourceImpl implements HistoricalRemoteDataSource {
       throw ServerException();
     }
   }
-//  if (response.statusCode == 201) {
-//       return Future.value(unit);
-//     } else {
-//       throw ServerException();
-//     }
 }
