@@ -73,11 +73,13 @@ abstract class AppStrings {
       viewComments = "View Comments",
       //!ALl Historical
       someHistoricalPlace = "Some Historical Place",
+      refresh = "Refrech",
       //! Map Strings
       syriaMap = "Syria Map",
       SERVER_FAILURE_MESSAGE = 'Please try again later .',
       EMPTY_CACHE_FAILURE_MESSAGE = 'No Data',
       ADD_SUCCESS_MESSAGE = "User  Successfully",
+      ADD_COMMENT_MESSAGE = "Comment  Added",
       DELETE_SUCCESS_MESSAGE = "Deleted Successfully",
       UPDATE_SUCCESS_MESSAGE = "Updated Successfully",
       OFFLINE_FAILURE_MESSAGE = 'Please Check your Internet Connection';

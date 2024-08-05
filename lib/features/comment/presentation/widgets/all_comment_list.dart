@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:tourist_guide/core/utils/app_assets.dart';
-import 'package:tourist_guide/features/comment/data/models/comment_model.dart';
+import 'package:tourist_guide/features/comment/data/models/get_comments_model.dart';
 import 'package:tourist_guide/features/comment/presentation/widgets/card_comment.dart';
 
+import '../../../../core/functions/save_user_name.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_text_styles.dart';
 
 class CommentListWidget extends StatelessWidget {
-  final List<CommentModel>? comment;
+  final List<GetCommentsModel>? comment;
   final bool isLoading;
   const CommentListWidget({
     super.key,
@@ -26,11 +24,9 @@ class CommentListWidget extends StatelessWidget {
         itemCount: comment!.length,
         itemBuilder: (context, index) {
           return CommentCard(
-            isHaveComments:
-                // comment[index].username.toString() == getUserName()?
-                true
-            // : false
-            ,
+            isHaveComments: comment![index].username.toString() == getUserName()
+                ? true
+                : false,
             avatarUrl: 'https://www.w3schools.com/w3images/avatar2.png',
             commentText: comment![index].commentText.toString(),
             timestamp: comment![index].timestamp.toString(),

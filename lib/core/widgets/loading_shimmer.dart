@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 
-import '../utils/app_colors.dart';
 
 // Widget buildShimmerLoading(int itemCount ) {
 //     return SizedBox(

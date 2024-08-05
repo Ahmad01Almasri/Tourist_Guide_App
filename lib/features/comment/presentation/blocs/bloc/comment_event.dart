@@ -20,3 +20,12 @@ class RefreshCommentEvent extends CommentEvent {
   @override
   List<Object> get props => [];
 }
+
+class AddCommentEvent extends CommentEvent {
+  final Comment comment;
+
+  const AddCommentEvent({required this.comment});
+
+  @override
+  List<Object> get props => [comment];
+}

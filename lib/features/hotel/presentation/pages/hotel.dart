@@ -6,7 +6,7 @@ import 'package:latlong2/latlong.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../../../../core/widgets/comment_section.dart';
+import '../../../comment/presentation/widgets/comment_section.dart';
 import '../../../../core/widgets/description_section.dart';
 import '../../../../core/widgets/rating_stars.dart';
 import '../../../home/presentation/widgets/smooth_images_indicator.dart';
@@ -26,8 +26,6 @@ class _HotelPageState extends State<HotelPage> {
   Timer? _timer;
   TextEditingController searchController = TextEditingController();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
-  TextEditingController textController = TextEditingController();
-  // List<String> images = ['image1', 'image2', 'image3']; // Example image list
 
   @override
   void initState() {
@@ -183,7 +181,7 @@ class _HotelPageState extends State<HotelPage> {
                     Divider(
                       color: AppColors.black,
                     ),
-                    CommentSection(textController: textController),
+                    CommentSection(),
                   ],
                 ),
               ),

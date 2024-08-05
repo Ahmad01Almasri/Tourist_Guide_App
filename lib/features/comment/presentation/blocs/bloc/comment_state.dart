@@ -12,7 +12,7 @@ class CommentInitial extends CommentState {}
 class LoadingCommentState extends CommentState {}
 
 class LoadedCommentState extends CommentState {
-  final List<CommentModel> comments;
+  final List<GetCommentsModel> comments;
 
   const LoadedCommentState({required this.comments});
 
@@ -24,6 +24,15 @@ class ErrorCommentState extends CommentState {
   final String message;
 
   const ErrorCommentState({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
+
+class SuccsessCommentState extends CommentState {
+  final String message;
+
+  const SuccsessCommentState({required this.message});
 
   @override
   List<Object> get props => [message];

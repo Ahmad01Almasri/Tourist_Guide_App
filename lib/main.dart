@@ -62,10 +62,7 @@ class MyApp extends StatelessWidget {
               const GetAllCommentEvent(),
             ),
         ),
-
-        // ChangeNotifierProvider(create: (context) => FavoriteProvider()
-        // )
-        // ,
+        // BlocProvider(create: (_) => di.sl<CommentBloc>()),
       ],
       child: MaterialApp.router(
         theme: ThemeData(

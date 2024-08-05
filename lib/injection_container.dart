@@ -1,5 +1,6 @@
 import 'package:tourist_guide/features/auth/data/repositories_impl/user_repo_imp.dart';
 import 'package:tourist_guide/features/auth/domain/repositories/user_repo.dart';
+import 'package:tourist_guide/features/comment/domain/use_cases/add_comment.dart';
 import 'package:tourist_guide/features/historical/data/data_sources/historical_remote_data_source.dart';
 import 'package:tourist_guide/features/historical/data/repositories_impl/historical_repo_impl.dart';
 import 'package:tourist_guide/features/historical/domain/repositories/histprical_repository.dart';
@@ -43,7 +44,7 @@ Future<void> init() async {
   sl.registerFactory(() => HistoricalBloc(getAllHistorical: sl()));
   sl.registerFactory(() => HotelBloc(getAllHotel: sl()));
   sl.registerFactory(() => RestaurantBloc(getAllRestaurant: sl()));
-  sl.registerFactory(() => CommentBloc(getAllComment: sl()));
+  sl.registerFactory(() => CommentBloc(getAllComment: sl(), addComment: sl()));
 
 // Usecases
   sl.registerLazySingleton(() => LoginUserUsecase(sl()));
@@ -52,7 +53,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetAllHotelUsecase(sl()));
   sl.registerLazySingleton(() => GetAllRestaurantUsecase(sl()));
   sl.registerLazySingleton(() => GetAllCommentUsecase(sl()));
-
+  sl.registerLazySingleton(() => AddCommentUsecase(sl()));
 // Repository
   sl.registerLazySingleton<UserRepository>(
       () => UsersRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
@@ -64,6 +65,7 @@ Future<void> init() async {
       RestaurantRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
   sl.registerLazySingleton<CommentRepository>(
       () => CommentRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
+
 // Datasources
 
   sl.registerLazySingleton<UserRemoteDataSource>(

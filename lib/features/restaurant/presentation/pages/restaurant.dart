@@ -7,7 +7,7 @@ import 'package:tourist_guide/features/restaurant/data/models/res_model.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../../../../core/widgets/comment_section.dart';
+import '../../../comment/presentation/widgets/comment_section.dart';
 import '../../../../core/widgets/description_section.dart';
 import '../../../../core/widgets/rating_stars.dart';
 import '../../../home/presentation/widgets/smooth_images_indicator.dart';
@@ -26,7 +26,6 @@ class _RestaurantPageState extends State<RestaurantPage> {
   Timer? _timer;
   TextEditingController searchController = TextEditingController();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
-  TextEditingController textController = TextEditingController();
 
   @override
   void initState() {
@@ -183,7 +182,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                     Divider(
                       color: AppColors.black,
                     ),
-                    CommentSection(textController: textController),
+                    CommentSection(),
                   ],
                 ),
               ),

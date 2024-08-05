@@ -1,12 +1,13 @@
 import 'dart:convert';
 
-List<CommentModel> commentModelFromJson(String str) => List<CommentModel>.from(
-    json.decode(str).map((x) => CommentModel.fromJson(x)));
+List<GetCommentsModel> commentModelFromJson(String str) =>
+    List<GetCommentsModel>.from(
+        json.decode(str).map((x) => GetCommentsModel.fromJson(x)));
 
-String commentModelToJson(List<CommentModel> data) =>
+String commentModelToJson(List<GetCommentsModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class CommentModel {
+class GetCommentsModel {
   final String? id;
   final int? placeId;
   final String? userId;
@@ -15,7 +16,7 @@ class CommentModel {
   final int? v;
   final String? username;
 
-  CommentModel({
+  GetCommentsModel({
     this.id,
     this.placeId,
     this.userId,
@@ -25,7 +26,7 @@ class CommentModel {
     this.username,
   });
 
-  CommentModel copyWith({
+  GetCommentsModel copyWith({
     String? id,
     int? placeId,
     String? userId,
@@ -34,7 +35,7 @@ class CommentModel {
     int? v,
     String? username,
   }) =>
-      CommentModel(
+      GetCommentsModel(
         id: id ?? this.id,
         placeId: placeId ?? this.placeId,
         userId: userId ?? this.userId,
@@ -44,7 +45,8 @@ class CommentModel {
         username: username ?? this.username,
       );
 
-  factory CommentModel.fromJson(Map<String, dynamic> json) => CommentModel(
+  factory GetCommentsModel.fromJson(Map<String, dynamic> json) =>
+      GetCommentsModel(
         id: json["_id"],
         placeId: json["placeID"],
         userId: json["userID"],
