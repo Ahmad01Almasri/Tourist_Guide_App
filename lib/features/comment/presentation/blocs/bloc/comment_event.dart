@@ -29,3 +29,25 @@ class AddCommentEvent extends CommentEvent {
   @override
   List<Object> get props => [comment];
 }
+
+class DeleteCommentEvent extends CommentEvent {
+  final String commentId;
+
+  const DeleteCommentEvent({required this.commentId});
+
+  @override
+  List<Object> get props => [commentId];
+}
+
+class UpdateCommentEvent extends CommentEvent {
+  final String newText;
+  final String id;
+
+  const UpdateCommentEvent({
+    required this.newText,
+    required this.id,
+  });
+
+  @override
+  List<Object> get props => [newText, id];
+}

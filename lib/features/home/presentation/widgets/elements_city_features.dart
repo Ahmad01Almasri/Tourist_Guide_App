@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tourist_guide/core/functions/navigation.dart';
 import 'package:tourist_guide/core/utils/app_route_string.dart';
 
@@ -35,20 +36,20 @@ class CityFeatureSection extends StatelessWidget {
             icon: Icons.apartment,
           ),
           CityFeature(
-            featureName: AppStrings.favorite,
-            featurecolor: AppColors.red,
-            icon: Icons.favorite,
-            onPressed: () {
-              customNavigate(context, AppNamePage.geminiPage);
-            },
-          ),
-          CityFeature(
             featureName: AppStrings.historical,
             featurecolor: AppColors.orange,
             onPressed: () {
               customNavigate(context, AppNamePage.allHistorical);
             },
             icon: Icons.castle_outlined,
+          ),
+          CityFeature(
+            featureName: AppStrings.chatAi,
+            featurecolor: AppColors.red,
+            icon: FontAwesomeIcons.robot,
+            onPressed: () {
+              customNavigate(context, AppNamePage.geminiPage);
+            },
           ),
         ],
       ),

@@ -5,6 +5,7 @@ import 'package:tourist_guide/features/favorite/presentation/pages/favorite.dart
 import 'package:tourist_guide/features/historical/presentation/pages/all_historical_page.dart';
 import 'package:tourist_guide/features/map/presentation/pages/map_page.dart';
 import 'package:tourist_guide/features/notification/presentation/pages/notification.dart';
+import 'package:tourist_guide/features/services/presentation/pages/services_page.dart';
 
 import '../../features/home/presentation/pages/home.dart';
 
@@ -28,7 +29,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   final List<Widget> _widgetOptions = <Widget>[
     const HomePage(),
     const MapPage(),
-    AllHistoricalPage(),
+    ServicesScreen(),
     const NotificationsPage()
   ];
   @override

@@ -14,6 +14,8 @@ import '../models/get_comments_model.dart';
 abstract class CommentRemoteDataSource {
   Future<List<GetCommentsModel>> getAllComment();
   Future<Unit> addComment(AddCommentModel comment);
+  Future<Unit> deleteComment(String comentId);
+  Future<Unit> updateComment(String newText, String id);
 }
 
 const baseUrl = AppStrings.baseUrl;
@@ -65,6 +67,39 @@ class CommentRemoteDataSourceImpl implements CommentRemoteDataSource {
     } else {
       final errorResponse = jsonDecode(response.body);
       print('Error: ${errorResponse['message']}');
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<Unit> deleteComment(String commentId) async {
+    final body = {"commentID": commentId};
+    final response = await client.post(
+      Uri.parse("https://node-saleh.onrender.com/api/comments/deleteComment"),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode(body),
+    );
+
+    if (response.statusCode > 200 && response.statusCode < 300) {
+      return Future.value(unit);
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<Unit> updateComment(String newText, String id) async {
+    final body = {"commentID": id, "newText": newText};
+
+    final response = await client.post(
+      Uri.parse("https://node-saleh.onrender.com/api/comments/updateComment"),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode(body),
+    );
+
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return Future.value(unit);
+    } else {
       throw ServerException();
     }
   }

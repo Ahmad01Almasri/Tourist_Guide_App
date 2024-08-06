@@ -7,4 +7,6 @@ import '../../data/models/get_comments_model.dart';
 abstract class CommentRepository {
   Future<Either<Failure, List<GetCommentsModel>>> getAllComment();
   Future<Either<Failure, Unit>> addComment(Comment comment);
+  Future<Either<Failure, Unit>> deleteComment(String id);
+  Future<Either<Failure, Unit>> updateComment(String newText, String id);
 }

@@ -29,11 +29,15 @@ class ErrorCommentState extends CommentState {
   List<Object> get props => [message];
 }
 
-class SuccsessCommentState extends CommentState {
+class SuccessCommentState extends CommentState {
   final String message;
 
-  const SuccsessCommentState({required this.message});
+  const SuccessCommentState({required this.message});
 
   @override
   List<Object> get props => [message];
 }
+
+class CommentDeletedState extends CommentState {}
+
+class CommentUpdateState extends CommentState {}

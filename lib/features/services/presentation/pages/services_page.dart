@@ -18,13 +18,13 @@ class _ServicesScreenState extends State<ServicesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon:
-                Icon(size: 35, Icons.arrow_back, color: AppColors.primaryColor),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
+          // leading: IconButton(
+          //   icon:
+          //       Icon(size: 35, Icons.arrow_back, color: AppColors.primaryColor),
+          //   onPressed: () {
+          //     Navigator.of(context).pop();
+          //   },
+          // ),
           title: Text(
             'Services',
             textAlign: TextAlign.center,

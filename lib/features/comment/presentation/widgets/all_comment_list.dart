@@ -1,3 +1,4 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tourist_guide/features/comment/data/models/get_comments_model.dart';
@@ -9,9 +10,11 @@ import '../../../../core/utils/app_colors.dart';
 class CommentListWidget extends StatelessWidget {
   final List<GetCommentsModel>? comment;
   final bool isLoading;
+  final Bloc? bloc;
   const CommentListWidget({
     super.key,
     this.comment,
+    this.bloc,
     required this.isLoading,
   });
 
@@ -24,6 +27,8 @@ class CommentListWidget extends StatelessWidget {
         itemCount: comment!.length,
         itemBuilder: (context, index) {
           return CommentCard(
+            // bloc: bloc!,
+            commentId: comment![index].id.toString(),
             isHaveComments: comment![index].username.toString() == getUserName()
                 ? true
                 : false,

@@ -55,7 +55,7 @@ abstract class AppStrings {
       recent = "Recent",
       //!BottomNavigationBar Strings
       home = "Home",
-      favorite = "Favorite",
+      chatAi = "Chat Ai",
 
       //!Notifications
       notifications = "Notifications",

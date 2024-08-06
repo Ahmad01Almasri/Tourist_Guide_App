@@ -8,7 +8,7 @@ import '../../domain/repositories/comment_repo.dart';
 import '../data_sources/comment_data_sources.dart';
 import '../models/get_comments_model.dart';
 
-typedef Future<Unit> AddComment();
+typedef Future<Unit> DeleteOrUpdateOrAddPost();
 
 class CommentRepositoryImpl implements CommentRepository {
   final CommentRemoteDataSource remoteDataSource;
@@ -40,10 +40,26 @@ class CommentRepositoryImpl implements CommentRepository {
     });
   }
 
-  Future<Either<Failure, Unit>> _getMessage(AddComment addComment) async {
+  @override
+  Future<Either<Failure, Unit>> deleteComment(String commentId) async {
+    return await _getMessage(() {
+      return remoteDataSource.deleteComment(commentId);
+    });
+  }
+
+  @override
+  Future<Either<Failure, Unit>> updateComment(
+      String newText, String commentId) async {
+    return await _getMessage(() {
+      return remoteDataSource.updateComment(newText, commentId);
+    });
+  }
+
+  Future<Either<Failure, Unit>> _getMessage(
+      DeleteOrUpdateOrAddPost deleteOrUpdateOrAddPost) async {
     if (await networkInfo.isConnected) {
       try {
-        await addComment();
+        await deleteOrUpdateOrAddPost();
         return const Right(unit);
       } on ServerException {
         return Left(ServerFailure());

@@ -102,7 +102,7 @@ class _CommentSectionState extends State<CommentSection> {
               ),
               BlocConsumer<CommentBloc, CommentState>(
                 listener: (context, state) {
-                  if (state is SuccsessCommentState) {
+                  if (state is SuccessCommentState) {
                     commentTextController.clear();
 
                     SnackBarMessage().showSuccessSnackBar(

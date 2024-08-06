@@ -24,7 +24,9 @@ import 'features/auth/presentation/bloc/user_bloc.dart';
 import 'features/comment/data/data_sources/comment_data_sources.dart';
 import 'features/comment/data/repositories_impl/comment_repo_impl.dart';
 import 'features/comment/domain/repositories/comment_repo.dart';
+import 'features/comment/domain/use_cases/delet_comment.dart';
 import 'features/comment/domain/use_cases/get_all_comments.dart';
+import 'features/comment/domain/use_cases/update_comment.dart';
 import 'features/comment/presentation/blocs/bloc/comment_bloc.dart';
 import 'features/hotel/data/data_sources/hotel_remote_data_sources.dart';
 import 'features/hotel/data/repositories_impl/hotel_repo_imp.dart';
@@ -44,7 +46,11 @@ Future<void> init() async {
   sl.registerFactory(() => HistoricalBloc(getAllHistorical: sl()));
   sl.registerFactory(() => HotelBloc(getAllHotel: sl()));
   sl.registerFactory(() => RestaurantBloc(getAllRestaurant: sl()));
-  sl.registerFactory(() => CommentBloc(getAllComment: sl(), addComment: sl()));
+  sl.registerFactory(() => CommentBloc(
+      getAllComment: sl(),
+      addComment: sl(),
+      deleteComment: sl(),
+      updateComment: sl()));
 
 // Usecases
   sl.registerLazySingleton(() => LoginUserUsecase(sl()));
@@ -54,6 +60,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetAllRestaurantUsecase(sl()));
   sl.registerLazySingleton(() => GetAllCommentUsecase(sl()));
   sl.registerLazySingleton(() => AddCommentUsecase(sl()));
+  sl.registerLazySingleton(() => DeleteCommentUsecase(sl()));
+  sl.registerLazySingleton(() => UpdateCommentUsecase(sl()));
+
 // Repository
   sl.registerLazySingleton<UserRepository>(
       () => UsersRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
