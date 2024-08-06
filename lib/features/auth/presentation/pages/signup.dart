@@ -31,6 +31,12 @@ class _SignUpPageState extends State<SignUpPage> {
   final userNameController = TextEditingController();
   final confirmTextController = TextEditingController();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  static String? email(String? value) {
+    RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if ((value ?? '').isEmpty || !emailRegex.hasMatch(value!))
+      return AppStrings.invalidEmail;
+    return null;
+  }
 
   @override
   void dispose() {
@@ -60,14 +66,15 @@ class _SignUpPageState extends State<SignUpPage> {
                     hinttext: AppStrings.emailAddress,
                     mycontroller: emailTextController,
                     validator: (text) {
-                      if (text!.length < 3) {
-                        return AppStrings.lessThanThree;
-                      } else if (text.isEmpty) {
-                        return AppStrings.empty;
-                      } else if (text.length > 20) {
-                        return AppStrings.moreThanTwenty;
-                      }
-                      return null;
+                      // if (text!.length < 3) {
+                      //   return AppStrings.lessThanThree;
+                      // } else if (text.isEmpty) {
+                      //   return AppStrings.empty;
+                      // } else if (text.length > 20) {
+                      //   return AppStrings.moreThanTwenty;
+                      // }
+                      // return null;
+                      return email(text);
                     },
                   ),
                   const SizedBox(height: 15),
@@ -92,8 +99,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     validator: (text) {
                       if (text!.length < 8) {
                         return AppStrings.lessThanEight;
-                      } else if (text.length > 8) {
-                        return AppStrings.moreThanEight;
                       } else if (text.isEmpty) {
                         return AppStrings.empty;
                       }

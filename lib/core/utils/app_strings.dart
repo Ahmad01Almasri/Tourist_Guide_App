@@ -18,6 +18,7 @@ abstract class AppStrings {
       confirmPassword = "confirm Password",
       signUp = "Sign Up",
       signIn = "Sign In",
+      invalidEmail = " Email not true",
       joinUsNow = "join Us Now",
       alreadyHaveAnAccount = "Already have an account ? ",
       dontHaveAnAccount = "Don’t have an account ? ",
